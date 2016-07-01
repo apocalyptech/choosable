@@ -1,0 +1,393 @@
+book: {title: Romeo and/or Juliet}
+characters:
+  Juliet: {name: Juliet}
+  Other: {name: Other}
+  Romeo: {name: Romeo}
+pages:
+  1:
+    canonical: true
+    character: Other
+    choices:
+      3: {summary: Spoil the plot, target: 3}
+      22: {summary: Learn more about the author, target: 22}
+      36: {summary: Play without spoilers, target: 36}
+    ending: false
+    pagenum: 1
+    summary: Book Introduction
+  2:
+    canonical: false
+    character: Other
+    choices:
+      1: {summary: Start over, target: 1}
+    ending: false
+    pagenum: 2
+    summary: Reprimand for trying to read the book in order
+  3:
+    canonical: true
+    character: Other
+    choices:
+      36: {summary: Choose your character, target: 36}
+    ending: false
+    pagenum: 3
+    summary: Shakespearean Intro Plot Summary
+  4:
+    canonical: false
+    character: Juliet
+    choices:
+      5: {summary: Drink a protein shake, target: 5}
+    ending: false
+    pagenum: 4
+    summary: Juliet Intro
+  5:
+    canonical: false
+    character: Juliet
+    choices:
+      6: {summary: Clean your room, target: 6}
+    ending: false
+    pagenum: 5
+    summary: Drink a protein shake
+  6:
+    canonical: false
+    character: Juliet
+    choices:
+      7: {summary: Have fun, target: 7}
+    ending: false
+    pagenum: 6
+    summary: Clean your room
+  7:
+    canonical: false
+    character: Juliet
+    choices:
+      8: {summary: Finish Workout, target: 8}
+    ending: false
+    pagenum: 7
+    summary: Work out
+  8:
+    canonical: true
+    character: Juliet
+    choices:
+      9: {summary: Let Angelica answer a question, target: 9}
+    ending: false
+    pagenum: 8
+    summary: Talk with mother and nurse
+  9:
+    canonical: true
+    character: Juliet
+    choices:
+      10: {summary: Continue conversation, target: 10}
+      418: {summary: Request clarification of rooster-testicle thing, target: 418}
+    ending: false
+    pagenum: 9
+    summary: Angelica provides much useless information
+  10:
+    canonical: true
+    character: Juliet
+    choices:
+      11: {summary: Say "Yes Mom", target: 11}
+      25: {summary: Run away from home, target: 25}
+    ending: false
+    pagenum: 10
+    summary: Learn of plans for arranged marriage
+  11:
+    canonical: true
+    character: Juliet
+    choices:
+      12: {summary: Say "Yes Mom", target: 12}
+      25: {summary: Run away from home, target: 25}
+    ending: false
+    pagenum: 11
+    summary: Tom Paris is to be your suitor
+  12:
+    canonical: true
+    character: Juliet
+    choices:
+      13: {summary: Say "Yes Mom", target: 13}
+      44: {summary: Say "No Mom" for once, target: 44}
+    ending: false
+    pagenum: 12
+    summary: 'More salesmanship re: Tom Paris'
+  13:
+    canonical: true
+    character: Juliet
+    choices:
+      51: {summary: 'Be Romeo, crash the party', target: 51}
+    ending: false
+    pagenum: 13
+    summary: The Capulet party is about to start
+  14:
+    canonical: true
+    character: Romeo
+    choices:
+      20: {summary: Talk about love some more, target: 20}
+      28: {summary: Talk about breakfast, target: 28}
+    ending: false
+    pagenum: 14
+    summary: Musings on love and breakfast
+  15:
+    canonical: false
+    character: Other
+    choices:
+      36: {summary: Choose your character, target: 36}
+    ending: false
+    pagenum: 15
+    summary: Shakespeare Biography
+  18:
+    canonical: true
+    character: Romeo
+    choices:
+      39: {summary: Try to forget Rosaline, target: 39}
+      52: {summary: Say it's impossible to forget Rosaline, target: 52}
+    ending: false
+    pagenum: 18
+    summary: Shakespearean dialogue about Rosaline
+  19:
+    canonical: true
+    character: Romeo
+    choices:
+      37: {summary: Tell him you are illiterate, target: 37}
+      50: {summary: Tell him you can read, target: 50}
+    ending: false
+    pagenum: 19
+    summary: Benvolio lectures and a man approaches with a piece of paper
+  22:
+    canonical: false
+    character: Other
+    choices:
+      15: {summary: Shakespeare Bio, target: 15}
+      475: {summary: Artist bios, target: 475}
+    ending: false
+    pagenum: 22
+    summary: Author Biography
+  27:
+    canonical: true
+    character: Romeo
+    choices:
+      14: {summary: Talk to Benvolio, target: 14}
+      21: {summary: Hide in garbage can, target: 21}
+    ending: false
+    pagenum: 27
+    summary: You are Romeo, and hear Benvolio approaching
+  28:
+    canonical: true
+    character: Romeo
+    choices:
+      17: {summary: Ask about vest, target: 17}
+      38: {summary: Ask about face over breakfast, target: 38}
+      48: {summary: Talk about love, target: 48}
+    ending: false
+    pagenum: 28
+    summary: Notice Benvolio's vest and face-blood
+  36:
+    canonical: true
+    character: Other
+    choices:
+      4: {summary: Play as Juliet, target: 4}
+      27: {summary: Play as Romeo, target: 27}
+    ending: false
+    pagenum: 36
+    summary: Choose Character
+  48:
+    canonical: true
+    character: Romeo
+    choices:
+      18: {summary: 'Tell Benvoliio about Rosaline, fancily', target: 18}
+      29: {summary: Tell Benvolio about Rosaline, target: 29}
+    ending: false
+    pagenum: 48
+    summary: Talk about love a lot
+  50:
+    canonical: true
+    character: Romeo
+    choices:
+      8: {summary: Be Juliet instead, target: 8}
+      34: {summary: Skip the party, target: 34}
+      43: {summary: Go to the party, target: 43}
+    ending: false
+    pagenum: 50
+    summary: Learn of the Capulet's party
+  51:
+    canonical: true
+    character: Romeo
+    choices:
+      61: {summary: Arrive at the party (100 points), target: 61}
+      73: {summary: Pay attention to Mercutio (0 points), target: 73}
+    ending: false
+    pagenum: 51
+    summary: Walking to the party with Mercutio
+  52:
+    canonical: true
+    character: Romeo
+    choices:
+      6: {summary: Be Juliet instead, target: 6}
+      19: {summary: Listen to lecture, target: 19}
+    ending: false
+    pagenum: 52
+    summary: Benvolio wants to lecture you on relationships
+  61:
+    canonical: true
+    character: Romeo
+    choices:
+      80: {summary: Look behind you, target: 80}
+      100: {summary: Look to the left, target: 100}
+      116: {summary: Look to the right, target: 116}
+    ending: false
+    pagenum: 61
+    summary: Arrive at the party
+  73:
+    canonical: true
+    character: Romeo
+    choices:
+      90: {summary: The summary was good enough, target: 90}
+      112: {summary: Hear Mercutio's actual speech, target: 112}
+    ending: false
+    pagenum: 73
+    summary: Learn about Queen Mab (in summary)
+  90:
+    canonical: false
+    character: Romeo
+    choices:
+      61: {summary: Arrive at the party (100 points), target: 61}
+      99: {summary: Predict your own demise (1 point), target: 99}
+    ending: false
+    pagenum: 90
+    summary: Almost at the party
+  96:
+    canonical: true
+    character: Romeo
+    choices:
+      85: {summary: Run away, target: 85}
+      111: {summary: Keep chatting Juliet up, target: 111}
+    ending: false
+    pagenum: 96
+    summary: Initial conversation gets serious quick!
+  99:
+    canonical: true
+    character: Romeo
+    choices:
+      61: {summary: Arrive at party, target: 61}
+    ending: false
+    pagenum: 99
+    summary: Predict your own demise
+  110:
+    canonical: true
+    character: Romeo
+    choices:
+      142: {summary: Keep staring at Juliet, target: 142}
+      157: {summary: Wish to be Juliet's glove, target: 157}
+    ending: false
+    pagenum: 110
+    summary: Hide in the bushes, basically
+  111:
+    canonical: true
+    character: Romeo
+    choices:
+      120: {summary: A clock chimes midnight, target: 120}
+    ending: false
+    pagenum: 111
+    summary: Kissing!
+  112:
+    canonical: true
+    character: Romeo
+    choices:
+      61: {summary: Arrive at party (50 points), target: 61}
+      99: {summary: Predict your own demise (-10 points), target: 99}
+    ending: false
+    pagenum: 112
+    summary: Listen to Mercutio's long speech
+  116:
+    canonical: true
+    character: Romeo
+    choices:
+      96: {summary: Shakespearean pick-up line, target: 96}
+      123: {summary: Ask her for a kiss, target: 123}
+    ending: false
+    pagenum: 116
+    summary: See Juliet for the first time
+  118:
+    canonical: false
+    character: Romeo
+    choices:
+      150: {summary: Hide in the bushes some more, target: 150}
+      163: {summary: Be Juliet, target: 163}
+    ending: false
+    pagenum: 118
+    summary: Listen to Juliet, be discovered by her
+  120:
+    canonical: true
+    character: Romeo
+    choices:
+      148: {summary: Continue as Romeo, target: 148}
+      154: {summary: Continue as Juliet, target: 154}
+    ending: false
+    pagenum: 120
+    summary: (Kiss Illustration)
+  142:
+    canonical: true
+    character: Romeo
+    choices:
+      150: {summary: Hide in the bushes some more, target: 150}
+      163: {summary: Be Juliet, target: 163}
+      170: {summary: Continue as Romeo, target: 170}
+    ending: false
+    pagenum: 142
+    summary: Listen to Juliet, be discovered by her
+  147:
+    canonical: false
+    character: Romeo
+    choices:
+      118: {summary: Keep staring at Juliet, target: 118}
+      157: {summary: Wish to be Juliet's glove, target: 157}
+    ending: false
+    pagenum: 147
+    summary: Hide in bushes, but without fancy talk
+  148:
+    canonical: true
+    character: Romeo
+    choices:
+      119: {summary: Examine stone balcony, target: 119}
+      155: {summary: Examine wooden balcony, target: 155}
+      167: {summary: Examine some other balcony, target: 167}
+    ending: false
+    pagenum: 148
+    summary: Reveal name, leave the party, come back
+  163:
+    canonical: true
+    character: Juliet
+    choices:
+      122: {summary: Confess your love, target: 122}
+      151: {summary: Take your time with the relationship, target: 151}
+    ending: false
+    pagenum: 163
+    summary: Talk with Romeo
+  167:
+    canonical: true
+    character: Romeo
+    choices:
+      110: {summary: Talk her up fancy-like, target: 110}
+      147: {summary: Talk her up normal-like, target: 147}
+    ending: false
+    pagenum: 167
+    summary: Find Juliet on balcony
+  418:
+    canonical: false
+    character: Juliet
+    choices:
+      10: {summary: Get back on track w/ conversation, target: 10}
+    ending: false
+    pagenum: 418
+    summary: Rooster Testicle size explanation
+  475:
+    canonical: false
+    character: Other
+    choices:
+      36: {summary: Choose your character, target: 36}
+    ending: false
+    pagenum: 475
+    summary: Artist credits
+  476:
+    canonical: false
+    character: Other
+    choices: {}
+    ending: true
+    pagenum: 476
+    summary: Hidden page tsk-tsking you for cheating
