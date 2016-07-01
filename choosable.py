@@ -639,19 +639,46 @@ class App(object):
         """
         self.cur_page.toggle_ending()
 
-    def export_dot(self):
+    def generate_graphviz(self):
         """
-        Export our specified book to a Graphviz DOT file.
+        User-requested generation of Graphviz DOT file.
         """
 
-        if os.path.exists(self.do_dot):
-            response = self.prompt_yn('File "%s" already exists.  Overwrite' % (self.do_dot))
+        # Construct our default filename to use
+        filename_parts = self.filename.split('.')
+        default_file = '%s.dot' % (filename_parts[0])
+
+        # Get a filename from the user
+        print('')
+        filename = self.prompt('Filename for Graphviz DOT export [%s]' % (default_file))
+        if filename == '':
+            filename = default_file
+
+        # Check to make sure that we're not overwriting ourselves.
+        # This is pretty silly, but whatever.
+        if filename == self.filename:
+            print('')
+            print('ERROR: Refusing to write DOT file on top of book data YAML file.')
+            return 1
+
+        # Actually do the export
+        return self.export_dot(filename)
+
+    def export_dot(self, dot_filename):
+        """
+        Export our book to a Graphviz DOT file, using the
+        passed-in dot_filename.
+        """
+
+        # Check to see if the filename exists already
+        if os.path.exists(dot_filename):
+            response = self.prompt_yn('File "%s" already exists.  Overwrite' % (dot_filename))
             if not response:
                 return 1
 
-        fileparts = self.filename.split('.')
-        book = Book.load(self.filename)
-        with open(self.do_dot, 'w') as df:
+        book = self.book
+        fileparts = dot_filename.split('.')
+        with open(dot_filename, 'w') as df:
             df.write("digraph %s {\n" % (fileparts[0]))
             df.write("\n");
 
@@ -716,7 +743,8 @@ class App(object):
 
         # First check if we're doing something non-interactive
         if self.do_dot:
-            return self.export_dot()
+            self.book = Book.load(self.filename)
+            return self.export_dot(self.do_dot)
         
         print('Chooseable-Path Adventure Tracker')
         print('')
@@ -763,6 +791,7 @@ class App(object):
         OPT_SUMMARY = 'u'
         OPT_CANON = 't'
         OPT_ENDING = 'e'
+        OPT_GRAPHVIZ = 'g'
         
         while True:
             
@@ -796,8 +825,8 @@ class App(object):
                     OPT_PAGE, OPT_DELPAGE, OPT_LISTPAGE, OPT_SUMMARY))
             print('[%s] Toggle Canonical [%s] Toggle Ending' % (
                     OPT_CANON, OPT_ENDING))
-            print('[%s] Save [%s] Quit' % (
-                    OPT_SAVE, OPT_QUIT))
+            print('[%s] Save [%s] Graphviz [%s] Quit' % (
+                    OPT_SAVE, OPT_GRAPHVIZ, OPT_QUIT))
 
             # User input
             response = self.prompt('Action')
@@ -826,6 +855,8 @@ class App(object):
                     self.toggle_canonical()
                 elif option == OPT_ENDING:
                     self.toggle_ending()
+                elif option == OPT_GRAPHVIZ:
+                    self.generate_graphviz()
                 elif option == OPT_SAVE:
                     self.book.save()
                 elif option == OPT_QUIT:
