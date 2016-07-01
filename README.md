@@ -206,8 +206,8 @@ TODO
   totally hardcoded right into this app.  That's obviously bad -
   that data should probably get attached to the Character object and
   have the ability in the UI to change them.
-* Strict adherents to PEP8 will probably weep in sorrow after looking
-  at this code.  I apologize.
+* Strict adherents to PEP8 <sup>[10](#fn10)</sup> will probably weep
+  in sorrow after looking at this code.  I apologize.
 * There's currently no way to delete a character, or change a
   character's name (in case you'd made a typo or something)
 * There's also no way to *modify* existing choices.  To make a change to
@@ -230,4 +230,5 @@ FOOTNOTES!
 <a name="fn7">7</a>: http://yaml.org/
 <a name="fn8">8</a>: https://en.wikipedia.org/wiki/Shell_script
 <a name="fn9">9</a>: https://www.gnu.org/software/bash/
+<a name="fn10">10</a>: https://www.python.org/dev/peps/pep-0008/
 
