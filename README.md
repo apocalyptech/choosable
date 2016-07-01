@@ -164,16 +164,16 @@ There's a few ways in which the data collected by this app differs
 from the "data" contained in the actual Choosable-Path Adventure
 books by Ryan North.
 
-# In the books, it's the CHOICES which are considered canonical,
+* In the books, it's the CHOICES which are considered canonical,
   not the pages themselves.  The app assigns canon to the page,
   though, so there's a few places where you can have two separate
   "canonical" choices on the same page while using the app.
   Generally when you have the option to skip over dialogue or
   the like.
-# The books occasionally have two separate choices which lead to
+* The books occasionally have two separate choices which lead to
   the same page, for humorous purposes.  We only support a single
   choice per target page, so those are collapsed a bit.
-# The book orders the player choices in a way designed to maximize
+* The book orders the player choices in a way designed to maximize
   humor.  The internal data structure we use does not preserve
   choice order at all, and will always just sort them in page order.
 
