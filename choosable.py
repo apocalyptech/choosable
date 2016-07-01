@@ -687,27 +687,33 @@ class App(object):
             df.write("digraph %s {\n" % (fileparts[0]))
             df.write("\n");
 
+            # Set up a structure to hold page definitions simultaneously
+            # for pages we've visited, and pages we haven't.  That way
+            # the "known" path won't veer off the left so much, or at
+            # least if it does so it'll only be by chance instead of
+            # design.
+            all_pages = {}
+
             # First up - Visited pages!
             df.write("\t// Visited Pages\n");
             for page in book.pages_sorted():
-                df.write("\t%d [label=\"Page %d - %s\"" % (
+                labelstr = 'label="Page %d - %s"' % (
                     page.pagenum,
-                    page.pagenum,
-                    page.summary.replace('"', '\\"'))
+                    page.summary.replace('"', '\\"')
                 )
                 styles = ['filled']
                 if page.canonical:
-                    df.write(' shape=box')
+                    labelstr = '%s shape=box' % (labelstr)
                     styles.append('bold')
                 if page.ending:
-                    df.write(' fontcolor=white fillcolor=azure4')
+                    labelstr = '%s fontcolor=white fillcolor=azure4' % (labelstr)
                 else:
-                    df.write(' fontcolor=%s fillcolor=%s' % (
+                    labelstr = '%s fontcolor=%s fillcolor=%s' % (labelstr,
                         page.character.fontcolor,
-                        page.character.fillcolor))
+                        page.character.fillcolor)
                 if len(styles) > 0:
-                    df.write(' style="%s"' % (','.join(styles)))
-                df.write("];\n");
+                    labelstr = '%s style="%s"' % (labelstr, ','.join(styles))
+                all_pages[page.pagenum] = labelstr
 
             # Unvisited pages
             unknown_pages = {}
@@ -716,11 +722,15 @@ class App(object):
                     if choice.target not in book.pages:
                         if choice.target in unknown_pages:
                             print('NOTICE: Overwriting existing not-visited link for page %d' % (choice.target))
-                        unknown_pages[choice.target] = '<i>(Page %d - %s)</i>' % (choice.target, choice.summary.replace('>', '').replace('<', ''))
-            df.write("\n");
-            df.write("\t// Unvisited Pages\n");
+                        unknown_pages[choice.target] = '(Page %d - %s)' % (choice.target, choice.summary.replace('>', '').replace('<', ''))
             for (page, text) in unknown_pages.items():
-                df.write("\t%d [label=<%s>];\n" % (page, text))
+                all_pages[page] = 'label=<<i>%s</i>>' % (text)
+
+            # Now aggregate all our pages together
+            df.write("\n");
+            df.write("\t// Pages\n");
+            for pagenum in sorted(all_pages.keys()):
+                df.write("\t%d [%s];\n" % (pagenum, all_pages[pagenum]))
 
             # Choices!
             df.write("\n");
