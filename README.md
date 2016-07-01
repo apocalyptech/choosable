@@ -24,6 +24,9 @@ The utility can also output some fancy graphs, using a third party
 application called Graphviz <sup>[4](#fn4)</sup>, though I suspect
 they'll become pretty unwieldy before too long.  More on that later.
 
+This application is licensed under the New/Modified BSD License.
+See COPYING.txt for details.
+
 INSTALLATION
 ------------
 
