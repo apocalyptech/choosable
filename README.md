@@ -33,7 +33,7 @@ INSTALLATION
   a default, so it's been tested more thoroughly with that version.
 * PyYAML <sup>[6](#fn6)</sup> - The app saves its data in the YAML <sup>[7](#fn7)</sup>
   format.
-* *(optional)* Graphviz <sup>[4](#fn4)</sup> - If you want to
+* Graphviz <sup>[4](#fn4)</sup> *(optional)* - If you want to
   generate some fancy graphs.
 
 There isn't actually an installation procedure at the moment.  I
