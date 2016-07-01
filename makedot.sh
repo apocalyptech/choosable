@@ -4,6 +4,6 @@
 for file in *.dot
 do
     basename="$(basename $file .dot)"
-    dot -Tpng $file -o "${basename}.png"
+    dot -Tpng "$file" -o "${basename}.png"
 done
 
