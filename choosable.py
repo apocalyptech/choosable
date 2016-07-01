@@ -33,15 +33,16 @@ import argparse
 
 class Character(object):
     """
-    Class to hold information about a character.  This is a bit
-    lame since it's literally just the name right now, but we
-    may end up attaching some more information here (colorization
-    for the graphviz stuff, for instance)
+    Class to hold information about a character.  Note that
+    there is currently no UI to change colors - they must
+    be edited directly in the YAML.
     """
 
     def __init__(self, name):
 
         self.name = name
+        self.fillcolor = 'white'
+        self.fontcolor = 'black'
 
     def to_dict(self):
         """
@@ -50,6 +51,8 @@ class Character(object):
         """
         savedict = {}
         savedict['name'] = self.name
+        savedict['graphviz_fillcolor'] = self.fillcolor
+        savedict['graphviz_fontcolor'] = self.fontcolor
         return savedict
 
     @staticmethod
@@ -58,6 +61,8 @@ class Character(object):
         Converts a dictionary (from YAML save) to an object
         """
         char = Character(chardict['name'])
+        char.fillcolor = chardict['graphviz_fillcolor']
+        char.fontcolor = chardict['graphviz_fontcolor']
         return char
 
 class Choice(object):
@@ -690,24 +695,16 @@ class App(object):
                     page.pagenum,
                     page.summary.replace('"', '\\"'))
                 )
-                styles = []
+                styles = ['filled']
                 if page.canonical:
                     df.write(' shape=box')
                     styles.append('bold')
                 if page.ending:
                     df.write(' fontcolor=white fillcolor=azure4')
-                    styles.append('filled')
                 else:
-                    # TODO: obviously hardcoding this kind of thing is lame
-                    if page.character.name == 'Romeo':
-                        df.write(' fillcolor=cadetblue1')
-                        styles.append('filled')
-                    elif page.character.name == 'Juliet':
-                        df.write(' fillcolor=brown1')
-                        styles.append('filled')
-                    elif page.character.name == 'Rosaline':
-                        df.write(' fillcolor=aquamarine')
-                        styles.append('filled')
+                    df.write(' fontcolor=%s fillcolor=%s' % (
+                        page.character.fontcolor,
+                        page.character.fillcolor))
                 if len(styles) > 0:
                     df.write(' style="%s"' % (','.join(styles)))
                 df.write("];\n");

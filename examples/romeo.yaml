@@ -1,8 +1,8 @@
 book: {title: Romeo and/or Juliet}
 characters:
-  Juliet: {name: Juliet}
-  Other: {name: Other}
-  Romeo: {name: Romeo}
+  Juliet: {graphviz_fillcolor: brown1, graphviz_fontcolor: black, name: Juliet}
+  Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
+  Romeo: {graphviz_fillcolor: cadetblue1, graphviz_fontcolor: black, name: Romeo}
 pages:
   1:
     canonical: true

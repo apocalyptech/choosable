@@ -205,10 +205,10 @@ TODO
   classes, for instance.
 * It'd be nice to have some output colorization - the text while
   running does tend to kind of blend into a solid mess after awhile.
-* Right now the character colorization of the graphviz output is
-  totally hardcoded right into this app.  That's obviously bad -
-  that data should probably get attached to the Character object and
-  have the ability in the UI to change them.
+* The colors used in the graphviz output are defined in the YAML file
+  on a per-character basis but there is no current UI to change those
+  colors.  For now, you must edit them by hand.  Valid color
+  definitions can be found here: http://www.graphviz.org/doc/info/colors.html
 * Strict adherents to PEP8 <sup>[10](#fn10)</sup> will probably weep
   in sorrow after looking at this code.  I apologize.
 * There's currently no way to delete a character, or change a
