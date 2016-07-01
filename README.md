@@ -40,7 +40,7 @@ Note that you'll need PyYAML installed, since that's what it uses to
 save its data. <sup>[5](#fn5)</sup> <sup>[6](#fn6)</sup>
 
 Included in the `examples` directory is a very-incomplete start to
-the Romeo and/or Juliet, so you can take a look at that if you want.  I
+Romeo and/or Juliet, so you can take a look at that if you want.  I
 don't think I intend to include a more-full version of the book, though
 I may change my mind.  Given that the intent here is sort of as a
 personal "bookmarking" system, it really wouldn't make much sense to
@@ -89,7 +89,7 @@ we're currently using the character "Other."  There's a summary of
 the current page, and then a list of choices.  If there's a Page entry
 already for the destination page, it'll list "visited" after the
 choice text, and if the destination choice is considered canonical,
-it'll lst that as well.
+it'll list that as well.
 
 Most of the available options are pretty self-explanatory.  To add or
 delete a choice, use `a` and `d`.  Note that there's currently no way
@@ -197,6 +197,11 @@ TODO
   character's name (in case you'd made a typo or something)
 * There's also no way to *modify* existing choices.  To make a change to
   a choice, you've got to delete it and then re-add.
+* I seem to be inconsistent with "choosable" versus "chooseable."  The
+  printed book uses the E, though it seems that the more-canonical
+  spelling is without?  Given that the books themselves do not especially
+  respect canon, I don't think that's a particularly strong argument,
+  though.
 
 FOOTNOTES!
 ----------
