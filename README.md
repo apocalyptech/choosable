@@ -27,17 +27,27 @@ they'll become pretty unwieldy before too long.  More on that later.
 INSTALLATION
 ------------
 
-This is just a simple Python script, and there isn't really an
-installation procedure at the moment.  I suppose I should probably
-turn it into a properly-packaged Python thing, but for now I just run
-it directly from the directory it's installed in.
+**Requirements:**
+* Python <sup>[5](#fn5)</sup> - The app should be usable with either
+  python2 or python3, though my main desktop still uses python2 as
+  a default, so it's been tested more thoroughly with that version.
+* PyYAML <sup>[6](#fn6)</sup> - The app saves its data in the YAML <sup>[7](#fn7)</sup>
+  format.
+* *(optional)* Graphviz <sup>[4](#fn4)</sup> - If you want to
+  generate some fancy graphs.
 
-It should be usable on either python2 or python3, though my main desktop
-still uses python2 as the default, so it's been tested more thoroughly
-with that version.
+There isn't actually an installation procedure at the moment.  I
+suppose I should probably turn it into a properly-packaged Python
+thing, but for now I just run it directly from the directory it
+lives in.
 
-Note that you'll need PyYAML installed, since that's what it uses to
-save its data. <sup>[5](#fn5)</sup> <sup>[6](#fn6)</sup>
+The utility needs to be run from a commandline of some sort.  I use
+Linux, so living in a CLI is second nature to me.  Users on Windows
+or OSX should theoretically be able to use this, though it's not
+been tested on those platforms.  Just make sure to launch it from
+a commandline (`cmd.exe` or Powershell on Windows, or Terminal on OSX).
+Users on other Python-capable platforms are hopefully already aware
+of what would need to happen there.
 
 Included in the `examples` directory is a very-incomplete start to
 Romeo and/or Juliet, so you can take a look at that if you want.  I
@@ -152,6 +162,11 @@ to create a PNG image like so:
 
 Alternatively, I've included a `makedot.sh` script which will
 auto-convert any `*.dot` file in the current directory to a PNG.
+That's a shell script <sup>[8](#fn8)</sup>, which is only going
+to work on systems which support shell scripts.  (Linux, of
+course, works.  OSX probably will?)  The script has only been
+tested with "bash" <sup>[9](#fn9)</sup>, though I'd be surprised
+if alternate shells like dash wouldn't work.
 
 Graphviz can output to many other formats than just PNG, though
 I haven't actually tested out the current dotfile generation with
@@ -210,6 +225,9 @@ FOOTNOTES!
 <a name="fn2">2</a>: http://qwantz.com/tobeornottobe.php
 <a name="fn3">3</a>: http://www.romeoandorjuliet.com/
 <a name="fn4">4</a>: http://www.graphviz.org/
-<a name="fn5">5</a>: http://pyyaml.org/
-<a name="fn6">6</a>: http://yaml.org/
+<a name="fn5">5</a>: https://www.python.org/
+<a name="fn6">6</a>: http://pyyaml.org/
+<a name="fn7">7</a>: http://yaml.org/
+<a name="fn8">8</a>: https://en.wikipedia.org/wiki/Shell_script
+<a name="fn9">9</a>: https://www.gnu.org/software/bash/
 

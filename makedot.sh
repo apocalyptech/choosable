@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # vim: set expandtab tabstop=4 shiftwidth=4:
 
 for file in *.dot
