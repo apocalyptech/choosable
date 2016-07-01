@@ -527,7 +527,14 @@ class App(object):
             print('')
             print('Please input a valid number!')
             return self.add_choice()
-        return self.cur_page.add_choice(target, summary)
+        try:
+            return self.cur_page.add_choice(target, summary)
+        except Exception as e:
+            # This can happen if the user tries to add a choice to
+            # a page that's already linked-to by this page.
+            print('')
+            print('Could not add the new choice: %s' % (e))
+            return None
 
     def delete_choice(self):
         """
