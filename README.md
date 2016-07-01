@@ -212,6 +212,8 @@ TODO
   character's name (in case you'd made a typo or something)
 * There's also no way to *modify* existing choices.  To make a change to
   a choice, you've got to delete it and then re-add.
+* There's also no way to modify the book title itself, though that
+  could be easily edited by hand in the YAML file directly.
 * I seem to be inconsistent with "choosable" versus "chooseable."  The
   printed book uses the E, though it seems that the more-canonical
   spelling is without?  Given that the books themselves do not especially

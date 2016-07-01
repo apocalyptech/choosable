@@ -451,14 +451,18 @@ class App(object):
     def create_page(self, pagenum):
         """
         Creates a new page and returns it.  Also sets our current
-        page.
+        page.  If the user enters a blank summary, creation will
+        be cancelled and None will be returned instead (and the
+        current page does not change)
         """
         if pagenum in self.book.pages:
             raise Exception('Page %d already exists!' % (pagenum))
 
         print('')
         print('Creating new page %d' % (pagenum))
-        summary = self.prompt('Page Summary')
+        summary = self.prompt('Page Summary (enter to cancel)')
+        if summary == '':
+            return None
         newpage = self.book.add_page(pagenum,
                 character=self.cur_char,
                 summary=summary)
@@ -701,7 +705,8 @@ class App(object):
             self.pick_character()
 
             # Create the initial room
-            self.create_page(1)
+            while self.cur_page is None:
+                self.create_page(1)
 
             # Aaand save it out right away, for good measure
             self.book.save()
