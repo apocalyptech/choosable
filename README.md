@@ -53,11 +53,12 @@ Users on other Python-capable platforms are hopefully already aware
 of what would need to happen there.
 
 Included in the `examples` directory is a very-incomplete start to
-Romeo and/or Juliet, so you can take a look at that if you want.  I
-don't think I intend to include a more-full version of the book, though
-I may change my mind.  Given that the intent here is sort of as a
-personal "bookmarking" system, it really wouldn't make much sense to
-start with an already-filled-out tree.
+Romeo and/or Juliet, with the filename `romeo.yaml`, so you can take a
+look at that if you want.  Given that the intent here is sort of as a
+personal "bookmarking" system, it doesn't make much sense to start
+with an already-filled-out tree, but you can also check out a more
+filled-in version at `romeo_ongoing.yaml` if you like.  That file
+will likely be updated as I go through the book more.
 
 USAGE
 -----
@@ -94,7 +95,7 @@ to the following:
     [a] Add Choice [d] Delete Choice [c] Character
     [p/##] Page [x] Delete Page [l] List Pages [u] Update Summary
     [t] Toggle Canonical [e] Toggle Ending
-    [s] Save [q] Quit
+    [s] Save [g] Graphviz [q] Quit
     Action: 
 
 So up at the top you'll see that page 1 is considered "canon," and
@@ -137,6 +138,8 @@ use `u`.  Pages have two toggle switches: one for canon, and the other for
 useful for colorization on the graphs - more on that later.)  You can
 toggle either of those with `t` and `e` respectively.
 
+To generate a graphviz dotfile, use `g` (more on that in the next section).
+
 Finally,  you can save to the current filename with `s`, or quit with `q`.
 The app will ask you if you want to save before quitting.
 
@@ -156,7 +159,9 @@ You can generate the file with the `-d` or `--dot` option, like so:
     ./choosable.py --filename romeo.yaml --dot romeo.dot
 
 If `romeo.dot` already exists, you'll be prompted as to whether you
-want to overwrite it.
+want to overwrite it.  Alternatively, you can tell the application to
+generate this dotfile while still in the CLI interface with the `g`
+key.
 
 Once you have the dotfile, you can use graphviz's "dot" utility
 to create a PNG image like so:
@@ -175,6 +180,25 @@ Graphviz can output to many other formats than just PNG, though
 I haven't actually tested out the current dotfile generation with
 anything but PNGs.  I also suspect that the generated graphs
 will quickly become unwieldy as you fill in more of the book.
+
+Note that there **is** some support for colorizing characters
+differently when generating these graphs, but there is currently
+no way to do so within the application itself.  Instead, you must
+edit the `.yaml` file directly.  Specifically, the `characters`
+section near the top of the file will look something like this:
+
+  Juliet: {graphviz_fillcolor: brown1, graphviz_fontcolor: black, name: Juliet}
+  Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
+  Romeo: {graphviz_fillcolor: cadetblue1, graphviz_fontcolor: black, name: Romeo}
+
+Simply change the `graphviz_fillcolor` and `graphviz_fontcolor`
+options to suit, per character, and then when you generate the
+dotfile, those colors will propagate out appropriately.  The list
+of allowed color names is here: http://www.graphviz.org/doc/info/colors.html
+
+Be careful not to edit the YAML file while the application still
+has it "open" because the next save will overwrite any manual
+changes you've made.
 
 DEVIATIONS
 ----------
@@ -205,10 +229,7 @@ TODO
   classes, for instance.
 * It'd be nice to have some output colorization - the text while
   running does tend to kind of blend into a solid mess after awhile.
-* The colors used in the graphviz output are defined in the YAML file
-  on a per-character basis but there is no current UI to change those
-  colors.  For now, you must edit them by hand.  Valid color
-  definitions can be found here: http://www.graphviz.org/doc/info/colors.html
+* It'd be nice to have a UI for changing character colorization.
 * Strict adherents to PEP8 <sup>[10](#fn10)</sup> will probably weep
   in sorrow after looking at this code.  I apologize.
 * There's currently no way to delete a character, or change a
