@@ -187,9 +187,9 @@ no way to do so within the application itself.  Instead, you must
 edit the `.yaml` file directly.  Specifically, the `characters`
 section near the top of the file will look something like this:
 
-  Juliet: {graphviz_fillcolor: brown1, graphviz_fontcolor: black, name: Juliet}
-  Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
-  Romeo: {graphviz_fillcolor: cadetblue1, graphviz_fontcolor: black, name: Romeo}
+    Juliet: {graphviz_fillcolor: brown1, graphviz_fontcolor: black, name: Juliet}
+    Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
+    Romeo: {graphviz_fillcolor: cadetblue1, graphviz_fontcolor: black, name: Romeo}
 
 Simply change the `graphviz_fillcolor` and `graphviz_fontcolor`
 options to suit, per character, and then when you generate the
