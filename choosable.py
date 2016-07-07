@@ -631,6 +631,8 @@ class App(object):
                 extratext = ''
             print('%d - %s (%s)%s' % (page.pagenum, page.summary, page.character.name, extratext))
         print('')
+        print('Total pages known: %d' % (len(self.book.pages)))
+        print('')
 
     def toggle_canonical(self):
         """
