@@ -634,6 +634,20 @@ class App(object):
         print('Total pages known: %d' % (len(self.book.pages)))
         print('')
 
+        # Also, what the heck.  Let's go ahead and make a list of all pages
+        # that we've MISSED in here.  Mostly useful for doublechecking things
+        # if you think you're basically done with the book.
+        missing = []
+        pages = self.book.pages_sorted()
+        last_page = pages[-1].pagenum
+        total_pages = range(1,last_page+1)
+        for page in reversed(pages):
+            del total_pages[page.pagenum-1]
+        if len(total_pages) < 20:
+            print('Missing pages (%d total):' % (len(total_pages)))
+            print(total_pages)
+            print('')
+
     def toggle_canonical(self):
         """
         Toggles the canonical status of the current page
