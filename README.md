@@ -95,6 +95,7 @@ to the following:
     [a] Add Choice [d] Delete Choice [c] Character
     [p/##] Page [x] Delete Page [l] List Pages [u] Update Summary
     [t] Toggle Canonical [e] Toggle Ending
+    [i] Add Intermediate [o] Delete Intermediate
     [s] Save [g] Graphviz [q] Quit
     Action: 
 
@@ -132,11 +133,28 @@ retained from the page you were just on.
 Pages can be deleted with `x`, but note that the app will not allow you to
 delete the page that you're currently on.
 
-To list all pages, use `l`.  To update the summary of the current page,
-use `u`.  Pages have two toggle switches: one for canon, and the other for
-"ending," intended to be used on all the ending pages.  (Mostly that's just
-useful for colorization on the graphs - more on that later.)  You can
-toggle either of those with `t` and `e` respectively.
+To list all pages, use `l`.  This will also print out various statistics
+about the book that you're editing, like so:
+
+    Total pages known: 30
+    Canon Pages: 24
+    Ending Pages: 2
+    Intermediate Pages: 6
+    Character Counts:
+      Hamlet: 16 pages
+      Ophelia: 6 pages
+      Other: 7 pages
+      Ryan North: 1 page
+
+To update the summary of the current page, use `u`.  Pages have two toggle
+switches: one for canon, and the other for "ending," intended to be used on
+all the ending pages.  (Mostly that's just useful for colorization on the
+graphs - more on that later.)  You can toggle either of those with `t` and
+`e` respectively.
+
+To add or edit "intermediate" pages, use `i` and `o`, though this is a
+feature you probably don't care about.  See the section about Pages and
+Intermediate Pages, below.
 
 To generate a graphviz dotfile, use `g` (more on that in the next section).
 
@@ -199,6 +217,62 @@ of allowed color names is here: http://www.graphviz.org/doc/info/colors.html
 Be careful not to edit the YAML file while the application still
 has it "open" because the next save will overwrite any manual
 changes you've made.
+
+"PAGES" AND INTERMEDIATE PAGES
+------------------------------
+
+This section is really only useful for someone who's hoping to use this
+utility to ensure that they've seen 100% of the book in question.  In
+Romeo and/or Juliet, what we call a "page" isn't really a physical page.
+In fact, the book itself eschews that term, and instead of "Turn to page
+282," it just says "Turn to 282."  Each number can span multiple physical
+pages, depending on the length of the text, and each physical page can
+contain multiple numbers.
+
+This makes it pretty easy for the app to discover if there are any "holes"
+in the list of discovered pages.  In fact, the `l` option to list pages
+will include a list of missing "pages" so long as there are fewer than
+20 (otherwise the list could be super long).  For instance, on my
+`romeo_full.yaml` file, you'd see the following:
+
+    Missing pages (13 total):
+    [243, 253, 261, 269, 276, 285, 295, 305, 317, 321, 331, 340, 342]
+
+(Which is expected because I didn't actually catalogue the entire Caesar
+Cipher puzzle, since the graph quickly becomes ludicrously unwieldy.)
+
+Anyway, for a book set up like Romeo and/or Juliet, where every "page
+number" corresponds to a choice, and there's no holes, that Missing-Page
+logic works great as-is.
+
+In traditional Choose-Your-Own Adventure novels, and also in To Be or
+Not To Be, however, the instructions do refer to actual page numbers,
+and the options may span multiple pages.  Every ending scene in To Be
+or Not To Be, in particular, will have at least one intermediate page
+to hold the full-page illustration.
+
+Without a way to catalogue these intermediate pages, it'd be impossible
+for the app to determine if there are any "holes" in the catalogued
+pages.  So, that's what the app means by intermediate pages.  You can
+add or delete them with `i` or `o`.  When you go into the delete mode,
+you'll see all the current pages marked, like so:
+
+    Current intermediates:
+       2, 5, 47, 358, 480, 481
+
+    Intermediate to delete (enter to quit): 
+
+For both adding and deleting, you can just keep typing in numbers
+if you want to do a bunch all at once, and hit Enter to exit out of
+the intermediate number management mode.
+
+Again, this is clearly only something that you'd want to bother with
+if you're: 1) Reading a book like To Be or Not To Be, where choices can
+span multiple physical pages, and 2) Trying to make sure that you get
+100% completion on the book.  If that *is* something you think you're
+interested in, it's probably best to start cataloguing them right from
+the start of your reading, so it's not a lot of work to add in later,
+but I suspect that probably nobody but me even cares, anyway.
 
 DEVIATIONS
 ----------
