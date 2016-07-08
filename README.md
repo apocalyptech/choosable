@@ -56,9 +56,9 @@ Included in the `examples` directory is a very-incomplete start to
 Romeo and/or Juliet, with the filename `romeo.yaml`, so you can take a
 look at that if you want.  Given that the intent here is sort of as a
 personal "bookmarking" system, it doesn't make much sense to start
-with an already-filled-out tree, but you can also check out a more
-filled-in version at `romeo_ongoing.yaml` if you like.  That file
-will likely be updated as I go through the book more.
+with an already-filled-out tree, but you can also check out a 
+complete version of the book at `romeo_full.yaml` if you'd like to
+mega-cheat.
 
 USAGE
 -----
