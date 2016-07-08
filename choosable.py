@@ -226,6 +226,27 @@ class Book(object):
         self.intermediates = {}
 
     @staticmethod
+    def load_from_dict(savedict):
+        """
+        Given a dictionary (from a YAML file), load ourselves.
+        """
+
+        book = Book(savedict['book']['title'])
+
+        # "intermediates" is a new variable, don't rely on it being
+        # in the file.
+        if 'intermediates' in savedict:
+            for intermediate in savedict['intermediates']:
+                book.add_intermediate(intermediate)
+
+        for chardict in savedict['characters'].values():
+            book.add_character_obj(Character.from_dict(chardict))
+        for pagedict in savedict['pages'].values():
+            book.add_page_obj(Page.from_dict(pagedict, book.characters))
+
+        return book
+
+    @staticmethod
     def load(filename):
         """
         Loads from a YAML filename, returns a new Book object.
@@ -237,32 +258,16 @@ class Book(object):
         if data is None:
             raise Exception('YAML data not found in file')
 
-        book = Book(data['book']['title'], filename=filename)
-
-        # "intermediates" is a new variable, don't rely on it being
-        # in the file.
-        if 'intermediates' in data:
-            for intermediate in data['intermediates']:
-                book.add_intermediate(intermediate)
-
-        for chardict in data['characters'].values():
-            book.add_character_obj(Character.from_dict(chardict))
-        for pagedict in data['pages'].values():
-            book.add_page_obj(Page.from_dict(pagedict, book.characters))
-
+        # Now do the object population
+        book = Book.load_from_dict(data)
+        book.filename = filename
         return book
 
-    def save(self, filename=None, verbose=True):
+    def get_savedict(self):
         """
-        Saves out the book.  In YAML, I guess?  If verbose
-        is False, we won't spit out any text to the console
+        Get a dictionary of ourselves, suitable for passing in to a YAML
+        save function.
         """
-
-        if filename is None and self.filename is None:
-            raise Exception('No filename has been specified to save!')
-
-        if filename is None:
-            filename = self.filename
 
         if len(self.characters) == 0:
             raise Exception('Refusing to save game with no characters defined')
@@ -286,6 +291,23 @@ class Book(object):
         savedict['intermediates'] = []
         for intermediate in self.intermediates_sorted():
             savedict['intermediates'].append(intermediate)
+
+        return savedict
+
+    def save(self, filename=None, verbose=True):
+        """
+        Saves out the book.  In YAML, I guess?  If verbose
+        is False, we won't spit out any text to the console
+        """
+
+        if filename is None and self.filename is None:
+            raise Exception('No filename has been specified to save!')
+
+        if filename is None:
+            filename = self.filename
+
+        # Get the dictionary
+        savedict = self.get_savedict()
 
         # Save ourselves out
         with open(filename, 'w') as df:
