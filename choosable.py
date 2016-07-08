@@ -30,6 +30,7 @@ import os
 import sys
 import yaml
 import argparse
+import itertools
 
 class Character(object):
     """
@@ -222,6 +223,7 @@ class Book(object):
         self.filename = filename
         self.characters = {}
         self.pages = {}
+        self.intermediates = {}
 
     @staticmethod
     def load(filename):
@@ -236,6 +238,13 @@ class Book(object):
             raise Exception('YAML data not found in file')
 
         book = Book(data['book']['title'], filename=filename)
+
+        # "intermediates" is a new variable, don't rely on it being
+        # in the file.
+        if 'intermediates' in data:
+            for intermediate in data['intermediates']:
+                book.add_intermediate(intermediate)
+
         for chardict in data['characters'].values():
             book.add_character_obj(Character.from_dict(chardict))
         for pagedict in data['pages'].values():
@@ -265,12 +274,18 @@ class Book(object):
         savedict['book'] = {
                 'title': self.title,
             }
+
         savedict['characters'] = {}
         for character in self.characters.values():
             savedict['characters'][character.name] = character.to_dict()
+
         savedict['pages'] = {}
         for page in self.pages.values():
             savedict['pages'][page.pagenum] = page.to_dict()
+
+        savedict['intermediates'] = []
+        for intermediate in self.intermediates_sorted():
+            savedict['intermediates'].append(intermediate)
 
         # Save ourselves out
         with open(filename, 'w') as df:
@@ -315,6 +330,41 @@ class Book(object):
         page = Page(pagenum, character=character, summary=summary)
         return self.add_page_obj(page)
 
+    def add_intermediate(self, pagenum):
+        """
+        Adds an intermediate page to the book.  Does not complain
+        if the pagenum is already an intermediate
+        """
+        self.intermediates[pagenum] = True
+
+    def delete_intermediate(self, pagenum):
+        """
+        Deletes an intermediate page from the book.  Does not complain
+        if the pagenum is not already an intermediate
+        """
+        if pagenum in self.intermediates:
+            del self.intermediates[pagenum]
+
+    def has_intermediate(self, pagenum):
+        """
+        Returns True if the specified pagenum is an intermediate, and
+        false otherwise
+        """
+        return (pagenum in self.intermediates)
+
+    def print_intermediates(self, prefix='', num_per_line=10):
+        """
+        Prints out a list of our intermediates to the screen, with
+        the given prefix and the given number of pages per line.
+        Method taken from: http://stackoverflow.com/questions/434287/what-is-the-most-pythonic-way-to-iterate-over-a-list-in-chunks
+        """
+        args = [iter(self.intermediates_sorted())] * num_per_line
+        for pagenums in itertools.izip_longest(*args):
+            numlist = [str(x) for x in pagenums]
+            while numlist[-1] == 'None':
+                numlist.pop()
+            print('%s%s' % (prefix, ', '.join(numlist)))
+
     def add_page_obj(self, page):
         """
         Adds a page object to the book, and returns it.
@@ -337,6 +387,12 @@ class Book(object):
         Returns a list of pages sorted by page number
         """
         return [self.pages[idx] for idx in sorted(self.pages.keys())]
+
+    def intermediates_sorted(self):
+        """
+        Returns a list of intermediate pages sorted by page number
+        """
+        return sorted(self.intermediates.keys())
 
     def get_page(self, pagenum):
         """
@@ -582,9 +638,13 @@ class App(object):
             except ValueError:
                 print('')
                 print('Invalid page number specified')
-                return
+                return None
 
-        if pagenum in self.book.pages:
+        if self.book.has_intermediate(pagenum):
+            print('')
+            print('Page %d is already set as an intermediate page' % (pagenum))
+            return None
+        elif pagenum in self.book.pages:
             return self.set_page(pagenum)
         else:
             return self.create_page(pagenum)
@@ -619,30 +679,98 @@ class App(object):
         print('')
         print('Page %d deleted!' % (pagenum))
 
-    def list_pages(self):
+    def add_intermediate(self):
         """
-        Lists all the pages we know about.
+        Adds pages as intermediate.  Will continue prompting until we get
+        an empty string.
         """
         print('')
+        while True:
+            response = self.prompt('Page to mark as intermediate (enter to quit)')
+            if response == '':
+                print('')
+                return
+            try:
+                pagenum = int(response)
+                self.book.add_intermediate(pagenum)
+                print('Page %d added as intermediate' % (pagenum))
+            except ValueError:
+                print('')
+                print('Invalid page number specified!')
+
+    def delete_intermediate(self):
+        """
+        Deletes pages marked as intermediate.  Will continue prompting until
+        we get an empty string.
+        """
+        if len(self.book.intermediates) == 0:
+            print('')
+            print('No intermediates are present in the book')
+            return
+
+        while len(self.book.intermediates) > 0:
+            print('')
+            print('Current intermediates:')
+            self.book.print_intermediates(prefix='   ')
+            print('')
+            response = self.prompt('Intermediate to delete (enter to quit)')
+            if response == '':
+                print('')
+                return
+            try:
+                pagenum = int(response)
+                self.book.delete_intermediate(pagenum)
+            except ValueError:
+                print('')
+                print('Invalid page number specified')
+
+    def list_pages(self):
+        """
+        Lists all the pages we know about, and also various statistics.
+        """
+
+        char_counts = {}
+        ending_count = 0
+        canon_count = 0
+
+        print('')
         for page in self.book.pages_sorted():
+            if page.character.name not in char_counts:
+                char_counts[page.character.name] = 1
+            else:
+                char_counts[page.character.name] += 1
+            if page.ending:
+                ending_count += 1
             if page.canonical:
                 extratext = ' - CANON'
+                canon_count += 1
             else:
                 extratext = ''
             print('%d - %s (%s)%s' % (page.pagenum, page.summary, page.character.name, extratext))
         print('')
         print('Total pages known: %d' % (len(self.book.pages)))
+        print('Canon Pages: %s' % (canon_count))
+        print('Ending Pages: %s' % (ending_count))
+        if len(self.book.intermediates) > 0:
+            print('Intermediate Pages: %s' % (len(self.book.intermediates)))
+        print('Character Counts:')
+        for (char, count) in [(name, char_counts[name]) for name in sorted(char_counts.keys())]:
+            if count == 1:
+                plural = ''
+            else:
+                plural = 's'
+            print('  %s: %d page%s' % (char, count, plural))
         print('')
 
         # Also, what the heck.  Let's go ahead and make a list of all pages
         # that we've MISSED in here.  Mostly useful for doublechecking things
         # if you think you're basically done with the book.
         missing = []
-        pages = self.book.pages_sorted()
-        last_page = pages[-1].pagenum
+        pages = sorted(set(self.book.pages.keys() + self.book.intermediates.keys()))
+        last_page = pages[-1]
         total_pages = range(1,last_page+1)
         for page in reversed(pages):
-            del total_pages[page.pagenum-1]
+            del total_pages[page-1]
         if len(total_pages) < 20:
             print('Missing pages (%d total):' % (len(total_pages)))
             print(total_pages)
@@ -815,6 +943,8 @@ class App(object):
         OPT_CANON = 't'
         OPT_ENDING = 'e'
         OPT_GRAPHVIZ = 'g'
+        OPT_INTERMEDIATE = 'i'
+        OPT_INTER_DEL = 'o'
         
         while True:
             
@@ -848,6 +978,8 @@ class App(object):
                     OPT_PAGE, OPT_DELPAGE, OPT_LISTPAGE, OPT_SUMMARY))
             print('[%s] Toggle Canonical [%s] Toggle Ending' % (
                     OPT_CANON, OPT_ENDING))
+            print('[%s] Add Intermediate [%s] Delete Intermediate' % (
+                    OPT_INTERMEDIATE, OPT_INTER_DEL))
             print('[%s] Save [%s] Graphviz [%s] Quit' % (
                     OPT_SAVE, OPT_GRAPHVIZ, OPT_QUIT))
 
@@ -882,6 +1014,10 @@ class App(object):
                     self.generate_graphviz()
                 elif option == OPT_SAVE:
                     self.book.save()
+                elif option == OPT_INTERMEDIATE:
+                    self.add_intermediate()
+                elif option == OPT_INTER_DEL:
+                    self.delete_intermediate()
                 elif option == OPT_QUIT:
                     print('')
                     if self.prompt_yn('Save before quitting'):
