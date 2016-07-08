@@ -68,8 +68,8 @@ You must specify a filename with the `-f` or `--filename` option:
     ./choosable.py -f romeo.yaml
     ./choosable.py --filename romeo.yaml
 
-If the file doesn't exist, you'll be prompted to create a new one or
-not.  I tend to use .yaml for the file extension, but the actual
+If the file doesn't exist, you'll be asked if you want to create a
+new one.  I tend to use `.yaml` for the file extension, but the actual
 extension doesn't matter.  Once you launch the app, you'll have a
 commandline interface with which to edit the book, create new pages,
 etc.
