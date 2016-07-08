@@ -692,8 +692,13 @@ class App(object):
                 return
             try:
                 pagenum = int(response)
-                self.book.add_intermediate(pagenum)
-                print('Page %d added as intermediate' % (pagenum))
+                if pagenum in self.book.pages:
+                    print('Page %d is already a "real" page' % (pagenum))
+                elif self.book.has_intermediate(pagenum):
+                    print('Page %d is already marked as intermediate' % (pagenum))
+                else:
+                    self.book.add_intermediate(pagenum)
+                    print('Page %d added as intermediate' % (pagenum))
             except ValueError:
                 print('')
                 print('Invalid page number specified!')
