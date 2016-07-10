@@ -66,6 +66,15 @@ class Character(object):
         char.fontcolor = chardict['graphviz_fontcolor']
         return char
 
+    def clone(self):
+        """
+        Makes a new Character object with our same variables.
+        """
+        newchar = Character(self.name)
+        newchar.fillcolor = self.fillcolor
+        newchar.fontcolor = self.fontcolor
+        return newchar
+
 class Choice(object):
     """
     A choice the reader can take.  Note that we're not actually
@@ -217,10 +226,11 @@ class Book(object):
     have to remember it otherwise.
     """
 
-    def __init__(self, title, filename=None):
+    def __init__(self, title, label='main', graphviz_pagefmt='%d'):
 
         self.title = title
-        self.filename = filename
+        self.label = label
+        self.graphviz_pagefmt = graphviz_pagefmt
         self.characters = {}
         self.pages = {}
         self.intermediates = {}
@@ -231,7 +241,20 @@ class Book(object):
         Given a dictionary (from a YAML file), load ourselves.
         """
 
-        book = Book(savedict['book']['title'])
+        # Don't count on 'label' being present; it's new.
+        bookdict = savedict['book']
+        if 'label' in bookdict:
+            label = bookdict['label']
+        else:
+            label = 'main'
+
+        # Also not 'graphviz_pagefmt'
+        if 'graphviz_pagefmt' in bookdict:
+            pagefmt = bookdict['graphviz_pagefmt']
+        else:
+            pagefmt = '%d'
+
+        book = Book(bookdict['title'], label=label, graphviz_pagefmt=pagefmt)
 
         # "intermediates" is a new variable, don't rely on it being
         # in the file.
@@ -244,23 +267,6 @@ class Book(object):
         for pagedict in savedict['pages'].values():
             book.add_page_obj(Page.from_dict(pagedict, book.characters))
 
-        return book
-
-    @staticmethod
-    def load(filename):
-        """
-        Loads from a YAML filename, returns a new Book object.
-        """
-        data = None
-        with open(filename, 'r') as df:
-            data = yaml.load(df.read())
-
-        if data is None:
-            raise Exception('YAML data not found in file')
-
-        # Now do the object population
-        book = Book.load_from_dict(data)
-        book.filename = filename
         return book
 
     def get_savedict(self):
@@ -278,6 +284,8 @@ class Book(object):
         savedict = {}
         savedict['book'] = {
                 'title': self.title,
+                'label': self.label,
+                'graphviz_pagefmt': self.graphviz_pagefmt,
             }
 
         savedict['characters'] = {}
@@ -293,29 +301,6 @@ class Book(object):
             savedict['intermediates'].append(intermediate)
 
         return savedict
-
-    def save(self, filename=None, verbose=True):
-        """
-        Saves out the book.  In YAML, I guess?  If verbose
-        is False, we won't spit out any text to the console
-        """
-
-        if filename is None and self.filename is None:
-            raise Exception('No filename has been specified to save!')
-
-        if filename is None:
-            filename = self.filename
-
-        # Get the dictionary
-        savedict = self.get_savedict()
-
-        # Save ourselves out
-        with open(filename, 'w') as df:
-            yaml.dump(savedict, df)
-
-        # And report, if necesssary
-        if verbose:
-            print('Saved to %s' % (filename))
 
     def print_text(self):
         """
@@ -423,6 +408,119 @@ class Book(object):
         """
         return self.pages[pagenum]
 
+class BookCollection(object):
+    """
+    A collection of books.  For our purposes, there's almost always going to
+    be just one book, named 'main', but To Be Or Not To Be features a book-
+    within-a-book with a completely separate numbering scheme, so that'll
+    be supported here.
+    """
+
+    # Static var that should be accessible whether we're instansiated or not.
+    cur_save_version = 2
+
+    def __init__(self, title=None, filename=None):
+
+        self.title = title
+        self.filename = filename
+        self.books = {}
+        self.cur_save_version = 2
+
+    @staticmethod
+    def load(filename):
+        """
+        Loads from the given filename; expects content to be in YAML
+        """
+
+        data = None
+        with open(filename, 'r') as df:
+            data = yaml.load(df.read())
+
+        if data is None:
+            raise Exception('YAML data not found in file %s' % (filename))
+
+        # Create the BookCollection object
+        book_col = BookCollection(filename=filename)
+
+        # Now do some sanity checks
+        if 'save_version' in data and 'title' in data and 'books' in data:
+            # We've got a 'new' style save
+            if data['save_version'] > BookCollection.cur_save_version:
+                raise Exception('Savefile is from version %d, but we only understand version %d or earlier' % (
+                    data['save_version'], BookCollection.cur_save_version))
+            book_col.title = data['title']
+            for savedict in data['books'].values():
+                book = Book.load_from_dict(savedict)
+                book_col.add_book(book)
+        elif 'book' in data and 'characters' in data and 'pages' in data:
+            # We've got an old-style save - just load it into our new
+            # structure as "main"
+            book_col.title = data['book']['title']
+            book_col.add_book(Book.load_from_dict(data))
+        else:
+            raise Exception('YAML data in file %s is not understood' % (filename))
+
+        # Final check - we require there be a book labelled 'main'
+        if 'main' not in book_col.books:
+            raise Exception('Book Collection has no book labelled "main"')
+
+        # Return the collection
+        return book_col
+
+    def save(self, filename=None, verbose=True):
+        """
+        Saves out our BookCollection in YAML format.  If verbose
+        is False, we won't spit out any text to the console.
+        """
+
+        if filename is None and self.filename is None:
+            raise Exception('No filename has been specified to save!')
+
+        if filename is None:
+            filename = self.filename
+
+        # Construct our dictionary
+        savedict = {
+                'save_version': self.cur_save_version,
+                'title': self.title,
+                'books': {},
+            }
+        for (label, book) in self.books.items():
+            savedict['books'][label] = book.get_savedict()
+
+        # Save ourselves out
+        with open(filename, 'w') as df:
+            yaml.dump(savedict, df)
+
+        # And report, if necesssary
+        if verbose:
+            print('Saved to %s' % (filename))
+
+    def add_book(self, book):
+        """
+        Adds a book to ourselves.  Returns the book, for good measure.
+        """
+        if book.label in self.books:
+            raise Exception('Book with label "%s" is already present in book collection' % (book.label))
+
+        self.books[book.label] = book
+        return book
+
+    def get_book(self, label):
+        """
+        Returns the book object corresponding to the given label.  Will raise
+        a KeyError if not found
+        """
+        return self.books[label]
+
+    def create_initial_book(self):
+        """
+        Creates an initial book for ourselves.
+        """
+        book = Book(self.title)
+        self.add_book(book)
+        return book
+
 class App(object):
     """
     Main mostly-interactive application.  This class probably knows too much
@@ -432,6 +530,7 @@ class App(object):
 
     def __init__(self):
 
+        self.book_col = None
         self.book = None
         self.cur_char = None
         self.cur_page = None
@@ -914,6 +1013,107 @@ class App(object):
 
         return 0
 
+    def set_book(self, label='main'):
+        """
+        Sets the book we're currently working on.  Will end up
+        raising a KeyError if the label isn't found.
+        """
+        self.book = self.book_col.get_book(label)
+        self.set_page(1)
+
+    def switch_book(self):
+        """
+        Interactively switch to a different book.
+        """
+        print('')
+        print('Available books:')
+        print('')
+        for label, book in self.book_col.books.items():
+            print("\t%s - %s" % (label, book.title))
+        print("\tnew - Add a new book")
+        print('')
+        
+        response = self.prompt('Label of book (enter to cancel)').lower()
+        
+        if response == '':
+            # Cancel
+            print('')
+            return
+
+        elif response == 'new':
+            # Creating a new book
+
+            # Book Title
+            print('')
+            newtitle = self.prompt('Book Title (enter to cancel)')
+            if newtitle == '':
+                print('')
+                return
+
+            # Book Label
+            newlabel = None
+            while newlabel is None:
+                print('')
+                print('Book labels should be short and easy to type')
+                print('The labels "new" and "main" are reserved and cannot be used')
+                newlabel = self.prompt('Book Label (enter to cancel)').lower()
+                if newlabel == '':
+                    print('')
+                    return
+                if newlabel == 'new' or newlabel == 'main':
+                    print('')
+                    print('The labels "new" and "main" are reserved!')
+                    print('')
+                    newlabel = None
+
+            # Graphviz page format
+            pagefmt = None
+            while pagefmt is None:
+                print('')
+                print('Graphviz Page format is used to format the page numbers when')
+                print('creating Graphviz files.  The main book will always use "%d"')
+                print('as its format.  The format string applicable to The Murder of')
+                print('Gonzago within To Be Or Not To Be is "G%03d".  This format')
+                print('must be unique among all books.')
+                pagefmt = self.prompt('Graphviz Page Format (enter to cancel)')
+                if pagefmt == '':
+                    print('')
+                    return
+                for label, book in self.book_col.books.items():
+                    if pagefmt == book.graphviz_pagefmt:
+                        print('The page format "%s" is already in use by book %s (%s)' %(
+                            pagefmt, book.title, label))
+                        pagefmt = None
+                        continue
+
+            # At this point we should be ready to create a new book object.
+            newbook = Book(newtitle, label=newlabel, graphviz_pagefmt=pagefmt)
+
+            # Pre-populate the book with our current character
+            self.cur_char = newbook.add_character_obj(self.cur_char.clone())
+
+            # Set up a blank first page
+            self.cur_page = newbook.add_page(1, character=self.cur_char,
+                    summary='The First Page of "%s"' % (newbook.title))
+
+            # Now officially add the new book to the BookCollection
+            self.book_col.add_book(newbook)
+            self.book = newbook
+
+            # Also, explicitly switch to the first page
+            self.set_page(1)
+
+        else:
+            # Existing book
+            try:
+                self.set_book(response)
+                print('')
+                print('Book set to %s (%s)' % (self.book.title, self.book.label))
+            except KeyError:
+                print('Book label "%s" was not found!' % (response))
+
+        print('')
+
     def run(self):
         """
         Runs our actual app.  Should be exciting!
@@ -921,7 +1121,8 @@ class App(object):
 
         # First check if we're doing something non-interactive
         if self.do_dot:
-            self.book = Book.load(self.filename)
+            self.book_col = BookCollection.load(self.filename)
+            self.set_book('main')
             return self.export_dot(self.do_dot)
         
         print('Chooseable-Path Adventure Tracker')
@@ -936,7 +1137,8 @@ class App(object):
             # Creating a new book at this point
             print('')
             newtitle = self.prompt('Book Title')
-            self.book = Book(newtitle, filename=self.filename)
+            self.book_col = BookCollection(title=newtitle, filename=self.filename)
+            self.book = self.book_col.create_initial_book()
 
             # Pick a character (which at this point would just create
             # a new character)
@@ -947,12 +1149,13 @@ class App(object):
                 self.create_page(1)
 
             # Aaand save it out right away, for good measure
-            self.book.save()
+            self.book_col.save()
 
         else:
 
             # Load an existing book
-            self.book = Book.load(self.filename)
+            self.book_col = BookCollection.load(self.filename)
+            self.book = self.book_col.get_book('main')
             self.set_page(1)
 
             print('Loaded Book "%s"' % (self.book.title))
@@ -972,12 +1175,15 @@ class App(object):
         OPT_GRAPHVIZ = 'g'
         OPT_INTERMEDIATE = 'i'
         OPT_INTER_DEL = 'o'
+        OPT_BOOK = 'b'
         
         while True:
             
             # Status display
             print('')
             print('-'*80)
+            if self.book.label != 'main':
+                print('In sub-book: %s (%s)' % (self.book.title, self.book.label))
             if self.cur_page.canonical:
                 print('**** CANON ****')
             if self.cur_page.ending:
@@ -1005,8 +1211,8 @@ class App(object):
                     OPT_PAGE, OPT_DELPAGE, OPT_LISTPAGE, OPT_SUMMARY))
             print('[%s] Toggle Canonical [%s] Toggle Ending' % (
                     OPT_CANON, OPT_ENDING))
-            print('[%s] Add Intermediate [%s] Delete Intermediate' % (
-                    OPT_INTERMEDIATE, OPT_INTER_DEL))
+            print('[%s] Add Intermediate [%s] Delete Intermediate [%s] Switch Book' % (
+                    OPT_INTERMEDIATE, OPT_INTER_DEL, OPT_BOOK))
             print('[%s] Save [%s] Graphviz [%s] Quit' % (
                     OPT_SAVE, OPT_GRAPHVIZ, OPT_QUIT))
 
@@ -1040,15 +1246,17 @@ class App(object):
                 elif option == OPT_GRAPHVIZ:
                     self.generate_graphviz()
                 elif option == OPT_SAVE:
-                    self.book.save()
+                    self.book_col.save()
                 elif option == OPT_INTERMEDIATE:
                     self.add_intermediate()
                 elif option == OPT_INTER_DEL:
                     self.delete_intermediate()
+                elif option == OPT_BOOK:
+                    self.switch_book()
                 elif option == OPT_QUIT:
                     print('')
                     if self.prompt_yn('Save before quitting'):
-                        self.book.save()
+                        self.book_col.save()
                     return 0
                 else:
                     print('')
