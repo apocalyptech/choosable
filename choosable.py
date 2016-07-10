@@ -1158,7 +1158,7 @@ class App(object):
             self.book = self.book_col.get_book('main')
             self.set_page(1)
 
-            print('Loaded Book "%s"' % (self.book.title))
+            print('Loaded Book "%s"' % (self.book_col.title))
 
         # At this point we have a book set up and loaded.  Time to get going!
         OPT_QUIT = 'q'
