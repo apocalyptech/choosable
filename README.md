@@ -1,3 +1,51 @@
+'multibook' branch
+==================
+
+The book To Be or Not To Be features a book-within-a-book whose
+page numbering lies entirely without the main numbering system.
+I had two thoughts for how to implement this:
+
+1. Make it so page numbers don't have to be ints (the sub-
+   book in question used page numbers like "G013")
+2. Allow having multiple sub-books within the data file,
+   and be able to swap between and link to them freely.
+
+Number 2 seemed like a more general-purpose solution which could
+theoretically support any other book which did similar things, and
+I ended up starting on that.  This branch got up to the point of
+fully supporting having an arbitrary number of "books" within
+what's now called a BookCollection, with the main story being
+called "main" and the others having arbitrary labels.  You could
+switch back and forth and create as many as you wanted, but as
+of now you can't actually link between them at all (and the
+graphviz exports, etc, will only be for the currently-active
+book).
+
+The plan was to support cross-book choices by having the pages
+prepended with the book labels, but in the end it just seemed
+like too much of a hassle to either overload the Choice class
+with the necessary information, or have a separate cross-book
+Choice class or something.  One of the things which started
+to annoy me was that given the current loading behavior, you
+couldn't be sure to have a Book object of the target book yet
+while instansiating Choice objects, and that was one relation
+I wasn't fond of having to fudge or look up arbitrarily.
+
+So in the end I decided to just go with option 1, which is
+what'll continue in the main branch.
+
+For the record, one other field added to the Book object
+is `graphviz_pagefmt`, which would be intended to be used
+everywhere page numbers are printed.  The Murder of Gonzago
+sub-book would use 'G%03d' for instance, whereas 'main'
+would always use '%d'.
+
+Oh, and my intended method of cross-book link additions would've
+been to type in, like, "gonzago 10" instead of just "10" to
+link to the gonzago sub-book from the main book, or "main 123"
+to link to page 123 of the main story from the Gonzago sub-story.
+I suppose deletions would've worked the same way.
+
 Chooseable-Path Adventure Tracker
 =================================
 
