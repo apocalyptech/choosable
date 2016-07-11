@@ -6,8 +6,8 @@ ABOUT
 
 This is a utility to help keep track of where you've been inside a
 Chooseable-Path Adventure novel such as the ones written by
-Ryan North <sup>[1](#fn1)</sup> (To Be or Not To Be <sup>[2](#fn2)</sup>,
-Romeo and/or Juliet <sup>[3](#fn3)</sup>).  It'd also be usable,
+Ryan North <sup>[1](#fn1)</sup> (*To Be or Not To Be* <sup>[2](#fn2)</sup>,
+*Romeo and/or Juliet* <sup>[3](#fn3)</sup>).  It'd also be usable,
 of course, for the original Choose-Your-Own-Adventure novels on
 which the concept was based, though a few features included here
 wouldn't have much use for those books.
@@ -53,7 +53,7 @@ Users on other Python-capable platforms are hopefully already aware
 of what would need to happen there.
 
 Included in the `examples` directory is a very-incomplete start to
-Romeo and/or Juliet, with the filename `romeo.yaml`, so you can take a
+*Romeo and/or Juliet*, with the filename `romeo.yaml`, so you can take a
 look at that if you want.  Given that the intent here is sort of as a
 personal "bookmarking" system, it doesn't make much sense to start
 with an already-filled-out tree, but you can also check out a 
@@ -223,7 +223,7 @@ changes you've made.
 
 This section is really only useful for someone who's hoping to use this
 utility to ensure that they've seen 100% of the book in question.  In
-Romeo and/or Juliet, what we call a "page" isn't really a physical page.
+*Romeo and/or Juliet*, what we call a "page" isn't really a physical page.
 In fact, the book itself eschews that term, and instead of "Turn to page
 282," it just says "Turn to 282."  Each number can span multiple physical
 pages, depending on the length of the text, and each physical page can
@@ -241,14 +241,14 @@ will include a list of missing "pages" so long as there are fewer than
 (Which is expected because I didn't actually catalogue the entire Caesar
 Cipher puzzle, since the graph quickly becomes ludicrously unwieldy.)
 
-Anyway, for a book set up like Romeo and/or Juliet, where every "page
+Anyway, for a book set up like *Romeo and/or Juliet*, where every "page
 number" corresponds to a choice, and there's no holes, that Missing-Page
 logic works great as-is.
 
-In traditional Choose-Your-Own Adventure novels, and also in To Be or
-Not To Be, however, the instructions do refer to actual page numbers,
-and the options may span multiple pages.  Every ending scene in To Be
-or Not To Be, in particular, will have at least one intermediate page
+In traditional Choose-Your-Own Adventure novels, and also in *To Be or
+Not To Be*, however, the instructions do refer to actual page numbers,
+and the options may span multiple pages.  Every ending scene in *To Be
+or Not To Be*, in particular, will have at least one intermediate page
 to hold the full-page illustration.
 
 Without a way to catalogue these intermediate pages, it'd be impossible
@@ -267,12 +267,38 @@ if you want to do a bunch all at once, and hit Enter to exit out of
 the intermediate number management mode.
 
 Again, this is clearly only something that you'd want to bother with
-if you're: 1) Reading a book like To Be or Not To Be, where choices can
+if you're: 1) Reading a book like *To Be or Not To Be*, where choices can
 span multiple physical pages, and 2) Trying to make sure that you get
 100% completion on the book.  If that *is* something you think you're
 interested in, it's probably best to start cataloguing them right from
 the start of your reading, so it's not a lot of work to add in later,
 but I suspect that probably nobody but me even cares, anyway.
+
+NON-NUMERIC PAGE NUMBERS
+------------------------
+
+The book *To Be Or Not To Be* features a book-within-a-book called
+*The Murder of Gonzago* which uses a completely separate page numbering
+scheme from the rest of the book.  It's a full 24 pages (including
+"cover") right inbetween the "real" pages 414 and 415.  The pages are
+numbered with a special system that page 1 is "G001".  *Romeo and/or
+Juliet* also has more than one book-within-a-book, but they just use
+the standard numbering system as the rest of the main book.
+
+This posed some problems for prior versions of this utility, since we
+assumed that all page numbers are numeric, and there wouldn't be room
+for the nested book otherwise.  There are a few possible ways to solve
+this, but in the end it was simplest to just allow page numbers to be
+non-numeric.
+
+In general, the functionality for dealing with non-numeric page numbers
+like the sorts found in *The Murder of Gonzago* doesn't change at all.
+The one difference is that in order to move to a page like G020, or to
+switch to that page, you **must** use the `p` option directly rather
+than just typing the page number in at the main command prompt.  That's
+a little less convenient than it could potentially be, but given that
+this is a very special case unlikely to be found in any other book,
+I don't think it poses much trouble really.
 
 DEVIATIONS
 ----------
