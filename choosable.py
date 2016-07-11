@@ -102,7 +102,7 @@ class Choice(object):
         """
         Prints out a text representation of ourself.
         """
-        print('  %s -> %d' % (self.summary, self.target))
+        print('  %s -> %s' % (self.summary, self.target))
 
 class Page(object):
     """
@@ -144,7 +144,7 @@ class Page(object):
         ownership properly.
         """
         if pagedict['character'] not in characters:
-            raise Exception('Character "%s" not found for page %d' % (pagedict['character'], pagedict['pagenum']))
+            raise Exception('Character "%s" not found for page %s' % (pagedict['character'], pagedict['pagenum']))
         page = Page(pagedict['pagenum'],
                 character=characters[pagedict['character']],
                 summary=pagedict['summary'],
@@ -158,7 +158,7 @@ class Page(object):
         """
         Prints out a text summary of ourselves
         """
-        print('Page %d (%s) - %s' % (self.pagenum, self.character.name, self.summary))
+        print('Page %s (%s) - %s' % (self.pagenum, self.character.name, self.summary))
         for choice in self.choices_sorted():
             choice.print_text()
         print('')
@@ -180,7 +180,7 @@ class Page(object):
         # which go to the same page, but we'll just consider those
         # collapsed.
         if choice.target in self.choices:
-            raise Exception('Target %d already exists on page %d' % (choice.target, self.pagenum))
+            raise Exception('Target %s already exists on page %s' % (choice.target, self.pagenum))
 
         self.choices[choice.target] = choice
         return choice
@@ -393,7 +393,7 @@ class Book(object):
         """
 
         if page.pagenum in self.pages:
-            raise Exception('Page %d already exists' % (page.pagenum))
+            raise Exception('Page %s already exists' % (page.pagenum))
         self.pages[page.pagenum] = page
         return page
 
@@ -551,7 +551,7 @@ class App(object):
         Also sets our current character to whoever the page belongs to.
         """
         if pagenum not in self.book.pages:
-            raise Exception('Page %d not found!' % (pagenum))
+            raise Exception('Page %s not found!' % (pagenum))
         self.cur_page = self.book.pages[pagenum]
         self.cur_char = self.cur_page.character
         return self.cur_page
@@ -564,10 +564,10 @@ class App(object):
         current page does not change)
         """
         if pagenum in self.book.pages:
-            raise Exception('Page %d already exists!' % (pagenum))
+            raise Exception('Page %s already exists!' % (pagenum))
 
         print('')
-        print('Creating new page %d' % (pagenum))
+        print('Creating new page %s' % (pagenum))
         summary = self.prompt('Page Summary (enter to cancel)')
         if summary == '':
             return None
@@ -607,9 +607,13 @@ class App(object):
         try:
             target = int(target_txt)
         except ValueError:
-            print('')
-            print('Please input a valid number!')
-            return self.add_choice()
+            if ' ' in target_txt:
+                print('')
+                print('Non-numeric page numbers cannot contain spaces!')
+                return self.add_choice()
+            # Otherwise just let it be a string
+            target = target_txt
+
         try:
             return self.cur_page.add_choice(target, summary)
         except Exception as e:
@@ -628,7 +632,7 @@ class App(object):
         print('')
         choices = self.cur_page.choices_sorted()
         for choice in choices:
-            print('  [%d] %s' % (choice.target, choice.summary))
+            print('  [%s] %s' % (choice.target, choice.summary))
         print('')
         response = self.prompt('Choice to delete (enter to cancel)')
         if response == '':
@@ -637,14 +641,14 @@ class App(object):
             try:
                 target = int(response)
             except ValueError:
-                print('')
-                print('Invalid number, cancelling!')
-                return
+                # Just let it be a string
+                target = response
+
             try:
                 self.cur_page.delete_choice(target)
             except KeyError:
                 print('')
-                print('Choice with target of %d not found' % (target))
+                print('Choice with target of %s not found' % (target))
 
     def page_switch(self, pagenum=None):
         """
@@ -658,13 +662,15 @@ class App(object):
             try:
                 pagenum = int(response)
             except ValueError:
-                print('')
-                print('Invalid page number specified')
-                return None
+                if ' ' in response:
+                    print('')
+                    print('Page numbers cannot contain spaces')
+                    return None
+                pagenum = response
 
         if self.book.has_intermediate(pagenum):
             print('')
-            print('Page %d is already set as an intermediate page' % (pagenum))
+            print('Page %s is already set as an intermediate page' % (pagenum))
             return None
         elif pagenum in self.book.pages:
             return self.set_page(pagenum)
@@ -680,9 +686,8 @@ class App(object):
         try:
             pagenum = int(response)
         except ValueError:
-            print('')
-            print('Invalid page number specified')
-            return
+            # Just let it be a string
+            pagenum = response
 
         if pagenum == self.cur_page.pagenum:
             print('')
@@ -694,12 +699,12 @@ class App(object):
             self.book.delete_page(pagenum)
         except KeyError:
             print('')
-            print('Page %d not found!' % (pagenum))
+            print('Page %s not found!' % (pagenum))
             return
 
         # Report
         print('')
-        print('Page %d deleted!' % (pagenum))
+        print('Page %s deleted!' % (pagenum))
 
     def add_intermediate(self):
         """
@@ -713,14 +718,19 @@ class App(object):
                 print('')
                 return
             try:
-                pagenum = int(response)
+                try:
+                    pagenum = int(response)
+                except ValueError:
+                    # Just let it be a string, even though non-numeric intermediates
+                    # are a bit pointless.
+                    pagenum = response
                 if pagenum in self.book.pages:
-                    print('Page %d is already a "real" page' % (pagenum))
+                    print('Page %s is already a "real" page' % (pagenum))
                 elif self.book.has_intermediate(pagenum):
-                    print('Page %d is already marked as intermediate' % (pagenum))
+                    print('Page %s is already marked as intermediate' % (pagenum))
                 else:
                     self.book.add_intermediate(pagenum)
-                    print('Page %d added as intermediate' % (pagenum))
+                    print('Page %s added as intermediate' % (pagenum))
             except ValueError:
                 print('')
                 print('Invalid page number specified!')
@@ -745,7 +755,10 @@ class App(object):
                 print('')
                 return
             try:
-                pagenum = int(response)
+                try:
+                    pagenum = int(response)
+                except ValueError:
+                    pagenum = response
                 self.book.delete_intermediate(pagenum)
             except ValueError:
                 print('')
@@ -773,7 +786,7 @@ class App(object):
                 canon_count += 1
             else:
                 extratext = ''
-            print('%d - %s (%s)%s' % (page.pagenum, page.summary, page.character.name, extratext))
+            print('%s - %s (%s)%s' % (page.pagenum, page.summary, page.character.name, extratext))
         print('')
         print('Total pages known: %d' % (len(self.book.pages)))
         print('Canon Pages: %s' % (canon_count))
@@ -792,16 +805,17 @@ class App(object):
         # Also, what the heck.  Let's go ahead and make a list of all pages
         # that we've MISSED in here.  Mostly useful for doublechecking things
         # if you think you're basically done with the book.
-        missing = []
-        pages = sorted(set(self.book.pages.keys() + self.book.intermediates.keys()))
-        last_page = pages[-1]
-        total_pages = range(1,last_page+1)
-        for page in reversed(pages):
-            del total_pages[page-1]
-        if len(total_pages) < 20:
-            print('Missing pages (%d total):' % (len(total_pages)))
-            print(total_pages)
-            print('')
+        # TODO: Filter non-numeric pages
+        #missing = []
+        #pages = sorted(set(self.book.pages.keys() + self.book.intermediates.keys()))
+        #last_page = pages[-1]
+        #total_pages = range(1,last_page+1)
+        #for page in reversed(pages):
+        #    del total_pages[page-1]
+        #if len(total_pages) < 20:
+        #    print('Missing pages (%d total):' % (len(total_pages)))
+        #    print(total_pages)
+        #    print('')
 
     def toggle_canonical(self):
         """
@@ -868,7 +882,7 @@ class App(object):
             # First up - Visited pages!
             df.write("\t// Visited Pages\n");
             for page in book.pages_sorted():
-                labelstr = 'label="Page %d - %s"' % (
+                labelstr = 'label="Page %s - %s"' % (
                     page.pagenum,
                     page.summary.replace('"', '\\"')
                 )
@@ -892,8 +906,8 @@ class App(object):
                 for choice in page.choices_sorted():
                     if choice.target not in book.pages:
                         if choice.target in unknown_pages:
-                            print('NOTICE: Overwriting existing not-visited link for page %d' % (choice.target))
-                        unknown_pages[choice.target] = '(Page %d - %s)' % (choice.target, choice.summary.replace('>', '').replace('<', ''))
+                            print('NOTICE: Overwriting existing not-visited link for page %s' % (choice.target))
+                        unknown_pages[choice.target] = '(Page %s - %s)' % (choice.target, choice.summary.replace('>', '').replace('<', ''))
             for (page, text) in unknown_pages.items():
                 all_pages[page] = 'label=<<i>%s</i>>' % (text)
 
@@ -901,14 +915,14 @@ class App(object):
             df.write("\n");
             df.write("\t// Pages\n");
             for pagenum in sorted(all_pages.keys()):
-                df.write("\t%d [%s];\n" % (pagenum, all_pages[pagenum]))
+                df.write("\t%s [%s];\n" % (pagenum, all_pages[pagenum]))
 
             # Choices!
             df.write("\n");
             df.write("\t// Choices\n");
             for page in book.pages_sorted():
                 for choice in page.choices_sorted():
-                    df.write("\t%d -> %d;\n" % (page.pagenum, choice.target))
+                    df.write("\t%s -> %s;\n" % (page.pagenum, choice.target))
             df.write("\n");
             df.write("}\n")
 
@@ -982,7 +996,7 @@ class App(object):
                 print('**** CANON ****')
             if self.cur_page.ending:
                 print('**** THE END ****')
-            print('Current Page: %d' % (self.cur_page.pagenum))
+            print('Current Page: %s' % (self.cur_page.pagenum))
             print('Current Character: %s' % (self.cur_char.name))
             print('')
             print('Summary: %s' % (self.cur_page.summary))
@@ -997,7 +1011,7 @@ class App(object):
                             extratext = '%s (CANON)' % (extratext)
                     except KeyError:
                         pass
-                    print('  %s (turn to page %d%s)' % (choice.summary, choice.target, extratext))
+                    print('  %s (turn to page %s%s)' % (choice.summary, choice.target, extratext))
             print('-'*80)
             print('[%s] Add Choice [%s] Delete Choice [%s] Character' %(
                     OPT_CHOICE, OPT_DEL, OPT_CHAR))
