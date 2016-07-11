@@ -300,6 +300,10 @@ a little less convenient than it could potentially be, but given that
 this is a very special case unlikely to be found in any other book,
 I don't think it poses much trouble really.
 
+Note that the "missing page" detection outlined above completely
+ignores non-numeric pages, so you'll have to just make sure that
+you've seen the whole *Murder of Gonzago* by hand, so to speak.
+
 DEVIATIONS
 ----------
 
