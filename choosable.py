@@ -1031,7 +1031,7 @@ class App(object):
                 pagenum = int(response)
                 self.page_switch(pagenum)
             except ValueError:
-                option = response[:1].lower()
+                option = response.lower()
                 if option == OPT_CHAR:
                     self.pick_character()
                     self.cur_page.character = self.cur_char
