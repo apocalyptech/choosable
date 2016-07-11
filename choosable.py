@@ -805,17 +805,19 @@ class App(object):
         # Also, what the heck.  Let's go ahead and make a list of all pages
         # that we've MISSED in here.  Mostly useful for doublechecking things
         # if you think you're basically done with the book.
-        # TODO: Filter non-numeric pages
-        #missing = []
-        #pages = sorted(set(self.book.pages.keys() + self.book.intermediates.keys()))
-        #last_page = pages[-1]
-        #total_pages = range(1,last_page+1)
-        #for page in reversed(pages):
-        #    del total_pages[page-1]
-        #if len(total_pages) < 20:
-        #    print('Missing pages (%d total):' % (len(total_pages)))
-        #    print(total_pages)
-        #    print('')
+        missing = []
+        # This is ridiculous, but: unique real+intermediate pages, filtered
+        # to ensure that there's ony numeric entries, since we have non-
+        # numeric pages now.
+        pages = sorted([x for x in set(self.book.pages.keys() + self.book.intermediates.keys()) if isinstance(x, int)])
+        last_page = pages[-1]
+        total_pages = range(1,last_page+1)
+        for page in reversed(pages):
+            del total_pages[page-1]
+        if len(total_pages) < 20:
+            print('Missing pages (%d total):' % (len(total_pages)))
+            print(total_pages)
+            print('')
 
     def toggle_canonical(self):
         """
