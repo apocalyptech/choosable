@@ -773,8 +773,19 @@ class App(object):
         ending_count = 0
         canon_count = 0
 
+        # List our intermediate pages inline with the regular pages,
+        # because we can.
+        intermediates = self.book.intermediates_sorted()
+        cur_intermediate = 0
+
         print('')
         for page in self.book.pages_sorted():
+            # If we have intermediates that come before our page,
+            # output them now.
+            while ((cur_intermediate < len(intermediates)) and
+                (intermediates[cur_intermediate] < page.pagenum)):
+                    print('%s - (intermediate page)' % (intermediates[cur_intermediate]))
+                    cur_intermediate += 1
             if page.character.name not in char_counts:
                 char_counts[page.character.name] = 1
             else:
