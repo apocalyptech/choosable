@@ -870,7 +870,6 @@ class App(object):
         fileparts = dot_filename.split('.')
         with open(dot_filename, 'w') as df:
             df.write("digraph %s {\n" % (fileparts[0]))
-            df.write("\n");
 
             # Set up a structure to hold page definitions simultaneously
             # for pages we've visited, and pages we haven't.  That way
@@ -880,7 +879,6 @@ class App(object):
             all_pages = {}
 
             # First up - Visited pages!
-            df.write("\t// Visited Pages\n");
             for page in book.pages_sorted():
                 labelstr = 'label="Page %s - %s"' % (
                     page.pagenum,
