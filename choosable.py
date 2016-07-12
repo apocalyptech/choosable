@@ -711,29 +711,29 @@ class App(object):
         Adds pages as intermediate.  Will continue prompting until we get
         an empty string.
         """
-        print('')
         while True:
+            print('')
+            if len(self.book.intermediates) > 0:
+                print('Current intermediates:')
+                self.book.print_intermediates(prefix='   ')
+                print('')
             response = self.prompt('Page to mark as intermediate (enter to quit)')
             if response == '':
                 print('')
                 return
             try:
-                try:
-                    pagenum = int(response)
-                except ValueError:
-                    # Just let it be a string, even though non-numeric intermediates
-                    # are a bit pointless.
-                    pagenum = response
-                if pagenum in self.book.pages:
-                    print('Page %s is already a "real" page' % (pagenum))
-                elif self.book.has_intermediate(pagenum):
-                    print('Page %s is already marked as intermediate' % (pagenum))
-                else:
-                    self.book.add_intermediate(pagenum)
-                    print('Page %s added as intermediate' % (pagenum))
+                pagenum = int(response)
             except ValueError:
-                print('')
-                print('Invalid page number specified!')
+                # Just let it be a string, even though non-numeric intermediates
+                # are a bit pointless.
+                pagenum = response
+            if pagenum in self.book.pages:
+                print('Page %s is already a "real" page' % (pagenum))
+            elif self.book.has_intermediate(pagenum):
+                print('Page %s is already marked as intermediate' % (pagenum))
+            else:
+                self.book.add_intermediate(pagenum)
+                print('Page %s added as intermediate' % (pagenum))
 
     def delete_intermediate(self):
         """
