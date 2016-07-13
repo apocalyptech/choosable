@@ -32,6 +32,11 @@ import yaml
 import argparse
 import itertools
 
+try:
+    import colorama
+except ImportError:
+    pass
+
 class Character(object):
     """
     Class to hold information about a character.  Note that
@@ -294,10 +299,10 @@ class Book(object):
 
         return savedict
 
-    def save(self, filename=None, verbose=True):
+    def save(self, filename=None):
         """
-        Saves out the book.  In YAML, I guess?  If verbose
-        is False, we won't spit out any text to the console
+        Saves out the book, in YAML format.  Pass in a filename to
+        use something other than the default.
         """
 
         if filename is None and self.filename is None:
@@ -313,9 +318,7 @@ class Book(object):
         with open(filename, 'w') as df:
             yaml.dump(savedict, df)
 
-        # And report, if necesssary
-        if verbose:
-            print('Saved to %s' % (filename))
+        # And that's it!
 
     def print_text(self):
         """
@@ -430,14 +433,30 @@ class App(object):
     that stuff a bit more, but whatever.
     """
 
+    COLOR_CHOICES = ['none', 'light', 'dark']
+    COLOR_NONE = COLOR_CHOICES[0]
+    COLOR_LIGHT = COLOR_CHOICES[1]
+    COLOR_DARK = COLOR_CHOICES[2]
+
     def __init__(self):
 
         self.book = None
         self.cur_char = None
         self.cur_page = None
 
+        # Check to see if we have the colorama module loaded.  There's...
+        # probably a better way to do this?
+        self.has_colorama = False
+        try:
+            if colorama:
+                self.has_colorama = True
+                colorama.init(autoreset=True)
+        except NameError:
+            pass
+
         # Parse arguments
-        parser = argparse.ArgumentParser(description='Chooseable-Path Adventure Tracker')
+        parser = argparse.ArgumentParser(description='Chooseable-Path Adventure Tracker',
+            formatter_class=argparse.ArgumentDefaultsHelpFormatter)
         parser.add_argument('-f', '--filename',
             required=True,
             type=str,
@@ -446,17 +465,188 @@ class App(object):
             type=str,
             metavar='DOTFILE',
             help='Output a graphviz DOT file instead of interactively editing')
+        if self.has_colorama:
+            color_help = 'Output colorization'
+        else:
+            color_help = 'Output colorization (REQUIRES COLORAMA)'
+        parser.add_argument('-c', '--color',
+            type=str,
+            choices=App.COLOR_CHOICES,
+            default='light',
+            help=color_help)
         args = parser.parse_args()
 
         # Store the data we care about
         self.filename = args.filename
         self.do_dot = args.dot
+        if self.has_colorama:
+            self.color = None
+            self.set_color(args.color)
+        else:
+            self.color = App.COLOR_NONE
+            print('Output colorization disabled - "colorama" Python package')
+            print('required for colors.  See https://pypi.python.org/pypi/colorama')
+            print('')
+
+    def set_color(self, color=None):
+        """
+        Sets our color palette, or switches to the next one if color is not
+        passed in.
+        """
+
+        # Just return if we don't have colorama installed
+        if not self.has_colorama:
+            return
+
+        # Default to NONE, I guess.
+        if color is None and self.color is None:
+            self.color = App.COLOR_NONE
+            return
+
+        # If we didn't get passed in, assume we're just
+        # switching styles.  Otherwise, set the color.
+        if color is None:
+            if self.color == App.COLOR_NONE:
+                self.color = App.COLOR_LIGHT
+            elif self.color == App.COLOR_LIGHT:
+                self.color = App.COLOR_DARK
+            else:
+                self.color = App.COLOR_NONE
+        else:
+            if color in App.COLOR_CHOICES:
+                self.color = color
+        
+        print('')
+        self.print_result('Set color scheme to "%s"' % (self.color))
+        print('')
+
+    def color_dim(self):
+        """
+        Returns the dimming code, if we're supposed to
+        """
+        if self.has_colorama:
+            if self.color == App.COLOR_LIGHT:
+                return colorama.Style.DIM
+            elif self.color == App.COLOR_DARK:
+                return colorama.Style.BRIGHT
+        return ''
+
+    def color_bold(self):
+        """
+        Returns a bold escape sequence
+        """
+        if self.has_colorama:
+            return colorama.Style.BRIGHT
+        else:
+            return ''
+
+    def color_reset(self):
+        """
+        Returns an appropriate reset color
+        """
+        if self.has_colorama:
+            return colorama.Style.RESET_ALL
+        else:
+            return ''
+
+    def color_text(self, color):
+        """
+        Colorizes some text with the specified color
+        """
+        if self.has_colorama and self.color != App.COLOR_NONE:
+            return '%s%s' % (self.color_dim(), color)
+        else:
+            return ''
+
+    def color_commands(self):
+        """
+        Color to use for command listings
+        """
+        if self.has_colorama:
+            return self.color_text(colorama.Fore.CYAN)
+        else:
+            return ''
+
+    def color_result(self):
+        """
+        Returns a color to use for results
+        """
+        if self.has_colorama:
+            return self.color_text(colorama.Fore.GREEN)
+        else:
+            return ''
+
+    def color_error(self):
+        """
+        Returns a color to use for errors
+        """
+        if self.has_colorama:
+            return self.color_text(colorama.Fore.RED)
+        else:
+            return ''
+
+    def color_heading(self):
+        """
+        Returns a color to use for headings
+        """
+        if self.has_colorama:
+            return self.color_text(colorama.Fore.BLUE)
+        else:
+            return ''
+
+    def color_prompt(self):
+        """
+        Returns a color to use for user prompts
+        """
+        if self.has_colorama:
+            return self.color_text(colorama.Fore.YELLOW)
+        else:
+            return ''
+
+    def color_flags(self):
+        """
+        Returns a color to use for page flags (ending, canon)
+        """
+        if self.has_colorama:
+            return self.color_text(colorama.Fore.MAGENTA)
+        else:
+            return ''
+
+    def print_heading(self, line):
+        """
+        Prints out a heading line
+        """
+        print('%s%s' % (self.color_heading(), line))
+
+    def print_result(self, line):
+        """
+        Prints out an information line
+        """
+        print('%s%s' % (self.color_result(), line))
+
+    def print_commands(self, line):
+        """
+        Prints out a command-info line
+        """
+        print('%s%s' % (self.color_commands(), line))
+
+    def print_error(self, line):
+        """
+        Prints out an error line
+        """
+        print('%s%s' % (self.color_error(), line))
+
+    def print_flags(self, line):
+        """
+        Prints out a flags line (canon, ending)
+        """
+        print('%s%s' % (self.color_flags(), line))
 
     def prompt(self, prompt_text):
         """
         Prompts a user for input.  A simple wrapper.
         """
-        sys.stdout.write('%s: ' % (prompt_text))
+        sys.stdout.write('%s%s%s:%s ' % (self.color_prompt(), self.color_bold(), prompt_text, self.color_reset()))
         sys.stdout.flush()
         return sys.stdin.readline().strip()
 
@@ -474,7 +664,7 @@ class App(object):
             optstr = 'Y|n'
         else:
             optstr = 'y|N'
-        sys.stdout.write('%s [%s]? ' % (prompt_text, optstr))
+        sys.stdout.write('%s%s%s [%s]? %s' % (self.color_prompt(), self.color_bold(), prompt_text, optstr, self.color_reset()))
         sys.stdout.flush()
         user_input = sys.stdin.readline().strip()
         if user_input == '':
@@ -495,7 +685,7 @@ class App(object):
 
         # Show a list of current characters
         print('')
-        print('Current Characters:')
+        self.print_result('Current Characters:')
         default = 1
         clist = sorted(self.book.characters.keys())
         for (idx, cname) in enumerate(clist):
@@ -519,13 +709,13 @@ class App(object):
             try:
                 charnum = int(charnum_txt)
             except ValueError:
-                print('Please input a valid number!')
+                self.print_error('Please input a valid number!')
                 print('')
                 return self.pick_character()
 
         # Check for invalid numbers
         if charnum < 1 or charnum > len(clist)+1:
-            print('Please input a number from 1 to %d' % (len(clist)+1))
+            self.print_error('Please input a number from 1 to %d' % (len(clist)+1))
             print('')
             return self.pick_character()
 
@@ -537,12 +727,12 @@ class App(object):
                 clist.append(newname)
             except Exception as e:
                 print('')
-                print('Unable to add new character: %s' % (e))
+                self.print_error('Unable to add new character: %s' % (e))
                 return self.pick_character()
 
         # Now set our cur_char var, report, and return
         self.cur_char = self.book.characters[clist[charnum-1]]
-        print('Picked "%s" as the current character' % (self.cur_char.name))
+        self.print_result('Picked "%s" as the current character' % (self.cur_char.name))
         return self.cur_char
 
     def set_page(self, pagenum):
@@ -567,7 +757,7 @@ class App(object):
             raise Exception('Page %s already exists!' % (pagenum))
 
         print('')
-        print('Creating new page %s' % (pagenum))
+        self.print_result('Creating new page %s' % (pagenum))
         summary = self.prompt('Page Summary (enter to cancel)')
         if summary == '':
             return None
@@ -593,7 +783,7 @@ class App(object):
         just hits Enter, they want to cancel.
         """
         print('')
-        print('Adding a new choice!')
+        self.print_result('Adding a new choice!')
 
         # Get the summary
         summary = self.prompt('Summary')
@@ -609,7 +799,7 @@ class App(object):
         except ValueError:
             if ' ' in target_txt:
                 print('')
-                print('Non-numeric page numbers cannot contain spaces!')
+                self.print_error('Non-numeric page numbers cannot contain spaces!')
                 return self.add_choice()
             # Otherwise just let it be a string
             target = target_txt
@@ -620,7 +810,7 @@ class App(object):
             # This can happen if the user tries to add a choice to
             # a page that's already linked-to by this page.
             print('')
-            print('Could not add the new choice: %s' % (e))
+            self.print_error('Could not add the new choice: %s' % (e))
             return None
 
     def delete_choice(self):
@@ -628,7 +818,7 @@ class App(object):
         Deletes a choice from the current page.
         """
         print('')
-        print('Select a choice to delete:')
+        self.print_result('Select a choice to delete:')
         print('')
         choices = self.cur_page.choices_sorted()
         for choice in choices:
@@ -648,7 +838,7 @@ class App(object):
                 self.cur_page.delete_choice(target)
             except KeyError:
                 print('')
-                print('Choice with target of %s not found' % (target))
+                self.print_error('Choice with target of %s not found' % (target))
 
     def page_switch(self, pagenum=None):
         """
@@ -664,13 +854,13 @@ class App(object):
             except ValueError:
                 if ' ' in response:
                     print('')
-                    print('Page numbers cannot contain spaces')
+                    self.print_error('Page numbers cannot contain spaces')
                     return None
                 pagenum = response
 
         if self.book.has_intermediate(pagenum):
             print('')
-            print('Page %s is already set as an intermediate page' % (pagenum))
+            self.print_error('Page %s is already set as an intermediate page' % (pagenum))
             return None
         elif pagenum in self.book.pages:
             return self.set_page(pagenum)
@@ -691,7 +881,7 @@ class App(object):
 
         if pagenum == self.cur_page.pagenum:
             print('')
-            print('Refusing to delete current page - switch to a different page')
+            self.print_error('Refusing to delete current page - switch to a different page')
             return
 
         # If we got this far, delete the page.
@@ -699,12 +889,12 @@ class App(object):
             self.book.delete_page(pagenum)
         except KeyError:
             print('')
-            print('Page %s not found!' % (pagenum))
+            self.print_error('Page %s not found!' % (pagenum))
             return
 
         # Report
         print('')
-        print('Page %s deleted!' % (pagenum))
+        self.print_result('Page %s deleted!' % (pagenum))
 
     def add_intermediate(self):
         """
@@ -714,7 +904,7 @@ class App(object):
         while True:
             print('')
             if len(self.book.intermediates) > 0:
-                print('Current intermediates:')
+                self.print_result('Current intermediates:')
                 self.book.print_intermediates(prefix='   ')
                 print('')
             response = self.prompt('Page to mark as intermediate (enter to quit)')
@@ -728,12 +918,12 @@ class App(object):
                 # are a bit pointless.
                 pagenum = response
             if pagenum in self.book.pages:
-                print('Page %s is already a "real" page' % (pagenum))
+                self.print_error('Page %s is already a "real" page' % (pagenum))
             elif self.book.has_intermediate(pagenum):
-                print('Page %s is already marked as intermediate' % (pagenum))
+                self.print_error('Page %s is already marked as intermediate' % (pagenum))
             else:
                 self.book.add_intermediate(pagenum)
-                print('Page %s added as intermediate' % (pagenum))
+                self.print_result('Page %s added as intermediate' % (pagenum))
 
     def delete_intermediate(self):
         """
@@ -742,12 +932,12 @@ class App(object):
         """
         if len(self.book.intermediates) == 0:
             print('')
-            print('No intermediates are present in the book')
+            self.print_error('No intermediates are present in the book')
             return
 
         while len(self.book.intermediates) > 0:
             print('')
-            print('Current intermediates:')
+            self.print_result('Current intermediates:')
             self.book.print_intermediates(prefix='   ')
             print('')
             response = self.prompt('Intermediate to delete (enter to quit)')
@@ -762,7 +952,7 @@ class App(object):
                 self.book.delete_intermediate(pagenum)
             except ValueError:
                 print('')
-                print('Invalid page number specified')
+                self.print_error('Invalid page number specified')
 
     def list_pages(self):
         """
@@ -830,6 +1020,14 @@ class App(object):
             print(total_pages)
             print('')
 
+    def save(self):
+        """
+        Saves out to our filename
+        """
+
+        self.book.save()
+        self.print_result('Saved to %s' % (self.book.filename))
+
     def toggle_canonical(self):
         """
         Toggles the canonical status of the current page
@@ -861,7 +1059,7 @@ class App(object):
         # This is pretty silly, but whatever.
         if filename == self.filename:
             print('')
-            print('ERROR: Refusing to write DOT file on top of book data YAML file.')
+            self.print_error('ERROR: Refusing to write DOT file on top of book data YAML file.')
             return 1
 
         # Actually do the export
@@ -949,13 +1147,13 @@ class App(object):
             self.book = Book.load(self.filename)
             return self.export_dot(self.do_dot)
         
-        print('Chooseable-Path Adventure Tracker')
+        self.print_heading('Chooseable-Path Adventure Tracker')
         print('')
 
         if not os.path.exists(self.filename):
-            print('"%s" does not exist' % (self.filename))
+            self.print_error('"%s" does not exist' % (self.filename))
             if not self.prompt_yn('Continue as a new book'):
-                print('Exiting!')
+                self.print_error('Exiting!')
                 return 1
 
             # Creating a new book at this point
@@ -972,7 +1170,7 @@ class App(object):
                 self.create_page(1)
 
             # Aaand save it out right away, for good measure
-            self.book.save()
+            self.save()
 
         else:
 
@@ -980,7 +1178,7 @@ class App(object):
             self.book = Book.load(self.filename)
             self.set_page(1)
 
-            print('Loaded Book "%s"' % (self.book.title))
+            self.print_result('Loaded Book "%s"' % (self.book.title))
 
         # At this point we have a book set up and loaded.  Time to get going!
         OPT_QUIT = 'q'
@@ -997,18 +1195,19 @@ class App(object):
         OPT_GRAPHVIZ = 'g'
         OPT_INTERMEDIATE = 'i'
         OPT_INTER_DEL = 'o'
+        OPT_COLOR = 'r'
         
         while True:
             
             # Status display
             print('')
-            print('-'*80)
+            self.print_heading('='*80)
             if self.cur_page.canonical:
-                print('**** CANON ****')
+                self.print_flags('**** CANON ****')
             if self.cur_page.ending:
-                print('**** THE END ****')
-            print('Current Page: %s' % (self.cur_page.pagenum))
-            print('Current Character: %s' % (self.cur_char.name))
+                self.print_flags('**** THE END ****')
+            self.print_result('Current Page: %s' % (self.cur_page.pagenum))
+            self.print_result('Current Character: %s' % (self.cur_char.name))
             print('')
             print('Summary: %s' % (self.cur_page.summary))
             if len(self.cur_page.choices) > 0:
@@ -1023,17 +1222,21 @@ class App(object):
                     except KeyError:
                         pass
                     print('  %s (turn to page %s%s)' % (choice.summary, choice.target, extratext))
-            print('-'*80)
-            print('[%s] Add Choice [%s] Delete Choice [%s] Character' %(
+            self.print_heading('='*80)
+            self.print_commands('[%s] Add Choice [%s] Delete Choice [%s] Character' %(
                     OPT_CHOICE, OPT_DEL, OPT_CHAR))
-            print('[%s/##] Page [%s] Delete Page [%s] List Pages [%s] Update Summary' % (
+            self.print_commands('[%s/##] Page [%s] Delete Page [%s] List Pages [%s] Update Summary' % (
                     OPT_PAGE, OPT_DELPAGE, OPT_LISTPAGE, OPT_SUMMARY))
-            print('[%s] Toggle Canonical [%s] Toggle Ending' % (
+            self.print_commands('[%s] Toggle Canonical [%s] Toggle Ending' % (
                     OPT_CANON, OPT_ENDING))
-            print('[%s] Add Intermediate [%s] Delete Intermediate' % (
+            self.print_commands('[%s] Add Intermediate [%s] Delete Intermediate' % (
                     OPT_INTERMEDIATE, OPT_INTER_DEL))
-            print('[%s] Save [%s] Graphviz [%s] Quit' % (
-                    OPT_SAVE, OPT_GRAPHVIZ, OPT_QUIT))
+            if self.has_colorama:
+                extracommands = ' [%s] Swap Color Style' % (OPT_COLOR)
+            else:
+                extracommands = ''
+            self.print_commands('[%s] Save [%s] Graphviz [%s] Quit%s' % (
+                    OPT_SAVE, OPT_GRAPHVIZ, OPT_QUIT, extracommands))
 
             # User input
             response = self.prompt('Action')
@@ -1065,19 +1268,21 @@ class App(object):
                 elif option == OPT_GRAPHVIZ:
                     self.generate_graphviz()
                 elif option == OPT_SAVE:
-                    self.book.save()
+                    self.save()
                 elif option == OPT_INTERMEDIATE:
                     self.add_intermediate()
                 elif option == OPT_INTER_DEL:
                     self.delete_intermediate()
+                elif option == OPT_COLOR and self.has_colorama:
+                    self.set_color()
                 elif option == OPT_QUIT:
                     print('')
                     if self.prompt_yn('Save before quitting'):
-                        self.book.save()
+                        self.save()
                     return 0
                 else:
                     print('')
-                    print('Unknown option, try again!')
+                    self.print_error('Unknown option, try again!')
 
         # Shouldn't be any way to get here, actually.
         return 0
