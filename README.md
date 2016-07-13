@@ -21,8 +21,12 @@ be a bit cumbersome.  This utility is *basically* just a fancy
 electronic bookmark for myself.
 
 The utility can also output some fancy graphs, using a third party
-application called Graphviz <sup>[4](#fn4)</sup>, though I suspect
-they'll become pretty unwieldy before too long.  More on that later.
+application called Graphviz <sup>[4](#fn4)</sup>.  The graphs can
+become rather unwieldy as the book is populated, but they're a great
+way to have a visual "bookmark" of all the places you have yet to
+explore in the book, and it's probably the most useful thing this
+utility generates.  You can find some examples in the `examples`
+directory.
 
 This application is licensed under the New/Modified BSD License.
 See COPYING.txt for details.
