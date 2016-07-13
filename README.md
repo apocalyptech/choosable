@@ -347,8 +347,6 @@ TODO
   objects and application logic.  The main App class probably knows
   too much about the internal structure of the Book/Option/Character
   classes, for instance.
-* It'd be nice to have some output colorization - the text while
-  running does tend to kind of blend into a solid mess after awhile.
 * It'd be nice to have a UI for changing character colorization.
 * Strict adherents to PEP8 <sup>[11](#fn11)</sup> will probably weep
   in sorrow after looking at this code.  I apologize.
