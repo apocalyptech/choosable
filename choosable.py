@@ -350,7 +350,8 @@ class Book(object):
 
     def rename_character(self, char, newname):
         """
-        Renames the given character object to a new name.
+        Renames the given character object to a new name.  Will raise an
+        Exception if things aren't kosher
         """
 
         # We've probably already checked for this at input time, but
@@ -363,6 +364,25 @@ class Book(object):
         del self.characters[char.name]
         char.name = newname
         self.add_character_obj(char)
+
+    def delete_character(self, charname):
+        """
+        Deletes the given character name.  Will raise an Exception if
+        things aren't kosher
+        """
+
+        # First sanity check
+        if charname not in self.characters:
+            raise Exception('Character "%s" not found to delete!' % (charname))
+
+        # Next check for page ownership (this is almost certainly already
+        # checked-for before this, but do it here as well)
+        for page in self.pages_sorted():
+            if page.character.name == charname:
+                raise Exception('Character "%s" is the active character on page %s!' % (charname, page.pagenum))
+
+        # Now go ahead and delete it
+        del self.characters[charname]
 
     def add_page(self, pagenum, character=None, summary=None):
         """
@@ -696,9 +716,6 @@ class App(object):
         yes/no question.  Returns True or False, rather than
         the actual text.  The default response defaults to
         Yes but pass in default to change.
-
-        I suspect my logic when default=False is probably
-        wrong somehow, but we're not actually using that yet.
         """
         if default == True:
             optstr = 'Y|n'
@@ -711,10 +728,7 @@ class App(object):
             return default
         else:
             user_input = user_input[:1].lower()
-            if default == True:
-                return (user_input == 'y')
-            else:
-                return (user_input == 'n')
+            return (user_input == 'y')
 
     def edit_character(self):
         """
@@ -797,6 +811,76 @@ class App(object):
         Provides the user with options to delete a character.  Will
         refuse to delete a character who's active on any pages, though.
         """
+
+        # Make sure we have some
+        if len(self.book.characters) == 0:
+            print('')
+            self.print_error('No characters found to delete!')
+            return
+
+        # List of current characters
+        print('')
+        self.print_result('Current Characters:')
+        clist = self.book.characters_sorted()
+        for (idx, char) in enumerate(clist):
+            print('  [%d] %s' % (idx+1, char.name))
+        print('')
+        charnum_txt = self.prompt('Delete character (Enter to cancel)')
+        if charnum_txt == '':
+            return
+
+        # Check for valid int
+        try:
+            charnum = int(charnum_txt)
+        except ValueError:
+            self.print_error('Please input a valid number!')
+            print('')
+            return self.delete_character()
+
+        # Check for valid number
+        if charnum < 1 or charnum > len(clist):
+            self.print_error('Please input a number from 1 to %d' % (len(clist)))
+            print('')
+            return self.delete_character()
+
+        # Grab which character we're talking about
+        char = clist[charnum-1]
+
+        # Before confirmation, make sure that the user is not active on
+        # any pages.
+        pagelist = []
+        for page in self.book.pages_sorted():
+            if page.character == char:
+                pagelist.append(page.pagenum)
+        if len(pagelist) > 0:
+            print('')
+            self.print_error('Character "%s" is the active character on the following pages:' % (char.name))
+            for pagenum in pagelist:
+                self.print_error('  * %s' % (pagenum))
+            print('')
+            self.print_error('Refusing to delete character!')
+            return
+
+        # This check should never actually resolve to True, but I'm putting it here anyway
+        if char == self.cur_char:
+            print('')
+            self.print_error('Character "%s" is the currently-active character!  Not deleting.' % (char.name))
+            return
+
+        # If we get here, we're ready to delete.  Ask for a confirmation
+        # even though the stakes are low, given the above checks.
+        if self.prompt_yn('Really delete character "%s"' % (char.name), default=False):
+            try:
+                self.book.delete_character(char.name)
+                print('')
+                self.print_result('Deleted character "%s"' % (char.name))
+            except Exception as e:
+                print('')
+                self.print_error('Could not delete character: %s' % (e))
+        else:
+            print('')
+            self.print_result('Cancelling deletion')
+
         return
 
     def pick_character(self):
