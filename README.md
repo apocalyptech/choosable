@@ -105,9 +105,9 @@ to the following:
 
     Summary: Book Introduction
 
-      Spoil the plot (turn to page 3 - visited (CANON))
-      Learn more about the author (turn to page 22 - visited)
-      Play without spoilers (turn to page 36 - visited (CANON))
+      Page 3 - Spoil the plot (visited, CANON)
+      Page 22 - Learn more about the author (visited)
+      Page 36 - Play without spoilers (visited, CANON)
     --------------------------------------------------------------------------------
     [a] Add Choice [d] Delete Choice [c] Character
     [p/##] Page [x] Delete Page [l] List Pages [u] Update Summary

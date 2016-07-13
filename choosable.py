@@ -1498,15 +1498,20 @@ class App(object):
             if len(self.cur_page.choices) > 0:
                 print('')
                 for choice in self.cur_page.choices_sorted():
+                    reports = []
                     extratext = ''
                     try:
                         remote_page = self.book.get_page(choice.target)
-                        extratext = '%s - visited' % (extratext)
+                        reports.append('visited')
                         if remote_page.canonical:
-                            extratext = '%s (CANON)' % (extratext)
+                            reports.append('CANON')
+                        if remote_page.ending:
+                            reports.append('ENDING')
                     except KeyError:
                         pass
-                    print('  %s (turn to page %s%s)' % (choice.summary, choice.target, extratext))
+                    if len(reports) > 0:
+                        extratext = ' (%s)' % (', '.join(['%s%s%s' % (self.color_flags(), text, self.color_reset()) for text in reports]))
+                    print('  Page %s - %s%s' % (choice.target, choice.summary, extratext))
             self.print_heading('='*80)
             self.print_commands('[%s] Add Choice [%s] Delete Choice [%s] Character' %(
                     OPT_CHOICE, OPT_DEL, OPT_CHAR))
