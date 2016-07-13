@@ -37,7 +37,10 @@ INSTALLATION
 * PyYAML <sup>[6](#fn6)</sup> - The app saves its data in the YAML <sup>[7](#fn7)</sup>
   format.
 * Graphviz <sup>[4](#fn4)</sup> *(optional)* - If you want to
-  generate some fancy graphs.
+  generate some fancy graphs.  The graphs are sort of the most useful
+  feature of the app, by far, so you almost certainly do want this.
+* Colorama <sup>[8](#fn8)</sup> *(optional)* - For nicely-colorized
+  text output in the CLI.
 
 There isn't actually an installation procedure at the moment.  I
 suppose I should probably turn it into a properly-packaged Python
@@ -74,6 +77,16 @@ extension doesn't matter.  Once you launch the app, you'll have a
 commandline interface with which to edit the book, create new pages,
 etc.
 
+You can get some fancy colorization on the app if the python library
+"Colorama" is installed.  You can specify either `light` or `dark`
+with the `-c` or `--color` option, if you're using a terminal with a
+light or dark background, respectively:
+
+    ./choosable.py -f romeo.yaml -c dark
+    ./choosable.py --filename romeo.yaml --color light
+
+You can also change the color scheme while the app is running.
+
 Upon launching the app, you'll be presented with a screen similar
 to the following:
 
@@ -96,7 +109,7 @@ to the following:
     [p/##] Page [x] Delete Page [l] List Pages [u] Update Summary
     [t] Toggle Canonical [e] Toggle Ending
     [i] Add Intermediate [o] Delete Intermediate
-    [s] Save [g] Graphviz [q] Quit
+    [s] Save [g] Graphviz [q] Quit [r] Swap Color Style
     Action: 
 
 So up at the top you'll see that page 1 is considered "canon," and
@@ -158,6 +171,9 @@ Intermediate Pages, below.
 
 To generate a graphviz dotfile, use `g` (more on that in the next section).
 
+To change the color scheme currently in use, use `r` (this is only
+available if the "colorama" Python library is installed).
+
 Finally,  you can save to the current filename with `s`, or quit with `q`.
 The app will ask you if you want to save before quitting.
 
@@ -188,10 +204,10 @@ to create a PNG image like so:
 
 Alternatively, I've included a `makedot.sh` script which will
 auto-convert any `*.dot` file in the current directory to a PNG.
-That's a shell script <sup>[8](#fn8)</sup>, which is only going
+That's a shell script <sup>[9](#fn9)</sup>, which is only going
 to work on systems which support shell scripts.  (Linux, of
 course, works.  OSX probably will?)  The script has only been
-tested with "bash" <sup>[9](#fn9)</sup>, though I'd be surprised
+tested with "bash" <sup>[10](#fn10)</sup>, though I'd be surprised
 if alternate shells like dash wouldn't work.
 
 Graphviz can output to many other formats than just PNG, though
@@ -334,7 +350,7 @@ TODO
 * It'd be nice to have some output colorization - the text while
   running does tend to kind of blend into a solid mess after awhile.
 * It'd be nice to have a UI for changing character colorization.
-* Strict adherents to PEP8 <sup>[10](#fn10)</sup> will probably weep
+* Strict adherents to PEP8 <sup>[11](#fn11)</sup> will probably weep
   in sorrow after looking at this code.  I apologize.
 * There's currently no way to delete a character, or change a
   character's name (in case you'd made a typo or something)
@@ -358,7 +374,8 @@ FOOTNOTES!
 <a name="fn5">5</a>: https://www.python.org/
 <a name="fn6">6</a>: http://pyyaml.org/
 <a name="fn7">7</a>: http://yaml.org/
-<a name="fn8">8</a>: https://en.wikipedia.org/wiki/Shell_script
-<a name="fn9">9</a>: https://www.gnu.org/software/bash/
-<a name="fn10">10</a>: https://www.python.org/dev/peps/pep-0008/
+<a name="fn8">8</a>: https://pypi.python.org/pypi/colorama
+<a name="fn8">9</a>: https://en.wikipedia.org/wiki/Shell_script
+<a name="fn9">10</a>: https://www.gnu.org/software/bash/
+<a name="fn10">11</a>: https://www.python.org/dev/peps/pep-0008/
 
