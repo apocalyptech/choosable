@@ -559,6 +559,17 @@ class App(object):
         else:
             return ''
 
+    def color_intermediates(self):
+        """
+        Returns a color for use on listing intermediate pages
+        """
+        if self.has_colorama:
+            if self.color == App.COLOR_LIGHT:
+                return self.color_text(colorama.Fore.WHITE)
+            elif self.color == App.COLOR_DARK:
+                return self.color_text(colorama.Fore.BLACK)
+        return ''
+
     def color_commands(self):
         """
         Color to use for command listings
@@ -642,6 +653,12 @@ class App(object):
         Prints out a flags line (canon, ending)
         """
         print('%s%s' % (self.color_flags(), line))
+
+    def print_intermediates_line(self, line):
+        """
+        Prints out a line containing intermediate pages
+        """
+        print('%s%s' % (self.color_intermediates(), line))
 
     def prompt(self, prompt_text):
         """
@@ -975,35 +992,35 @@ class App(object):
             # output them now.
             while ((cur_intermediate < len(intermediates)) and
                 (intermediates[cur_intermediate] < page.pagenum)):
-                    print('%s - (intermediate page)' % (intermediates[cur_intermediate]))
+                    self.print_intermediates_line('%s - (intermediate page)' % (intermediates[cur_intermediate]))
                     cur_intermediate += 1
             if page.character.name not in char_counts:
                 char_counts[page.character.name] = 1
             else:
                 char_counts[page.character.name] += 1
+            extratext = ''
             if page.ending:
+                extratext = '%s - %sENDING%s' % (extratext, self.color_flags(), self.color_reset())
                 ending_count += 1
             if page.canonical:
-                extratext = ' - CANON'
+                extratext = '%s - %sCANON%s' % (extratext, self.color_flags(), self.color_reset())
                 canon_count += 1
-            else:
-                extratext = ''
             print('%s - %s (%s)%s' % (page.pagenum, page.summary, page.character.name, extratext))
         for intermediate in intermediates[cur_intermediate:]:
-            print('%s - (intermediate page)' % (intermediates[cur_intermediate]))
+            self.print_intermediates_line('%s - (intermediate page)' % (intermediates[cur_intermediate]))
         print('')
-        print('Total pages known: %d' % (len(self.book.pages)))
-        print('Canon Pages: %s' % (canon_count))
-        print('Ending Pages: %s' % (ending_count))
+        self.print_result('Total pages known: %d' % (len(self.book.pages)))
+        self.print_result('Canon Pages: %s' % (canon_count))
+        self.print_result('Ending Pages: %s' % (ending_count))
         if len(self.book.intermediates) > 0:
-            print('Intermediate Pages: %s' % (len(self.book.intermediates)))
-        print('Character Counts:')
+            self.print_result('Intermediate Pages: %s' % (len(self.book.intermediates)))
+        self.print_result('Character Counts:')
         for (char, count) in [(name, char_counts[name]) for name in sorted(char_counts.keys())]:
             if count == 1:
                 plural = ''
             else:
                 plural = 's'
-            print('  %s: %d page%s' % (char, count, plural))
+            self.print_result('  %s: %d page%s' % (char, count, plural))
         print('')
 
         # Also, what the heck.  Let's go ahead and make a list of all pages
