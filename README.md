@@ -135,11 +135,16 @@ up at a dialog like the following:
       [1] Juliet
       [2] Other (*)
       [3] Romeo
-      [4] (new character)
+
+      [n] New Character
+      [d] Delete Character
+      [e] Edit Character (name, graphviz colors)
 
     Switch to character number [2]: 
 
-As you can see, new characters can be added here, as well.
+In addition to switching the currently-active character, you can also
+add and delete characters from this menu, and also edit character names
+and their graphviz colors.
 
 Back on the main menu, if you use `p` or just type in a new page number,
 you'll either switch to that page (if it already exists in the system), or
@@ -224,24 +229,12 @@ I haven't actually tested out the current dotfile generation with
 anything but PNGs.  I also suspect that the generated graphs
 will quickly become unwieldy as you fill in more of the book.
 
-Note that there **is** some support for colorizing characters
-differently when generating these graphs, but there is currently
-no way to do so within the application itself.  Instead, you must
-edit the `.yaml` file directly.  Specifically, the `characters`
-section near the top of the file will look something like this:
-
-    Juliet: {graphviz_fillcolor: brown1, graphviz_fontcolor: black, name: Juliet}
-    Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
-    Romeo: {graphviz_fillcolor: cadetblue1, graphviz_fontcolor: black, name: Romeo}
-
-Simply change the `graphviz_fillcolor` and `graphviz_fontcolor`
-options to suit, per character, and then when you generate the
-dotfile, those colors will propagate out appropriately.  The list
-of allowed color names is here: http://www.graphviz.org/doc/info/colors.html
-
-Be careful not to edit the YAML file while the application still
-has it "open" because the next save will overwrite any manual
-changes you've made.
+Each of the characters has a set of colors associated with it, which
+will be put into the graphviz graphs that are generated.  The
+default colors are black text with a white background.  To change
+the colors, you can use the `c` option from the main UI, and then
+hit `e` to edit a character.  The list of colors that Graphviz 
+accepts is found here: http://www.graphviz.org/doc/info/colors.html
 
 "PAGES" AND INTERMEDIATE PAGES
 ------------------------------
@@ -356,12 +349,9 @@ TODO
   objects and application logic.  The main App class probably knows
   too much about the internal structure of the Book/Option/Character
   classes, for instance.
-* It'd be nice to have a UI for changing character colorization.
 * Strict adherents to PEP8 <sup>[11](#fn11)</sup> will probably weep
   in sorrow after looking at this code.  I apologize.
-* There's currently no way to delete a character, or change a
-  character's name (in case you'd made a typo or something)
-* There's also no way to *modify* existing choices.  To make a change to
+* There's no way to *modify* existing choices.  To make a change to
   a choice, you've got to delete it and then re-add.
 * There's also no way to modify the book title itself, though that
   could be easily edited by hand in the YAML file directly.
