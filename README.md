@@ -169,7 +169,9 @@ To add or edit "intermediate" pages, use `i` and `o`, though this is a
 feature you probably don't care about.  See the section about Pages and
 Intermediate Pages, below.
 
-To generate a graphviz dotfile, use `g` (more on that in the next section).
+To generate a Graphviz dotfile and PNG, use `g` (more on that in the next
+section).  This will generate two files, a text-based dotfile which Graphviz
+understands, and a PNG graphic (so long as Graphviz is available in your path).
 
 To change the color scheme currently in use, use `r` (this is only
 available if the "colorama" Python library is installed).
@@ -187,18 +189,21 @@ modes, "dot," is the flowchart-like directional graph which is most
 useful for visualizing this kind of data, and the utility supports
 exporting to a "dot" file for graphviz to parse.
 
-You can generate the file with the `-d` or `--dot` option, like so:
+When you generate a dotfile in the app with the `g` option, it will
+also try to call `dot` to generate the PNG automatically.  This
+attempt will fail if you don't have `dot` in your `$PATH`, but you
+will still have a dotfile saved so that you can run it manually
+later.
+
+You can also generate a dotfile outside of the main app UI, with
+the `-d` or `--dot` option, like so:
 
     ./choosable.py -f romeo.yaml -d romeo.dot
     ./choosable.py --filename romeo.yaml --dot romeo.dot
 
 If `romeo.dot` already exists, you'll be prompted as to whether you
-want to overwrite it.  Alternatively, you can tell the application to
-generate this dotfile while still in the CLI interface with the `g`
-key.
-
-Once you have the dotfile, you can use graphviz's "dot" utility
-to create a PNG image like so:
+want to overwrite it.  Then once you have the dotfile, you can use
+graphviz's "dot" utility to create a PNG image like so:
 
     dot -Tpng romeo.dot -o romeo.png
 

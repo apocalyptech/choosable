@@ -31,6 +31,7 @@ import sys
 import yaml
 import argparse
 import itertools
+import subprocess
 
 try:
     import colorama
@@ -1064,8 +1065,34 @@ class App(object):
             self.print_error('ERROR: Refusing to write DOT file on top of book data YAML file.')
             return 1
 
-        # Actually do the export
-        return self.export_dot(filename)
+        # Actually do the export, and try running graphviz to boot.
+        if self.export_dot(filename):
+            filename_parts = filename.split('.')
+            png_file_default = '%s.png' % (filename_parts[0])
+            png_file = self.prompt('Filename for Graphviz PNG output [%s]' % (png_file_default))
+            if png_file == '':
+                png_file = png_file_default
+            if png_file == self.filename:
+                print('')
+                self.print_error('ERROR: Refusing to write PNG on top of book data YAML file.')
+                return 1
+            if os.path.exists(png_file):
+                print('')
+                response = self.prompt_yn('File "%s" already exists.  Overwrite' % (png_file))
+                if not response:
+                    return 1
+            print('')
+            self.print_result('Attempting to generate %s' % (png_file))
+            try:
+                retval = subprocess.call(['dot', '-Tpng', filename, '-o', png_file])
+                print('')
+                if retval == 0:
+                    self.print_result('PNG Graph generated to %s' % (png_file))
+                else:
+                    self.print_error('Error generating PNG, you will have to generate that yourself')
+            except OSError:
+                print('')
+                self.print_error('Graphviz "dot" executable not found, you will have to generate the PNG yourself')
 
     def export_dot(self, dot_filename):
         """
@@ -1077,7 +1104,7 @@ class App(object):
         if os.path.exists(dot_filename):
             response = self.prompt_yn('File "%s" already exists.  Overwrite' % (dot_filename))
             if not response:
-                return 1
+                return False
 
         book = self.book
         fileparts = dot_filename.split('.')
@@ -1137,7 +1164,7 @@ class App(object):
             df.write("\n");
             df.write("}\n")
 
-        return 0
+        return True
 
     def run(self):
         """
