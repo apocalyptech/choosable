@@ -988,6 +988,8 @@ class App(object):
             else:
                 extratext = ''
             print('%s - %s (%s)%s' % (page.pagenum, page.summary, page.character.name, extratext))
+        for intermediate in intermediates[cur_intermediate:]:
+            print('%s - (intermediate page)' % (intermediates[cur_intermediate]))
         print('')
         print('Total pages known: %d' % (len(self.book.pages)))
         print('Canon Pages: %s' % (canon_count))
