@@ -372,7 +372,7 @@ FOOTNOTES!
 <a name="fn3">3</a>: http://www.romeoandorjuliet.com/
 <a name="fn4">4</a>: http://www.graphviz.org/
 <a name="fn5">5</a>: https://www.python.org/
-<a name="fn6">6</a>: http://pyyaml.org/
+<a name="fn6">6</a>: http://pyyaml.org/wiki/PyYAML
 <a name="fn7">7</a>: http://yaml.org/
 <a name="fn8">8</a>: https://pypi.python.org/pypi/colorama
 <a name="fn8">9</a>: https://en.wikipedia.org/wiki/Shell_script
