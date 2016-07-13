@@ -226,8 +226,8 @@ if alternate shells like dash wouldn't work.
 
 Graphviz can output to many other formats than just PNG, though
 I haven't actually tested out the current dotfile generation with
-anything but PNGs.  I also suspect that the generated graphs
-will quickly become unwieldy as you fill in more of the book.
+anything but PNGs.  The generated graphs can get pretty unwieldy,
+but I've found them to be quite useful even when they get huge.
 
 Each of the characters has a set of colors associated with it, which
 will be put into the graphviz graphs that are generated.  The
