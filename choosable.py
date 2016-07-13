@@ -472,7 +472,7 @@ class App(object):
         parser.add_argument('-c', '--color',
             type=str,
             choices=App.COLOR_CHOICES,
-            default='light',
+            default='dark',
             help=color_help)
         args = parser.parse_args()
 
