@@ -296,7 +296,7 @@ NON-NUMERIC PAGE NUMBERS
 
 The book *To Be Or Not To Be* features a book-within-a-book called
 *The Murder of Gonzago* which uses a completely separate page numbering
-scheme from the rest of the book.  It's a full 24 pages (including
+scheme than the rest of the book.  It's a full 24 pages (including
 "cover") right inbetween the real pages 414 and 415.  The pages are
 numbered with a special system where page 1 is "G001" and page 21 is
 "G021", etc.
