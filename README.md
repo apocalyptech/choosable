@@ -289,8 +289,7 @@ if you're: 1) Reading a book like *To Be or Not To Be*, where choices can
 span multiple physical pages, and 2) Trying to make sure that you get
 100% completion on the book.  If that *is* something you think you're
 interested in, it's probably best to start cataloguing them right from
-the start of your reading, so it's not a lot of work to add in later,
-but I suspect that probably nobody but me even cares, anyway.
+the start of your reading, so it's not a lot of work to add in later.
 
 NON-NUMERIC PAGE NUMBERS
 ------------------------
@@ -298,14 +297,13 @@ NON-NUMERIC PAGE NUMBERS
 The book *To Be Or Not To Be* features a book-within-a-book called
 *The Murder of Gonzago* which uses a completely separate page numbering
 scheme from the rest of the book.  It's a full 24 pages (including
-"cover") right inbetween the "real" pages 414 and 415.  The pages are
-numbered with a special system that page 1 is "G001".  *Romeo and/or
-Juliet* also has more than one book-within-a-book, but they just use
-the standard numbering system as the rest of the main book.
+"cover") right inbetween the real pages 414 and 415.  The pages are
+numbered with a special system where page 1 is "G001" and page 21 is
+"G021", etc.
 
 This posed some problems for prior versions of this utility, since we
-assumed that all page numbers are numeric, and there wouldn't be room
-for the nested book otherwise.  There are a few possible ways to solve
+assumed that all page numbers are numeric, and there was no good way
+to keep track of the nested book.  There are a few possible ways to solve
 this, but in the end it was simplest to just allow page numbers to be
 non-numeric.
 
