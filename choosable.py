@@ -348,6 +348,22 @@ class Book(object):
         self.characters[char.name] = char
         return char
 
+    def rename_character(self, char, newname):
+        """
+        Renames the given character object to a new name.
+        """
+
+        # We've probably already checked for this at input time, but
+        # regardless: check to make sure there's not already a
+        # character with the new name.
+        if newname in self.characters and self.characters[newname] != char:
+            raise Exception('Cannot rename character "%s" to "%s" because a character already exists with that name' % (
+                char.name, newname))
+
+        del self.characters[char.name]
+        char.name = newname
+        self.add_character_obj(char)
+
     def add_page(self, pagenum, character=None, summary=None):
         """
         Adds a page to the book, and returns the page object.
@@ -419,6 +435,12 @@ class Book(object):
         Returns a list of intermediate pages sorted by page number
         """
         return sorted(self.intermediates.keys())
+
+    def characters_sorted(self):
+        """
+        Returns a list of characters sorted by name
+        """
+        return [self.characters[name] for name in sorted(self.characters.keys())]
 
     def get_page(self, pagenum):
         """
@@ -694,35 +716,173 @@ class App(object):
             else:
                 return (user_input == 'n')
 
+    def edit_character(self):
+        """
+        Presents the user with a way to change a character's name
+        or graphviz colors.
+        """
+
+        # Make sure we have some
+        if len(self.book.characters) == 0:
+            print('')
+            self.print_error('No characters found to edit!')
+            return
+
+        # List of current characters
+        print('')
+        self.print_result('Current Characters:')
+        clist = self.book.characters_sorted()
+        for (idx, char) in enumerate(clist):
+            print('  [%d] %s - Textcolor: %s, Fillcolor: %s' % (
+                idx+1, char.name, char.fontcolor, char.fillcolor))
+        print('')
+        charnum_txt = self.prompt('Edit character (Enter to cancel)')
+        if charnum_txt == '':
+            return
+
+        # Check for valid int
+        try:
+            charnum = int(charnum_txt)
+        except ValueError:
+            self.print_error('Please input a valid number!')
+            print('')
+            return self.edit_character()
+
+        # Check for valid number
+        if charnum < 1 or charnum > len(clist):
+            self.print_error('Please input a number from 1 to %d' % (len(clist)))
+            print('')
+            return self.edit_character()
+
+        # Grab which character we're talking about
+        char = clist[charnum-1]
+
+        # Get our input (name first)
+        name = self.prompt('Character Name [%s]' % (char.name))
+        if name == '':
+            name = char.name
+
+        # Make sure the new name doesn't already exist
+        for c in clist:
+            if c != char and name == c.name:
+                print('')
+                self.print_error('Another character is already named "%s"' % (name))
+                return
+
+        # Now get our colors
+        fontcolor = self.prompt('Text Color (graphviz) [%s]' % (char.fontcolor))
+        if fontcolor == '':
+            fontcolor = char.fontcolor
+        fillcolor = self.prompt('Fill Color (graphviz) [%s]' % (char.fillcolor))
+        if fillcolor == '':
+            fillcolor = char.fillcolor
+
+        # Now make changes.  First, the easy stuff!
+        char.fontcolor = fontcolor
+        char.fillcolor = fillcolor
+        self.print_result('Colors set!')
+
+        # Now the slightly-more complex stuff
+        if name != char.name:
+            try:
+                self.book.rename_character(char, name)
+                self.print_result('Character name changed to "%s"' % (name))
+            except Exception as e:
+                self.print_error('Could not rename character: %s' % (e))
+
+        return
+
+    def delete_character(self):
+        """
+        Provides the user with options to delete a character.  Will
+        refuse to delete a character who's active on any pages, though.
+        """
+        return
+
     def pick_character(self):
         """
         Presents the user with a list of characters to choose
         from.  Returns the character picked (though also sets
-        self.cur_char)
+        self.cur_char).  Users can also change the current
+        character's graphviz coloration through this menu.
         """
 
         # Show a list of current characters
         print('')
-        self.print_result('Current Characters:')
         default = 1
         clist = sorted(self.book.characters.keys())
-        for (idx, cname) in enumerate(clist):
-            if ((self.cur_char is not None and cname == self.cur_char.name) or
-                (self.cur_char is None and idx == 0)):
-                print('  [%d] %s (*)' % (idx+1, cname))
-                default = idx+1
-            else:
-                print('  [%d] %s' % (idx+1, cname))
-        if len(clist) == 0:
-            print('  [1] (new character) (*)')
-        else:
-            print('  [%d] (new character)' % (len(clist)+1))
-        print('')
 
-        # Have the user pick one
-        charnum_txt = self.prompt('Switch to character number [%d]' % (default))
-        if charnum_txt == '':
+        # If we have no characters, just force the user into creation mode.
+        if len(clist) == 0:
+            charnum_txt = 'n'
+        else:
+            self.print_result('Current Characters:')
+            for (idx, cname) in enumerate(clist):
+                if ((self.cur_char is not None and cname == self.cur_char.name) or
+                    (self.cur_char is None and idx == 0)):
+                    print('  [%d] %s (*)' % (idx+1, cname))
+                    default = idx+1
+                else:
+                    print('  [%d] %s' % (idx+1, cname))
+            print('')
+            print('  [n] New Character')
+            print('  [d] Delete Character')
+            print('  [e] Edit Character (name, graphviz colors)')
+            print('')
+
+            # Have the user pick one
+            charnum_txt = self.prompt('Switch to character number [%d]' % (default))
+
+        # If we're told to add a new character, do so!
+        if charnum_txt.lower() == 'n':
+
+            # Character name
+            newname = self.prompt('New Character Name (enter to cancel)')
+            if newname == '':
+                return None
+
+            # Now add the character
+            try:
+                self.cur_char = self.book.add_character(newname)
+
+                # Colors
+                default_fontcolor = 'black'
+                fontcolor = self.prompt('Text color (for graphviz) [%s]' % (default_fontcolor))
+                if fontcolor == '':
+                    fontcolor = default_fontcolor
+                self.cur_char.fontcolor = fontcolor
+
+                # Colors
+                default_fillcolor = 'white'
+                fillcolor = self.prompt('Fill color (for graphviz) [%s]' % (default_fillcolor))
+                if fillcolor == '':
+                    fillcolor = default_fillcolor
+                self.cur_char.fillcolor = fillcolor
+
+                # Append to list and set up our charnum
+                clist.append(newname)
+                charnum = len(clist)
+
+            except Exception as e:
+                print('')
+                self.print_error('Unable to add new character: %s' % (e))
+                return self.pick_character()
+
+        # If we have existing characters and we're told to edit
+        # one of them, do so!
+        elif len(clist) > 0 and charnum_txt.lower() == 'e':
+            return self.edit_character()
+
+        # If we have existing characters and we're told to delete
+        # one of them, do so!
+        elif len(clist) > 0 and charnum_txt.lower() == 'd':
+            return self.delete_character()
+
+        # Just choose our current char if there's no input
+        elif charnum_txt == '':
             charnum = default
+
+        # Otherwise, we must (well, should) have a number
         else:
             try:
                 charnum = int(charnum_txt)
@@ -732,24 +892,14 @@ class App(object):
                 return self.pick_character()
 
         # Check for invalid numbers
-        if charnum < 1 or charnum > len(clist)+1:
-            self.print_error('Please input a number from 1 to %d' % (len(clist)+1))
+        if charnum < 1 or charnum > len(clist):
+            self.print_error('Please input a number from 1 to %d' % (len(clist)))
             print('')
             return self.pick_character()
 
-        # The last option is always to add a new character
-        if charnum == len(clist)+1:
-            newname = self.prompt('New Character Name')
-            try:
-                self.cur_char = self.book.add_character(newname)
-                clist.append(newname)
-            except Exception as e:
-                print('')
-                self.print_error('Unable to add new character: %s' % (e))
-                return self.pick_character()
-
         # Now set our cur_char var, report, and return
         self.cur_char = self.book.characters[clist[charnum-1]]
+        print('')
         self.print_result('Picked "%s" as the current character' % (self.cur_char.name))
         return self.cur_char
 
@@ -1204,12 +1354,17 @@ class App(object):
 
             # Creating a new book at this point
             print('')
-            newtitle = self.prompt('Book Title')
+            newtitle = self.prompt('Book Title (enter to cancel)')
+            if newtitle == '':
+                self.print_error('Cancelling book creation!')
+                return 1
             self.book = Book(newtitle, filename=self.filename)
 
             # Pick a character (which at this point would just create
             # a new character)
-            self.pick_character()
+            if not self.pick_character():
+                self.print_error('Cancelling book creation!')
+                return 1
 
             # Create the initial room
             while self.cur_page is None:
