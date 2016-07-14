@@ -1,0 +1,792 @@
+book: {title: That Time Samuel Ampson Got His Thumb Bit}
+characters:
+  Ophelia: {graphviz_fillcolor: deepskyblue, graphviz_fontcolor: black, name: Ophelia}
+  Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
+  Samuel Ampson: {graphviz_fillcolor: darkorange, graphviz_fontcolor: black, name: Samuel
+      Ampson}
+intermediates: []
+pages:
+  1:
+    canonical: false
+    character: Other
+    choices:
+      2: {summary: Begin the adventure, target: 2}
+    ending: false
+    pagenum: 1
+    summary: Book Introduction
+  2:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      5: {summary: Bite your thumb anxiously, target: 5}
+      7: {summary: Go to Venice, target: 7}
+      21: {summary: Go to Denmark, target: 21}
+    ending: false
+    pagenum: 2
+    summary: Go on vacation
+  3:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 3
+    summary: Everyone dies!
+  4:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 4
+    summary: The boat sinks again, duh.
+  5:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      7: {summary: Go to Venice, target: 7}
+      21: {summary: Go to Denmark, target: 21}
+    ending: false
+    pagenum: 5
+    summary: Bite your thumb, get chastized
+  6:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      11: {summary: Try to rejoin group, target: 11}
+    ending: false
+    pagenum: 6
+    summary: Get separated from group
+  7:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      23: {summary: Arrive in Venice, target: 23}
+    ending: false
+    pagenum: 7
+    summary: Ride to Venice on a horse
+  8:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      10: {summary: Aw man, target: 10}
+    ending: false
+    pagenum: 8
+    summary: Get a job, but the boat sinks
+  9:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      88: {summary: 'IS it the end?', target: 88}
+    ending: true
+    pagenum: 9
+    summary: You return from vacation quite relaxed
+  10:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      6: {summary: Get your own boat, target: 6}
+      22: {summary: Share a boat with others, target: 22}
+    ending: false
+    pagenum: 10
+    summary: There are plenty of lifeboats though
+  11:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      25: {summary: Go explore Denmark, target: 25}
+    ending: false
+    pagenum: 11
+    summary: Wash up on Denmark Beach
+  12:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      3: {summary: Draw lots, target: 3}
+    ending: false
+    pagenum: 12
+    summary: Becalmed, someone suggests cannibalism
+  13:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      26: {summary: Talk to woman, target: 26}
+      31: {summary: Run away screaming, target: 31}
+    ending: false
+    pagenum: 13
+    summary: Encounter woman in throne room
+  14:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 14
+    summary: Ophelia kills you, alas
+  15:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      27: {summary: Just get out of here, target: 27}
+      32: {summary: Invite Ophelia to Verona, target: 32}
+    ending: false
+    pagenum: 15
+    summary: Consider inviting Ophelia on vacation
+  16:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      28: {summary: Continue, target: 28}
+    ending: false
+    pagenum: 16
+    summary: The boat is heading to Verona
+  17:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      4: {summary: Swim out to boat again, target: 4}
+      24: {summary: Wait for the next boat, target: 24}
+      32: {summary: Go back to Ophelia, target: 32}
+    ending: false
+    pagenum: 17
+    summary: You drown, but book gives you a second chance
+  18:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      4: {summary: Swim out to first boat again, target: 4}
+      30: {summary: 'Skip the first two boats, take the third', target: 30}
+      32: {summary: Go back to Ophelia, target: 32}
+    ending: false
+    pagenum: 18
+    summary: Another do-over
+  19:
+    canonical: false
+    character: Ophelia
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 19
+    summary: Get overrun by mob, die!
+  20:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      29: {summary: Whew, target: 29}
+    ending: false
+    pagenum: 20
+    summary: But only after it dropped you off at Verona
+  21:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      25: {summary: Explore Denmark, target: 25}
+    ending: false
+    pagenum: 21
+    summary: Arrive in Denmark
+  22:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      12: {summary: Try to rejoin group, target: 12}
+    ending: false
+    pagenum: 22
+    summary: Get separated from group
+  23:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      8: {summary: Get a job!, target: 8}
+      9: {summary: Stay in Venice and relax, target: 9}
+    ending: false
+    pagenum: 23
+    summary: Discover job offer
+  24:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      18: {summary: Aw for crying out loud, target: 18}
+    ending: false
+    pagenum: 24
+    summary: The new boat sinks too
+  25:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      13: {summary: Explore the castle, target: 13}
+    ending: false
+    pagenum: 25
+    summary: Everyone in village has been murdered?
+  26:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      14: {summary: Make an offensive gesture, target: 14}
+      15: {summary: Apologize for intruding, target: 15}
+    ending: false
+    pagenum: 26
+    summary: Ophelia seems a bit upset
+  27:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      16: {summary: Swim out to passing ship, target: 16}
+      32: {summary: Go back to Ophelia, target: 32}
+    ending: false
+    pagenum: 27
+    summary: Head back to Denmark Beach
+  28:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      17: {summary: Aw geez, target: 17}
+    ending: false
+    pagenum: 28
+    summary: The boat sinks, though
+  29:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 29
+    summary: Resume your buttling
+  30:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      20: {summary: FRIG, target: 20}
+    ending: false
+    pagenum: 30
+    summary: More sinking!
+  31:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 31
+    summary: Ophelia kills you!
+  32:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      36: {summary: Tell her about Verona's lovely vistas, target: 36}
+    ending: false
+    pagenum: 32
+    summary: Ophelia likes it in Denmark
+  33:
+    canonical: false
+    character: Ophelia
+    choices:
+      35: {summary: Go on vacation!, target: 35}
+    ending: false
+    pagenum: 33
+    summary: Maybe vacations are good?
+  34:
+    canonical: false
+    character: Ophelia
+    choices:
+      19: {summary: 'Whatever, can just kill anyone', target: 19}
+      39: {summary: Investigate further, target: 39}
+    ending: false
+    pagenum: 34
+    summary: Verona has border security
+  35:
+    canonical: false
+    character: Ophelia
+    choices:
+      34: {summary: Ride to Verona, target: 34}
+    ending: false
+    pagenum: 35
+    summary: Go to Verona with Sam
+  36:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      38: {summary: Tell her about culture and/or nightlife, target: 38}
+    ending: false
+    pagenum: 36
+    summary: Ophelia remains unconvinced
+  37:
+    canonical: false
+    character: Ophelia
+    choices:
+      53: {summary: Continue towards geyser, target: 53}
+    ending: false
+    pagenum: 37
+    summary: In Verona, geyser is ahead
+  38:
+    canonical: false
+    character: Samuel Ampson
+    choices:
+      33: {summary: 'Maybe just BE Ophelia?', target: 33}
+      36: {summary: Tell her about vistas again, target: 36}
+    ending: false
+    pagenum: 38
+    summary: Ophelia remains unmoved
+  39:
+    canonical: false
+    character: Ophelia
+    choices:
+      37: {summary: Enter Verona, target: 37}
+    ending: false
+    pagenum: 39
+    summary: Verona Reconaissance
+  40:
+    canonical: false
+    character: Ophelia
+    choices:
+      41: {summary: Hide here for a bit, target: 41}
+      54: {summary: Go east, target: 54}
+      72: {summary: Go south, target: 72}
+    ending: false
+    pagenum: 40
+    summary: Give kids horsey rides
+  41:
+    canonical: false
+    character: Ophelia
+    choices:
+      42: {summary: Hide here for a bit, target: 42}
+      55: {summary: Go east, target: 55}
+      79: {summary: Go south, target: 79}
+    ending: false
+    pagenum: 41
+    summary: Kids are weird
+  42:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 42
+    summary: The mob descends on you
+  43:
+    canonical: false
+    character: Ophelia
+    choices:
+      40: {summary: Hide here, target: 40}
+      53: {summary: Go east, target: 53}
+      71: {summary: Go south, target: 71}
+    ending: false
+    pagenum: 43
+    summary: Encounter kids and parents
+  44:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Oh well, target: 80}
+    ending: false
+    pagenum: 44
+    summary: Get captured and put in sack
+  45:
+    canonical: false
+    character: Ophelia
+    choices:
+      46: {summary: Hide here, target: 46}
+      59: {summary: Go east, target: 59}
+      73: {summary: Go west, target: 73}
+      77: {summary: Go south, target: 77}
+      79: {summary: Go north, target: 79}
+    ending: false
+    pagenum: 45
+    summary: Hear Gary get worked up
+  46:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Oh dang, target: 80}
+    ending: false
+    pagenum: 46
+    summary: The mob finds you
+  47:
+    canonical: false
+    character: Ophelia
+    choices:
+      44: {summary: Hide here for a bit, target: 44}
+      53: {summary: Go north, target: 53}
+      57: {summary: Go east, target: 57}
+      61: {summary: Go south, target: 61}
+      71: {summary: Go west, target: 71}
+    ending: false
+    pagenum: 47
+    summary: Overhear marriage proposal
+  48:
+    canonical: false
+    character: Ophelia
+    choices:
+      49: {summary: Hide here, target: 49}
+      58: {summary: Go north, target: 58}
+      76: {summary: Go west, target: 76}
+    ending: false
+    pagenum: 48
+    summary: Watch couple playing tennis
+  49:
+    canonical: false
+    character: Ophelia
+    choices:
+      50: {summary: Hide here, target: 50}
+      77: {summary: Go west, target: 77}
+      79: {summary: Go north, target: 79}
+    ending: false
+    pagenum: 49
+    summary: Your horses getting used to tennis
+  50:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 50
+    summary: Discovered by mob, horses were getting good
+  51:
+    canonical: false
+    character: Ophelia
+    choices:
+      48: {summary: Hide here, target: 48}
+      57: {summary: Go north, target: 57}
+      75: {summary: Go west, target: 75}
+    ending: false
+    pagenum: 51
+    summary: Play tennis a bit
+  52:
+    canonical: false
+    character: Ophelia
+    choices:
+      83: {summary: Oh well, target: 83}
+    ending: false
+    pagenum: 52
+    summary: Walk right into mob, get turned into chunky paste
+  53:
+    canonical: false
+    character: Ophelia
+    choices:
+      41: {summary: Go west, target: 41}
+      54: {summary: Hide here for a bit, target: 54}
+      63: {summary: Go east, target: 63}
+      70: {summary: Go south, target: 70}
+    ending: false
+    pagenum: 53
+    summary: Hide behind geyser
+  54:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: See where they carry you, target: 80}
+    ending: false
+    pagenum: 54
+    summary: The mob catches you at the geyser
+  55:
+    canonical: false
+    character: Ophelia
+    choices:
+      43: {summary: Go west, target: 43}
+      47: {summary: Go south, target: 47}
+      56: {summary: Hide a bit longer, target: 56}
+      65: {summary: Go east, target: 65}
+    ending: false
+    pagenum: 55
+    summary: Geyser erupts and you get wet
+  56:
+    canonical: false
+    character: Ophelia
+    choices:
+      40: {summary: Go west, target: 40}
+      44: {summary: Go south, target: 44}
+      53: {summary: Hide here for a bit, target: 53}
+      62: {summary: Go east, target: 62}
+    ending: false
+    pagenum: 56
+    summary: The geyser is quiet
+  57:
+    canonical: false
+    character: Ophelia
+    choices:
+      45: {summary: Go west, target: 45}
+      49: {summary: Go south, target: 49}
+      58: {summary: Stay here, target: 58}
+      70: {summary: Go north, target: 70}
+    ending: false
+    pagenum: 57
+    summary: Discover smoochfest in city hall
+  58:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 58
+    summary: Get discovered by mob
+  59:
+    canonical: false
+    character: Ophelia
+    choices:
+      47: {summary: Go west, target: 47}
+      52: {summary: Go south, target: 52}
+      60: {summary: Hide here, target: 60}
+      65: {summary: Go north, target: 65}
+    ending: false
+    pagenum: 59
+    summary: City Hall is boring
+  60:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 60
+    summary: The mob finds you
+  61:
+    canonical: false
+    character: Ophelia
+    choices:
+      83: {summary: Oh well, target: 83}
+    ending: false
+    pagenum: 61
+    summary: Get turned into slurry by mob
+  62:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 62
+    summary: Get found by mob, miss end of joke
+  63:
+    canonical: false
+    character: Ophelia
+    choices:
+      55: {summary: Go west, target: 55}
+      59: {summary: Go south, target: 59}
+      64: {summary: Stay here, target: 64}
+    ending: false
+    pagenum: 63
+    summary: Overhear person telling a joke
+  64:
+    canonical: false
+    character: Ophelia
+    choices:
+      56: {summary: Go west, target: 56}
+      60: {summary: Go south, target: 60}
+      65: {summary: Hide here, target: 65}
+    ending: false
+    pagenum: 64
+    summary: Person is telling a joke
+  65:
+    canonical: false
+    character: Ophelia
+    choices:
+      53: {summary: Go west, target: 53}
+      61: {summary: Go south, target: 61}
+      62: {summary: Hide here for a bit, target: 62}
+    ending: false
+    pagenum: 65
+    summary: Midway through knock-knock joke
+  66:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Confront the mob, target: 80}
+    ending: false
+    pagenum: 66
+    summary: Found by mob in the wardrobe
+  67:
+    canonical: false
+    character: Ophelia
+    choices:
+      68: {summary: Hide here, target: 68}
+      74: {summary: Go north, target: 74}
+      78: {summary: Go east, target: 78}
+    ending: false
+    pagenum: 67
+    summary: Watch man eat awesome breakfast
+  68:
+    canonical: false
+    character: Ophelia
+    choices:
+      61: {summary: Go north, target: 61}
+      66: {summary: Hide here, target: 66}
+      75: {summary: Go east, target: 75}
+    ending: false
+    pagenum: 68
+    summary: Observe contented man
+  69:
+    canonical: false
+    character: Ophelia
+    choices:
+      67: {summary: Hide here for a bit, target: 67}
+      73: {summary: Go north, target: 73}
+      77: {summary: Go east, target: 77}
+    ending: false
+    pagenum: 69
+    summary: Watch a man make breakfast
+  70:
+    canonical: false
+    character: Ophelia
+    choices:
+      83: {summary: Oh well, target: 83}
+    ending: false
+    pagenum: 70
+    summary: Run into mob, get turned into chunky stew
+  71:
+    canonical: false
+    character: Ophelia
+    choices:
+      41: {summary: Go north, target: 41}
+      45: {summary: Go east, target: 45}
+      70: {summary: Go south, target: 70}
+      72: {summary: Talk to the person, target: 72}
+    ending: false
+    pagenum: 71
+    summary: Arrive at dam, see strange person
+  72:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 72
+    summary: Run right into angry mob
+  73:
+    canonical: false
+    character: Ophelia
+    choices:
+      47: {summary: Go east, target: 47}
+      52: {summary: Go north, target: 52}
+      68: {summary: Go south, target: 68}
+      74: {summary: Hide here, target: 74}
+    ending: false
+    pagenum: 73
+    summary: See person plugging leak in dam
+  74:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Go carried away, target: 80}
+    ending: false
+    pagenum: 74
+    summary: The mob descends on you
+  75:
+    canonical: false
+    character: Ophelia
+    choices:
+      45: {summary: Go north, target: 45}
+      49: {summary: Go east, target: 49}
+      69: {summary: Go west, target: 69}
+      76: {summary: Hide here, target: 76}
+      81: {summary: 'Go south, escape the mobs!', target: 81}
+    ending: false
+    pagenum: 75
+    summary: Pretend to be on a beach date
+  76:
+    canonical: false
+    character: Ophelia
+    choices:
+      46: {summary: Go north, target: 46}
+      50: {summary: Go east, target: 50}
+      67: {summary: Go west, target: 67}
+      77: {summary: Hide here, target: 77}
+      81: {summary: 'Go south, escape the mobs', target: 81}
+    ending: false
+    pagenum: 76
+    summary: Blend in on beach
+  77:
+    canonical: false
+    character: Ophelia
+    choices:
+      51: {summary: Go east, target: 51}
+      52: {summary: Go north, target: 52}
+      68: {summary: Go west, target: 68}
+      78: {summary: Hide for a bit, target: 78}
+      81: {summary: 'Go south, escape the mobs!', target: 81}
+    ending: false
+    pagenum: 77
+    summary: See very impressive sand castle
+  78:
+    canonical: false
+    character: Ophelia
+    choices:
+      80: {summary: Get carried away, target: 80}
+    ending: false
+    pagenum: 78
+    summary: Get caught by mob, they ruin sand castle
+  79:
+    canonical: false
+    character: Ophelia
+    choices:
+      83: {summary: Oh well, target: 83}
+    ending: false
+    pagenum: 79
+    summary: Run into mob, get turned into chunky mist
+  80:
+    canonical: false
+    character: Ophelia
+    choices:
+      82: {summary: Write a book about Romeo and Juliet, target: 82}
+    ending: false
+    pagenum: 80
+    summary: Kill basically everyone in Verona
+  81:
+    canonical: false
+    character: Ophelia
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 81
+    summary: Return to Denmark and change the world
+  82:
+    canonical: false
+    character: Ophelia
+    choices:
+      84: {summary: Read the book, target: 84}
+      86: {summary: Publish the book, target: 86}
+    ending: false
+    pagenum: 82
+    summary: Wrote the book Romeo and/or Juliet
+  83:
+    canonical: false
+    character: Ophelia
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 83
+    summary: Later on scavengers eat the slurry
+  84:
+    canonical: false
+    character: Ophelia
+    choices:
+      85: {summary: Play as Romeo, target: 85}
+      87: {summary: Play as Juliet, target: 87}
+    ending: false
+    pagenum: 84
+    summary: Begin reading book
+  85:
+    canonical: false
+    character: Ophelia
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 85
+    summary: Your book is pretty bad
+  86:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 86
+    summary: Book published under the name Ryan North
+  87:
+    canonical: false
+    character: Ophelia
+    choices:
+      88: {summary: 'Really the end?', target: 88}
+    ending: true
+    pagenum: 87
+    summary: You forgot to finish Juliet's parts
+  88:
+    canonical: false
+    character: Other
+    choices: {}
+    ending: false
+    pagenum: 88
+    summary: Pre-order Romeo and/or Juliet!
