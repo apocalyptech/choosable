@@ -784,6 +784,9 @@ class App(object):
                 return
 
         # Now get our colors
+        print('')
+        self.print_result('Valid Graphviz colors can be found here:')
+        self.print_result('   http://www.graphviz.org/doc/info/colors.html')
         fontcolor = self.prompt('Text Color (graphviz) [%s]' % (char.fontcolor))
         if fontcolor == '':
             fontcolor = char.fontcolor
@@ -930,6 +933,8 @@ class App(object):
                 self.cur_char = self.book.add_character(newname)
 
                 # Colors
+                self.print_result('Valid Graphviz colors can be found here:')
+                self.print_result('   http://www.graphviz.org/doc/info/colors.html')
                 default_fontcolor = 'black'
                 fontcolor = self.prompt('Text color (for graphviz) [%s]' % (default_fontcolor))
                 if fontcolor == '':
