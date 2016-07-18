@@ -1,0 +1,4743 @@
+book: {title: To Be or Not To Be}
+characters:
+  Claudius: {graphviz_fillcolor: brown2, graphviz_fontcolor: black, name: Claudius}
+  Hamlet: {graphviz_fillcolor: chartreuse1, graphviz_fontcolor: black, name: Hamlet}
+  Hamlet Sr.: {graphviz_fillcolor: gray80, graphviz_fontcolor: black, name: Hamlet
+      Sr.}
+  Horatio: {graphviz_fillcolor: yellow1, graphviz_fontcolor: black, name: Horatio}
+  Ophelia: {graphviz_fillcolor: deepskyblue, graphviz_fontcolor: black, name: Ophelia}
+  Other: {graphviz_fillcolor: white, graphviz_fontcolor: black, name: Other}
+  Ryan North: {graphviz_fillcolor: navyblue, graphviz_fontcolor: white, name: Ryan
+      North}
+  The Captain: {graphviz_fillcolor: darkorchid4, graphviz_fontcolor: white, name: The
+      Captain}
+  Yourself: {graphviz_fillcolor: navyblue, graphviz_fontcolor: white, name: Yourself}
+intermediates: [2, 5, 11, 14, 20, 29, 30, 34, 36, 38, 43, 44, 47, 50, 54, 58, 60,
+  64, 68, 71, 74, 76, 82, 87, 88, 94, 95, 96, 102, 108, 115, 116, 122, 126, 128, 132,
+  138, 144, 147, 150, 153, 156, 159, 162, 165, 167, 171, 172, 178, 184, 190, 194,
+  196, 199, 202, 208, 214, 218, 222, 225, 228, 233, 234, 242, 245, 248, 251, 256,
+  262, 267, 272, 275, 277, 280, 286, 292, 298, 302, 312, 322, 325, 328, 334, 339,
+  342, 350, 354, 358, 365, 366, 369, 374, 382, 385, 387, 392, 402, 406, 408, 416,
+  418, 424, 431, 432, 440, 443, 447, 448, 453, 456, 460, 469, 471, 472, 475, 476,
+  480, 481, 486, 494, 498, 500, 503, 504, 509, 510, 515, 516, 519, 522, 528, 532,
+  539, 540, 543, 548, 553, 554, 557, 562, 566, 570, 575, 579, 581, 582, 585, 590,
+  595, 598, 604, 606, 609, 614, 619, 622, 626, 628, 634, 640, 646, 653, 654, 660,
+  666, 674, 678, 682, 688, 690, 693, 696, 704, 710, 714, 716, 720, 728, 729, 730,
+  731, 732, 733, 734, 735, 736, 737, 738, 739, G002, G006, G008, G011, G013, G015,
+  G017, G019, G021]
+pages:
+  1:
+    canonical: true
+    character: Other
+    choices:
+      4: {summary: Choose your character, target: 4}
+      357: {summary: Read the Acknowledgements instead, target: 357}
+    ending: false
+    pagenum: 1
+    summary: Book Introduction
+  3:
+    canonical: false
+    character: Other
+    choices: {}
+    ending: true
+    pagenum: 3
+    summary: Reprimand for trying to read the book in order
+  4:
+    canonical: true
+    character: Other
+    choices:
+      22: {summary: Play as Hamlet, target: 22}
+      46: {summary: Play as Ophelia, target: 46}
+      596: {summary: Play as Hamlet Sr., target: 596}
+    ending: false
+    pagenum: 4
+    summary: Choose your character
+  6:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      425: {summary: Turn to ending page, target: 425}
+    ending: false
+    pagenum: 6
+    summary: Tell Horatio to tell Hamlet to avenge you
+  7:
+    canonical: false
+    character: Hamlet
+    choices:
+      327: {summary: 'Look enclosure?', target: 327}
+    ending: false
+    pagenum: 7
+    summary: More failure
+  8:
+    canonical: true
+    character: Hamlet
+    choices:
+      111: {summary: Go back to Horatio, target: 111}
+    ending: false
+    pagenum: 8
+    summary: Sexism!
+  9:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      6: {summary: See if anyone else is around, target: 6}
+      417: {summary: Wait for Hamlet to wake up, target: 417}
+    ending: false
+    pagenum: 9
+    summary: You are now Hamlet Sr., Hamlet has passed out
+  10:
+    canonical: true
+    character: Hamlet
+    choices:
+      85: {summary: Hatch a cunning plan, target: 85}
+      195: {summary: Go murder Claudius, target: 195}
+    ending: false
+    pagenum: 10
+    summary: Talk with Christina Marlowe
+  12:
+    canonical: false
+    character: Hamlet
+    choices:
+      119: {summary: Take a nap, target: 119}
+      195: {summary: Go kill Claudius, target: 195}
+    ending: false
+    pagenum: 12
+    summary: Revised "Horatio will keep your secrets," from page 264
+  13:
+    canonical: false
+    character: Hamlet
+    choices:
+      19: {summary: Ask how they've been, target: 19}
+    ending: false
+    pagenum: 13
+    summary: Mega High-Five
+  15:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 15
+    summary: A generally okay ending!
+  16:
+    canonical: true
+    character: Hamlet
+    choices:
+      48: {summary: Notice Ophelia, target: 48}
+    ending: false
+    pagenum: 16
+    summary: Give a nice speech
+  17:
+    canonical: false
+    character: Hamlet
+    choices:
+      495: {summary: Go to the ending page, target: 495}
+    ending: false
+    pagenum: 17
+    summary: Kill self with poison!
+  18:
+    canonical: true
+    character: Hamlet
+    choices:
+      35: {summary: 'Nah, go visit mother', target: 35}
+      120: {summary: Kill Claudius in the church!, target: 120}
+    ending: false
+    pagenum: 18
+    summary: Pass by church
+  19:
+    canonical: true
+    character: Hamlet
+    choices:
+      100: {summary: Explain more!, target: 100}
+      118: {summary: Don't elaborate, target: 118}
+    ending: false
+    pagenum: 19
+    summary: Explain that you're depressed
+  21:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 21
+    summary: Acquire nickname "Banquo"
+  22:
+    canonical: true
+    character: Hamlet
+    choices:
+      91: {summary: Ask to go back to school, target: 91}
+      726: {summary: Just wait around, target: 726}
+    ending: false
+    pagenum: 22
+    summary: Hamlet introduction
+  23:
+    canonical: true
+    character: Hamlet
+    choices:
+      207: {summary: Party Boat!!, target: 207}
+    ending: false
+    pagenum: 23
+    summary: Get on a boat to England
+  24:
+    canonical: true
+    character: Hamlet
+    choices:
+      27: {summary: Continue partying, target: 27}
+    ending: false
+    pagenum: 24
+    summary: Shakespearean musings
+  25:
+    canonical: false
+    character: Hamlet
+    choices:
+      134: {summary: Complete the jump, target: 134}
+    ending: false
+    pagenum: 25
+    summary: Wait for quantum leap to resolve
+  26:
+    canonical: false
+    character: Hamlet
+    choices:
+      607: {summary: Turn to ending page, target: 607}
+    ending: false
+    pagenum: 26
+    summary: Put to death for killing Polonius
+  27:
+    canonical: true
+    character: Hamlet
+    choices:
+      289: {summary: Don't open the letter, target: 289}
+      370: {summary: Open the letter, target: 370}
+    ending: false
+    pagenum: 27
+    summary: Discover letter in Rosencrantz's shirt
+  28:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      705: {summary: Go to ending page, target: 705}
+    ending: false
+    pagenum: 28
+    summary: Kill Claudius, become ghost vigilante
+  31:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 31
+    summary: 'Final score: 423/1000'
+  32:
+    canonical: false
+    character: Ophelia
+    choices:
+      388: {summary: Ask about eroticism, target: 388}
+      395: {summary: Ask what he'd like to do, target: 395}
+    ending: false
+    pagenum: 32
+    summary: Antonio is sexy
+  33:
+    canonical: true
+    character: Hamlet
+    choices:
+      632: {summary: So awesome., target: 632}
+    ending: false
+    pagenum: 33
+    summary: Pirates are still attacking
+  35:
+    canonical: true
+    character: Hamlet
+    choices:
+      175: {summary: Go away for awhile, target: 175}
+      294: {summary: Kill whoever's behind the curtain, target: 294}
+    ending: false
+    pagenum: 35
+    summary: Talk to mom, someone is in curtains!
+  37:
+    canonical: true
+    character: Hamlet
+    choices:
+      90: {summary: Try "get thee to a nunnery", target: 90}
+      140: {summary: Try the nonsense-based phrase, target: 140}
+      380: {summary: Try the wolf-based phrase, target: 380}
+    ending: false
+    pagenum: 37
+    summary: Ophelia is offended
+  39:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 39
+    summary: 'Final score: B+'
+  40:
+    canonical: true
+    character: Hamlet
+    choices:
+      63: {summary: Give decisive orders, target: 63}
+      148: {summary: Give decisive orders with pirate talk, target: 148}
+    ending: false
+    pagenum: 40
+    summary: Remember Vesselmania's maneuverability
+  41:
+    canonical: true
+    character: Hamlet
+    choices:
+      33: {summary: PIRATES, target: 33}
+    ending: false
+    pagenum: 41
+    summary: Replace letter, and pirates attack!
+  42:
+    canonical: true
+    character: Hamlet
+    choices:
+      23: {summary: Threaten your mom, target: 23}
+      284: {summary: Leave your mom, target: 284}
+    ending: false
+    pagenum: 42
+    summary: Ghost Dad chastizes you
+  45:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 45
+    summary: Like riding on ghost dinosaurs!
+  46:
+    canonical: true
+    character: Ophelia
+    choices:
+      482: {summary: Tell brother you're busy, target: 482}
+      484: {summary: Let brother in, target: 484}
+    ending: false
+    pagenum: 46
+    summary: Ophelia introduction, knock at door
+  48:
+    canonical: true
+    character: Hamlet
+    choices:
+      37: {summary: Say you never loved her, target: 37}
+      140: {summary: Use nonsense-based code phrase, target: 140}
+      380: {summary: Use wolf-based code phrase, target: 380}
+    ending: false
+    pagenum: 48
+    summary: Ophelia's acting strange too
+  49:
+    canonical: false
+    character: Ophelia
+    choices:
+      613: {summary: Move pawn one square, target: 613}
+      623: {summary: Move pawn two squares, target: 623}
+      644: {summary: Move king back a square, target: 644}
+    ending: false
+    pagenum: 49
+    summary: Only two pieces left
+  51:
+    canonical: false
+    character: Hamlet
+    choices:
+      98: {summary: Continue sitting on throne, target: 98}
+    ending: false
+    pagenum: 51
+    summary: Rhyme about yourself on the throne
+  52:
+    canonical: true
+    character: Hamlet
+    choices:
+      59: {summary: Continue climbing up, target: 59}
+    ending: false
+    pagenum: 52
+    summary: Assault the pirate ship
+  53:
+    canonical: false
+    character: Hamlet
+    choices:
+      283: {summary: Jump out window, target: 283}
+      341: {summary: Light door on fire, target: 341}
+      427: {summary: Create tripwire, target: 427}
+    ending: false
+    pagenum: 53
+    summary: Toss body parts out window
+  55:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 55
+    summary: This ending is great, actually
+  56:
+    canonical: false
+    character: Hamlet
+    choices:
+      474: {summary: Go be Ophelia again, target: 474}
+    ending: false
+    pagenum: 56
+    summary: I was Ophelia, actually
+  57:
+    canonical: false
+    character: Hamlet
+    choices:
+      125: {summary: Go talk to your mom, target: 125}
+    ending: false
+    pagenum: 57
+    summary: Get away with the murder!
+  59:
+    canonical: true
+    character: Hamlet
+    choices:
+      78: {summary: Rosencrantz and Guildenstern are probably fine, target: 78}
+      136: {summary: Rosencrantz and Guildenstern Are Dead, target: 136}
+    ending: false
+    pagenum: 59
+    summary: Explosion on the Vesselmania
+  61:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 61
+    summary: Made some bad choices there
+  62:
+    canonical: false
+    character: Ophelia
+    choices:
+      217: {summary: Kill him, target: 217}
+      560: {summary: Leave him tied up, target: 560}
+    ending: false
+    pagenum: 62
+    summary: Leave Osric tied up?
+  63:
+    canonical: true
+    character: Hamlet
+    choices:
+      52: {summary: Abandon ship and comandeer pirate vessel!, target: 52}
+      601: {summary: Abandon ship and rescue Rosencrantz and Guildenstern, target: 601}
+    ending: false
+    pagenum: 63
+    summary: Vesselmania is impaled!
+  65:
+    canonical: true
+    character: Hamlet
+    choices:
+      221: {summary: '"Show of hands"', target: 221}
+      340: {summary: '"Well armed"', target: 340}
+      506: {summary: '"All hands on deck"', target: 506}
+    ending: false
+    pagenum: 65
+    summary: Cut off both his arms
+  66:
+    canonical: false
+    character: Hamlet
+    choices:
+      84: {summary: Enter throne room, target: 84}
+    ending: false
+    pagenum: 66
+    summary: The Royal Court is empty
+  67:
+    canonical: true
+    character: Hamlet
+    choices:
+      81: {summary: Make "First-Hand Experience" pun, target: 81}
+      210: {summary: Make "Giving me a hand" pun, target: 210}
+      315: {summary: Make "Hands off the threads" pun, target: 315}
+    ending: false
+    pagenum: 67
+    summary: Cut pirate captain's hand off
+  69:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 69
+    summary: Also you and your dad are cool
+  70:
+    canonical: true
+    character: Hamlet
+    choices:
+      80: {summary: Reach shore and send letters, target: 80}
+    ending: false
+    pagenum: 70
+    summary: Send letters via Horatio
+  72:
+    canonical: true
+    character: Hamlet
+    choices:
+      146: {summary: Smash through porthole, target: 146}
+    ending: false
+    pagenum: 72
+    summary: Kill the second pirate
+  73:
+    canonical: true
+    character: Hamlet
+    choices:
+      18: {summary: Go talk to your mom, target: 18}
+      282: {summary: Go stab Polonius through curtain, target: 282}
+      285: {summary: Go stab Claudius!, target: 285}
+    ending: false
+    pagenum: 73
+    summary: Mother wants to talk to you
+  75:
+    canonical: false
+    character: Hamlet
+    choices:
+      163: {summary: Go to ending page, target: 163}
+    ending: false
+    pagenum: 75
+    summary: Get caught and sentenced to death
+  77:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 77
+    summary: The book exploded the earth
+  78:
+    canonical: false
+    character: Hamlet
+    choices:
+      127: {summary: Attack pirates, target: 127}
+    ending: false
+    pagenum: 78
+    summary: Fighting continues
+  79:
+    canonical: false
+    character: Hamlet
+    choices:
+      66: {summary: Confront Claudius tomorrow, target: 66}
+    ending: false
+    pagenum: 79
+    summary: Confide in Horatio
+  80:
+    canonical: true
+    character: Hamlet
+    choices:
+      79: {summary: Confide in Horatio, target: 79}
+      152: {summary: Trust no one!, target: 152}
+    ending: false
+    pagenum: 80
+    summary: Meet with Horatio
+  81:
+    canonical: true
+    character: Hamlet
+    choices:
+      65: {summary: Attack captain's arm, target: 65}
+      316: {summary: Attack captain's legs, target: 316}
+      631: {summary: Attack captain's eyes, target: 631}
+    ending: false
+    pagenum: 81
+    summary: Lightning strikes!
+  83:
+    canonical: false
+    character: Ophelia
+    choices:
+      217: {summary: You get a mulligan!, target: 217}
+    ending: true
+    pagenum: 83
+    summary: Should've practiced first
+  84:
+    canonical: false
+    character: Hamlet
+    choices:
+      176: {summary: Yell "You tried to have me murdered", target: 176}
+      253: {summary: Yell "You have a stupid face", target: 253}
+      254: {summary: Yell "You killed my father", target: 254}
+    ending: false
+    pagenum: 84
+    summary: Confront Claudius with Horatio
+  85:
+    canonical: true
+    character: Hamlet
+    choices:
+      101: {summary: Go to the royal court, target: 101}
+      520: {summary: Take a nap, target: 520}
+    ending: false
+    pagenum: 85
+    summary: Decide to make Claudius read book
+  86:
+    canonical: false
+    character: Hamlet
+    choices:
+      263: {summary: Go to ending page, target: 263}
+    ending: false
+    pagenum: 86
+    summary: Kill Claudius and Laertes
+  89:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 89
+    summary: Nobody liked your bolas
+  90:
+    canonical: true
+    character: Hamlet
+    choices:
+      140: {summary: Try the nonsense-based phrase, target: 140}
+      333: {summary: Just be sexist some more, target: 333}
+      380: {summary: Try the wolf-based phrase, target: 380}
+    ending: false
+    pagenum: 90
+    summary: Ophelia continues being offended
+  91:
+    canonical: true
+    character: Hamlet
+    choices:
+      98: {summary: Say "You're not my real dad!", target: 98}
+      317: {summary: Insult him fancily, target: 317}
+    ending: false
+    pagenum: 91
+    summary: Claudius calls you his son
+  92:
+    canonical: false
+    character: Hamlet
+    choices:
+      86: {summary: Switch opponents with Horatio, target: 86}
+      180: {summary: Say something mean to Claudius, target: 180}
+    ending: false
+    pagenum: 92
+    summary: Swordfighting is intense
+  93:
+    canonical: false
+    character: Ophelia
+    choices:
+      405: {summary: Get out of here and back to Denmark, target: 405}
+      459: {summary: Hunt down more terrorists, target: 459}
+    ending: false
+    pagenum: 93
+    summary: Kill the terrorists responsible!
+  97:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 97
+    summary: Probably the worst ending
+  98:
+    canonical: true
+    character: Hamlet
+    choices:
+      226: {summary: Go with Horatio, target: 226}
+    ending: false
+    pagenum: 98
+    summary: Horatio tells you about your ghost dad
+  99:
+    canonical: true
+    character: Hamlet
+    choices:
+      359: {summary: Meet up with Horatio, target: 359}
+    ending: false
+    pagenum: 99
+    summary: Play a bunch of solitaire
+  100:
+    canonical: true
+    character: Hamlet
+    choices:
+      10: {summary: Talk to author, target: 10}
+    ending: false
+    pagenum: 100
+    summary: Talk to R+G, an author shows up
+  101:
+    canonical: true
+    character: Hamlet
+    choices:
+      16: {summary: To Be, target: 16}
+      17: {summary: Not To Be, target: 17}
+    ending: false
+    pagenum: 101
+    summary: Royal Court is deserted
+  103:
+    canonical: false
+    character: Horatio
+    choices: {}
+    ending: true
+    pagenum: 103
+    summary: Be GREAT
+  104:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      533: {summary: Go to ending page, target: 533}
+    ending: false
+    pagenum: 104
+    summary: Become king of Denmark again!
+  105:
+    canonical: true
+    character: Hamlet
+    choices:
+      192: {summary: 'Make promise, ordinarily', target: 192}
+      612: {summary: 'Make promise, fancily', target: 612}
+    ending: false
+    pagenum: 105
+    summary: Hamlet Sr. asks you to kill Claudius
+  106:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 106
+    summary: Gertrude takes pawn and you lose
+  107:
+    canonical: true
+    character: Hamlet
+    choices:
+      9: {summary: Stare at ghost intently, target: 9}
+      188: {summary: Run away, target: 188}
+      318: {summary: Try to figure out what ghost wants, target: 318}
+    ending: false
+    pagenum: 107
+    summary: The ghost is semitransparent
+  109:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 109
+    summary: Hamlet Sr then has to kill you
+  110:
+    canonical: true
+    character: Hamlet
+    choices:
+      321: {summary: Answer the question, target: 321}
+    ending: false
+    pagenum: 110
+    summary: Polonius asks a second question
+  111:
+    canonical: true
+    character: Hamlet
+    choices:
+      119: {summary: Take a nap, target: 119}
+      195: {summary: Go kill Claudius, target: 195}
+    ending: false
+    pagenum: 111
+    summary: Horatio will keep your secrets
+  112:
+    canonical: false
+    character: Ophelia
+    choices:
+      684: {summary: Build a zigzag pawn wall, target: 684}
+      699: {summary: Build a straight pawn wall, target: 699}
+    ending: false
+    pagenum: 112
+    summary: Gertrude moves up another pawn
+  113:
+    canonical: true
+    character: Hamlet
+    choices:
+      13: {summary: Greet them with high fives, target: 13}
+      19: {summary: Just say hello, target: 19}
+      200: {summary: Greet them with hugs, target: 200}
+      671: {summary: Greet them by slapping on backs, target: 671}
+    ending: false
+    pagenum: 113
+    summary: Rosencrantz and Guildenstern show up
+  114:
+    canonical: false
+    character: Hamlet
+    choices:
+      330: {summary: Nice!, target: 330}
+    ending: false
+    pagenum: 114
+    summary: Hit Laertes again (after epic fight)
+  117:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 117
+    summary: Only ONE of the kill-everyone endings!
+  118:
+    canonical: false
+    character: Hamlet
+    choices:
+      10: {summary: An author enters the room!, target: 10}
+    ending: false
+    pagenum: 118
+    summary: You all agree about how sexy authors are
+  119:
+    canonical: true
+    character: Hamlet
+    choices:
+      119: {summary: Continue doing nothing, target: 119}
+      195: {summary: Go murder Claudius, target: 195}
+      259: {summary: Go see Ophelia, target: 259}
+    ending: false
+    pagenum: 119
+    summary: Do nothing for awhile
+  120:
+    canonical: true
+    character: Hamlet
+    choices:
+      183: {summary: 'No wait, do it later.', target: 183}
+      205: {summary: STABS O'CLOCK, target: 205}
+    ending: false
+    pagenum: 120
+    summary: Get ready to kill Claudius
+  121:
+    canonical: false
+    character: Hamlet
+    choices:
+      433: {summary: Go to ending page, target: 433}
+    ending: false
+    pagenum: 121
+    summary: You are killed by a cannonball
+  123:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 123
+    summary: 'Final score: 670 Ultrapoints'
+  124:
+    canonical: false
+    character: Ophelia
+    choices:
+      713: {summary: Be the new queen of Denmark, target: 713}
+    ending: false
+    pagenum: 124
+    summary: You are correct, and win!
+  125:
+    canonical: false
+    character: Hamlet
+    choices:
+      130: {summary: Party Boat!, target: 130}
+    ending: false
+    pagenum: 125
+    summary: Argue with mom, leave for vacation
+  127:
+    canonical: true
+    character: Hamlet
+    choices:
+      72: {summary: Lure the pirate down, target: 72}
+      154: {summary: Climb up higher, target: 154}
+    ending: false
+    pagenum: 127
+    summary: Kill a pirate on the way up
+  129:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 129
+    summary: Ghosts haunt you forever
+  130:
+    canonical: true
+    character: Hamlet
+    choices:
+      24: {summary: Become inspired in fancy language, target: 24}
+      193: {summary: Become inspired in rhyming couplets, target: 193}
+    ending: false
+    pagenum: 130
+    summary: Find out about Fortinbras' army
+  131:
+    canonical: false
+    character: Ophelia
+    choices:
+      680: {summary: Similarly-sized state is Alaska, target: 680}
+      694: {summary: Similarly-sized state is Massachusetts, target: 694}
+      712: {summary: Similarly-sized state is Texas, target: 712}
+    ending: false
+    pagenum: 131
+    summary: You are now tied!
+  133:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 133
+    summary: Later on it's all Ghostbusters
+  134:
+    canonical: false
+    character: Hamlet
+    choices:
+      523: {summary: Go to ending page, target: 523}
+    ending: false
+    pagenum: 134
+    summary: Become a trout
+  135:
+    canonical: false
+    character: Hamlet
+    choices:
+      41: {summary: Figure out a plan, target: 41}
+    ending: false
+    pagenum: 135
+    summary: Discover Claudius wants you killed
+  136:
+    canonical: true
+    character: Hamlet
+    choices:
+      127: {summary: Keep attacking, target: 127}
+    ending: false
+    pagenum: 136
+    summary: Fighting continues
+  137:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 137
+    summary: You lose, pretty quickly
+  139:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 139
+    summary: Reincarnated as bug, though
+  140:
+    canonical: false
+    character: Hamlet
+    choices:
+      420: {summary: Tell her about murder book plan, target: 420}
+    ending: false
+    pagenum: 140
+    summary: Ophelia understands your code!
+  141:
+    canonical: false
+    character: Hamlet
+    choices:
+      655: {summary: Go to ending page, target: 655}
+    ending: false
+    pagenum: 141
+    summary: The pirates destroy you easily
+  142:
+    canonical: true
+    character: Hamlet
+    choices:
+      164: {summary: Look skull, target: 164}
+    ending: false
+    pagenum: 142
+    summary: Gravedigger tosses up skull
+  143:
+    canonical: true
+    character: Hamlet
+    choices:
+      155: {summary: Talk about other stuff, target: 155}
+      542: {summary: Talk about Yorick, target: 542}
+    ending: false
+    pagenum: 143
+    summary: Discover skull is Yorick's
+  145:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 145
+    summary: AND you save your mom!
+  146:
+    canonical: true
+    character: Hamlet
+    choices:
+      67: {summary: Attack his hands, target: 67}
+      311: {summary: Attack his shoulders, target: 311}
+      331: {summary: Attack his face, target: 331}
+    ending: false
+    pagenum: 146
+    summary: Fight the pirate captain
+  148:
+    canonical: false
+    character: Hamlet
+    choices:
+      63: {summary: Okay, target: 63}
+    ending: false
+    pagenum: 148
+    summary: Sailors don't actually talk like that
+  149:
+    canonical: true
+    character: Hamlet
+    choices:
+      143: {summary: Don't tell gravedigger you're Hamlet, target: 143}
+      295: {summary: Tell gravedigger you're Hamlet, target: 295}
+    ending: false
+    pagenum: 149
+    summary: Talk with gravedigger
+  151:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 151
+    summary: 'Final score: 88 decapoints'
+  152:
+    canonical: true
+    character: Hamlet
+    choices:
+      142: {summary: Listen to singing, target: 142}
+      231: {summary: Join in singing, target: 231}
+    ending: false
+    pagenum: 152
+    summary: Arrive in graveyard, gravedigger is singing
+  154:
+    canonical: false
+    character: Hamlet
+    choices:
+      146: {summary: Smash through porthole, target: 146}
+    ending: false
+    pagenum: 154
+    summary: Miraculously kill pirate
+  155:
+    canonical: false
+    character: Hamlet
+    choices:
+      166: {summary: Investigate noises, target: 166}
+    ending: false
+    pagenum: 155
+    summary: Talk about wines, hear some noises
+  157:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 157
+    summary: Not a good effort
+  158:
+    canonical: false
+    character: Hamlet
+    choices:
+      297: {summary: Attack!, target: 297}
+    ending: false
+    pagenum: 158
+    summary: Hamlet 2 arrives from the future!
+  160:
+    canonical: false
+    character: Ophelia
+    choices:
+      691: {summary: Go to ending page, target: 691}
+    ending: false
+    pagenum: 160
+    summary: Convict Claudius of regicide instead!
+  161:
+    canonical: false
+    character: Hamlet
+    choices:
+      255: {summary: Start new lives as pirates, target: 255}
+      300: {summary: Destroy the town, target: 300}
+    ending: false
+    pagenum: 161
+    summary: Kill Claudius, but Denmark turns against you
+  163:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 163
+    summary: Not much else to say!
+  164:
+    canonical: true
+    character: Hamlet
+    choices:
+      149: {summary: Talk to gravedigger, target: 149}
+    ending: false
+    pagenum: 164
+    summary: Spout nonsense
+  166:
+    canonical: true
+    character: Hamlet
+    choices:
+      211: {summary: 'Ophelia''s dead?!', target: 211}
+    ending: false
+    pagenum: 166
+    summary: Discover Ophelia's dead!
+  168:
+    canonical: false
+    character: Hamlet
+    choices:
+      241: {summary: Drink potion, target: 241}
+      485: {summary: Don't drink potion, target: 485}
+    ending: false
+    pagenum: 168
+    summary: Go home and acquire anti-grieving potion
+  169:
+    canonical: false
+    character: Hamlet
+    choices:
+      244: {summary: Greet the new day, target: 244}
+    ending: false
+    pagenum: 169
+    summary: Dreamtime!
+  170:
+    canonical: false
+    character: Hamlet
+    choices:
+      145: {summary: Go to ending page, target: 145}
+    ending: false
+    pagenum: 170
+    summary: Claudius's plots are uncovered!
+  173:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 173
+    summary: THE END
+  174:
+    canonical: false
+    character: Hamlet
+    choices:
+      84: {summary: Enter throne room, target: 84}
+    ending: false
+    pagenum: 174
+    summary: Decline invitation, confide in Horatio
+  175:
+    canonical: false
+    character: Hamlet
+    choices:
+      207: {summary: Party Boat!, target: 207}
+    ending: false
+    pagenum: 175
+    summary: Polonius accidentally kills self, you abscond on boat
+  176:
+    canonical: false
+    character: Hamlet
+    choices:
+      92: {summary: Swordfight!, target: 92}
+    ending: false
+    pagenum: 176
+    summary: Accuse Claudius, crowd is on your side
+  177:
+    canonical: true
+    character: Hamlet
+    choices:
+      98: {summary: Don't kill yourself, target: 98}
+      186: {summary: Kill yourself, target: 186}
+    ending: false
+    pagenum: 177
+    summary: Soliloquy Time!
+  179:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 179
+    summary: Poor choice to make, really
+  180:
+    canonical: false
+    character: Hamlet
+    choices:
+      717: {summary: Go to ending page, target: 717}
+    ending: false
+    pagenum: 180
+    summary: Get killed by Claudius
+  181:
+    canonical: true
+    character: Hamlet
+    choices:
+      98: {summary: Stand around quietly, target: 98}
+      177: {summary: Soliliquize, target: 177}
+    ending: false
+    pagenum: 181
+    summary: Claudius tells you to deal with it
+  182:
+    canonical: false
+    character: Hamlet
+    choices:
+      409: {summary: Go to ending page, target: 409}
+    ending: false
+    pagenum: 182
+    summary: The pirates catch up and destroy you
+  183:
+    canonical: true
+    character: Hamlet
+    choices:
+      35: {summary: Go talk to mom, target: 35}
+    ending: false
+    pagenum: 183
+    summary: Don't kill him after all
+  185:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 185
+    summary: It's pretty awesome.
+  186:
+    canonical: false
+    character: Hamlet
+    choices:
+      258: {summary: Haunt Horatio, target: 258}
+      268: {summary: Try to find your Ghost Dad, target: 268}
+    ending: false
+    pagenum: 186
+    summary: Kill yourself and become a ghost
+  187:
+    canonical: false
+    character: Ophelia
+    choices:
+      583: {summary: Go to ending page, target: 583}
+    ending: false
+    pagenum: 187
+    summary: Move to Italy
+  188:
+    canonical: false
+    character: Hamlet
+    choices:
+      107: {summary: Go check out the ghost again, target: 107}
+    ending: false
+    pagenum: 188
+    summary: Run away in terror
+  189:
+    canonical: false
+    character: Hamlet
+    choices:
+      105: {summary: Tell him about marriage after all, target: 105}
+    ending: false
+    pagenum: 189
+    summary: Hamlet Sr wants a sit-down with Claudius
+  191:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 191
+    summary: Everything's way sexy
+  192:
+    canonical: false
+    character: Hamlet
+    choices:
+      111: {summary: Return to Horatio, target: 111}
+    ending: false
+    pagenum: 192
+    summary: Ordinary Revenge Promise
+  193:
+    canonical: false
+    character: Hamlet
+    choices:
+      219: {summary: Continue partying on boat, target: 219}
+    ending: false
+    pagenum: 193
+    summary: Dope rhymes musings
+  195:
+    canonical: false
+    character: Hamlet
+    choices:
+      367: {summary: Go to the ending page, target: 367}
+    ending: false
+    pagenum: 195
+    summary: Murder Claudius, and it's great!
+  197:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 197
+    summary: Later you marry a bear
+  198:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      643: {summary: Irrelevant!, target: 643}
+      719: {summary: (many choices), target: 719}
+    ending: false
+    pagenum: 198
+    summary: What will you do after revenge?
+  200:
+    canonical: false
+    character: Hamlet
+    choices:
+      19: {summary: Ask how they've been, target: 19}
+      587: {summary: More hugging!, target: 587}
+    ending: false
+    pagenum: 200
+    summary: Hugs work out real well
+  201:
+    canonical: false
+    character: Hamlet
+    choices:
+      15: {summary: Go to ending page, target: 15}
+    ending: false
+    pagenum: 201
+    summary: Decide to just go back to school
+  203:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      633: {summary: Do not become a ghost, target: 633}
+      636: {summary: Become a ghost, target: 636}
+    ending: true
+    pagenum: 203
+    summary: THE END?
+  204:
+    canonical: false
+    character: Hamlet
+    choices:
+      201: {summary: 'Get mad at self, and nap', target: 201}
+      269: {summary: 'Get mad at self, but productive', target: 269}
+    ending: false
+    pagenum: 204
+    summary: Claudius has already read a book!
+  205:
+    canonical: false
+    character: Hamlet
+    choices:
+      31: {summary: Go to ending page, target: 31}
+    ending: false
+    pagenum: 205
+    summary: Murder Claudius!
+  206:
+    canonical: true
+    character: Hamlet
+    choices:
+      270: {summary: Harass Ophelia, target: 270}
+      288: {summary: Stand behind Claudius, target: 288}
+    ending: false
+    pagenum: 206
+    summary: Pass book to Claudius
+  207:
+    canonical: true
+    character: Hamlet
+    choices:
+      212: {summary: Oops!, target: 212}
+    ending: false
+    pagenum: 207
+    summary: Forgot to tell Ophelia about her dad
+  209:
+    canonical: false
+    character: Yourself
+    choices: {}
+    ending: true
+    pagenum: 209
+    summary: Go outside and live life!
+  210:
+    canonical: false
+    character: Hamlet
+    choices:
+      65: {summary: Attack his arm, target: 65}
+      316: {summary: Attack his legs, target: 316}
+      631: {summary: Attack his eyes, target: 631}
+    ending: false
+    pagenum: 210
+    summary: Lightning strikes
+  211:
+    canonical: true
+    character: Hamlet
+    choices:
+      168: {summary: Go home and talk to everyone later, target: 168}
+      239: {summary: Be Ophelia, target: 239}
+      250: {summary: Introduce yourself dramatically, target: 250}
+    ending: false
+    pagenum: 211
+    summary: Watch Ophelia's funeral
+  212:
+    canonical: true
+    character: Hamlet
+    choices:
+      130: {summary: Party on boat, target: 130}
+    ending: false
+    pagenum: 212
+    summary: Ah, well.
+  213:
+    canonical: false
+    character: Hamlet
+    choices:
+      127: {summary: Attack the pirates, target: 127}
+    ending: false
+    pagenum: 213
+    summary: Escape the ship, start climbing!
+  215:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 215
+    summary: And you have a kid!
+  216:
+    canonical: false
+    character: Hamlet
+    choices:
+      675: {summary: Go to ending page, target: 675}
+    ending: false
+    pagenum: 216
+    summary: The ship explodes!
+  217:
+    canonical: false
+    character: Ophelia
+    choices:
+      451: {summary: Kill everyone in royal court, target: 451}
+      574: {summary: Kill background characters, target: 574}
+      600: {summary: Kill Polonius and Laertes, target: 600}
+    ending: false
+    pagenum: 217
+    summary: Decide to kill everyone
+  219:
+    canonical: false
+    character: Hamlet
+    choices:
+      135: {summary: Open the letter, target: 135}
+      289: {summary: Don't open the letter, target: 289}
+    ending: false
+    pagenum: 219
+    summary: Discover letter in Rosencrantz's shirt
+  220:
+    canonical: false
+    character: Ophelia
+    choices:
+      493: {summary: Look at this other book, target: 493}
+    ending: false
+    pagenum: 220
+    summary: The book is basically useless
+  221:
+    canonical: false
+    character: Hamlet
+    choices:
+      224: {summary: Deliver the killing blow!, target: 224}
+    ending: false
+    pagenum: 221
+    summary: Captain screams at you
+  223:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 223
+    summary: It's gross
+  224:
+    canonical: true
+    character: Hamlet
+    choices:
+      324: {summary: Take command of pirate vessel, target: 324}
+    ending: false
+    pagenum: 224
+    summary: You win, and R+G are alive!
+  226:
+    canonical: true
+    character: Hamlet
+    choices:
+      46: {summary: Be Ophelia for awhile, target: 46}
+      99: {summary: Play Solitaire, target: 99}
+    ending: false
+    pagenum: 226
+    summary: Agree to meet Horatio later
+  227:
+    canonical: true
+    character: Hamlet
+    choices:
+      70: {summary: Attack discreetly, target: 70}
+      537: {summary: Attack head-on, target: 537}
+    ending: false
+    pagenum: 227
+    summary: Make plan for dealing with Claudius
+  229:
+    canonical: false
+    character: Hamlet
+    choices:
+      158: {summary: Back in time, target: 158}
+    ending: true
+    pagenum: 229
+    summary: Travel back in time!  (Hidden Timeline!)
+  230:
+    canonical: false
+    character: Ophelia
+    choices:
+      707: {summary: Kill Rosencrantz and Guildenstern, target: 707}
+      725: {summary: Try to explain heaps of bodies, target: 725}
+    ending: false
+    pagenum: 230
+    summary: Kill Osric, Rosencrantz and Guildenstern enter
+  231:
+    canonical: false
+    character: Hamlet
+    choices:
+      164: {summary: Look at skull, target: 164}
+    ending: false
+    pagenum: 231
+    summary: Lose lyrical battle with gravedigger
+  232:
+    canonical: false
+    character: Hamlet
+    choices:
+      133: {summary: Go to ending page, target: 133}
+    ending: false
+    pagenum: 232
+    summary: Kill Claudius, Hamlet Sr sticks around
+  235:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 235
+    summary: It hardly seems fair
+  236:
+    canonical: true
+    character: Hamlet
+    choices:
+      279: {summary: Talk about self-improvement, target: 279}
+      310: {summary: Talk about free will, target: 310}
+    ending: false
+    pagenum: 236
+    summary: Feel nervous about swordfight
+  237:
+    canonical: true
+    character: Hamlet
+    choices:
+      276: {summary: 'Talk to Horatio about what just happened, instead', target: 276}
+      299: {summary: Yes!, target: 299}
+    ending: false
+    pagenum: 237
+    summary: Talk about the pirate trip again?
+  238:
+    canonical: false
+    character: Hamlet
+    choices:
+      229: {summary: Enter the time machine, target: 229}
+    ending: false
+    pagenum: 238
+    summary: Eventually improve time machine
+  239:
+    canonical: false
+    character: Hamlet
+    choices:
+      168: {summary: 'Actually, just go home', target: 168}
+      250: {summary: 'Actually, introduce self dramatically', target: 250}
+      278: {summary: 'Yep, I have a plan', target: 278}
+    ending: false
+    pagenum: 239
+    summary: Really be Ophelia?
+  240:
+    canonical: false
+    character: Ophelia
+    choices:
+      131: {summary: Denmark's coastline is 7314km, target: 131}
+      656: {summary: Denmark's coastline is 8735km, target: 656}
+      679: {summary: Coastlines cannot be accurately measured, target: 679}
+    ending: false
+    pagenum: 240
+    summary: You answer incorrectly
+  241:
+    canonical: false
+    character: Hamlet
+    choices:
+      169: {summary: Go to bed, target: 169}
+    ending: false
+    pagenum: 241
+    summary: Drink the potion
+  243:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 243
+    summary: Claudius haunts you, though
+  244:
+    canonical: true
+    character: Hamlet
+    choices:
+      174: {summary: Decline invitation, target: 174}
+      236: {summary: Accept invitation, target: 236}
+    ending: false
+    pagenum: 244
+    summary: Receive swordfight invitation
+  246:
+    canonical: false
+    character: Ophelia
+    choices:
+      329: {summary: Go to ending page, target: 329}
+    ending: false
+    pagenum: 246
+    summary: Fortinbras has you executed
+  247:
+    canonical: true
+    character: Hamlet
+    choices:
+      105: {summary: Inform him of marriage, target: 105}
+      189: {summary: Just kidding about the marriage, target: 189}
+    ending: false
+    pagenum: 247
+    summary: Talk with Hamlet Sr.
+  249:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 249
+    summary: Pretend to be a horse, maybe?
+  250:
+    canonical: true
+    character: Hamlet
+    choices:
+      274: {summary: Turn into The Hulk, target: 274}
+      364: {summary: Continue being Hamlet, target: 364}
+    ending: false
+    pagenum: 250
+    summary: Fight with Laertes
+  252:
+    canonical: false
+    character: Hamlet
+    choices:
+      293: {summary: Turn to ending page, target: 293}
+    ending: false
+    pagenum: 252
+    summary: Live happily ever after with Ophelia!
+  253:
+    canonical: false
+    character: Hamlet
+    choices:
+      161: {summary: Kill him anyway, target: 161}
+      344: {summary: Walk away, target: 344}
+    ending: false
+    pagenum: 253
+    summary: Claudius makes some good points
+  254:
+    canonical: false
+    character: Hamlet
+    choices:
+      92: {summary: Swordfight!, target: 92}
+    ending: false
+    pagenum: 254
+    summary: Accuse Claudius!
+  255:
+    canonical: false
+    character: Hamlet
+    choices:
+      571: {summary: Go to ending page, target: 571}
+    ending: false
+    pagenum: 255
+    summary: Become legendary pirates!
+  257:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 257
+    summary: Ghost Hamlet and Ghost Hamlet Sr. are okay too
+  258:
+    canonical: false
+    character: Hamlet
+    choices:
+      599: {summary: Go to the ending page, target: 599}
+    ending: false
+    pagenum: 258
+    summary: Haunt Horatio's family forever
+  259:
+    canonical: true
+    character: Hamlet
+    choices:
+      195: {summary: Go murder Claudius, target: 195}
+      301: {summary: Ask for help, target: 301}
+      304: {summary: Act badly, target: 304}
+    ending: false
+    pagenum: 259
+    summary: Greet Ophelia
+  260:
+    canonical: false
+    character: Hamlet
+    choices:
+      21: {summary: Go to ending page, target: 21}
+    ending: false
+    pagenum: 260
+    summary: Meet Macbeth at school, move to Scotland
+  261:
+    canonical: false
+    character: Hamlet
+    choices:
+      348: {summary: Maybe realism's not so important, target: 348}
+      351: {summary: Demand absolute realism, target: 351}
+    ending: false
+    pagenum: 261
+    summary: About to fire self out of cannon
+  263:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 263
+    summary: Horatio becomes king of Denmark!
+  264:
+    canonical: true
+    character: Hamlet
+    choices:
+      110: {summary: Answer Polonius' question, target: 110}
+    ending: false
+    pagenum: 264
+    summary: Encounter mom, fake dad, and Polonius
+  265:
+    canonical: false
+    character: Hamlet
+    choices:
+      252: {summary: Get serious with Ophelia, target: 252}
+      260: {summary: Go back to school, target: 260}
+    ending: false
+    pagenum: 265
+    summary: Get knocked out, wake up months later
+  266:
+    canonical: false
+    character: Ophelia
+    choices:
+      468: {summary: Let him go for now, target: 468}
+      499: {summary: Kill him now, target: 499}
+    ending: false
+    pagenum: 266
+    summary: Spy on Claudius
+  268:
+    canonical: false
+    character: Hamlet
+    choices:
+      69: {summary: Go to the ending page, target: 69}
+    ending: false
+    pagenum: 268
+    summary: Fight off alien ghosts in 2100
+  269:
+    canonical: false
+    character: Hamlet
+    choices:
+      195: {summary: Get to it!, target: 195}
+    ending: false
+    pagenum: 269
+    summary: Get productive and murder Claudius
+  270:
+    canonical: true
+    character: Hamlet
+    choices:
+      288: {summary: Stand behind Claudius after all, target: 288}
+    ending: false
+    pagenum: 270
+    summary: Harass Ophelia
+  271:
+    canonical: false
+    character: Ophelia
+    choices:
+      603: {summary: Kill courtiers, target: 603}
+    ending: false
+    pagenum: 271
+    summary: Kill all the sentries
+  273:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 273
+    summary: You don't even become a ghost
+  274:
+    canonical: false
+    character: Hamlet
+    choices:
+      343: {summary: Go to ending page, target: 343}
+    ending: false
+    pagenum: 274
+    summary: You're not REALLY The Hulk
+  276:
+    canonical: true
+    character: Hamlet
+    choices:
+      244: {summary: Greet the new day, target: 244}
+    ending: false
+    pagenum: 276
+    summary: Spend the night at the castle
+  278:
+    canonical: false
+    character: Ophelia
+    choices:
+      179: {summary: Go to ending page, target: 179}
+    ending: false
+    pagenum: 278
+    summary: You are Ophelia, and dead.
+  279:
+    canonical: false
+    character: Hamlet
+    choices:
+      438: {summary: Stand around for a bit, target: 438}
+    ending: false
+    pagenum: 279
+    summary: Talking about feelings is hard
+  281:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 281
+    summary: A bit lonely, but whatever
+  282:
+    canonical: false
+    character: Hamlet
+    choices:
+      305: {summary: Try the door again, target: 305}
+      307: {summary: Look room, target: 307}
+    ending: false
+    pagenum: 282
+    summary: Kill Polonius and lock self in room
+  283:
+    canonical: false
+    character: Hamlet
+    choices:
+      511: {summary: Go to ending page, target: 511}
+    ending: false
+    pagenum: 283
+    summary: Survive jump but slip and die
+  284:
+    canonical: false
+    character: Hamlet
+    choices:
+      207: {summary: Party Boat!, target: 207}
+    ending: false
+    pagenum: 284
+    summary: Leave with Rosencrantz and Guildenstern
+  285:
+    canonical: false
+    character: Hamlet
+    choices:
+      120: {summary: Go to the church, target: 120}
+    ending: false
+    pagenum: 285
+    summary: Discover Claudius is at the church
+  287:
+    canonical: true
+    character: Hamlet
+    choices:
+      4: {summary: Re-read the book!, target: 4}
+      379: {summary: Refuse to let it end this way, target: 379}
+    ending: true
+    pagenum: 287
+    summary: Canonical ending
+  288:
+    canonical: true
+    character: Claudius
+    choices:
+      414: {summary: Begin reading, target: 414}
+    ending: false
+    pagenum: 288
+    summary: As Claudius, begin to read
+  289:
+    canonical: false
+    character: Hamlet
+    choices:
+      355: {summary: Go to ending page, target: 355}
+    ending: false
+    pagenum: 289
+    summary: The King of England kills you
+  290:
+    canonical: false
+    character: Hamlet
+    choices:
+      227: {summary: Back to Denmark instead, target: 227}
+      401: {summary: To England instead, target: 401}
+      645: {summary: 'Yes, become pirates!', target: 645}
+    ending: false
+    pagenum: 290
+    summary: Really become pirates?
+  291:
+    canonical: false
+    character: Hamlet
+    choices:
+      261: {summary: Launch YOURSELF out of cannon, target: 261}
+      491: {summary: Fire cannons anyway, target: 491}
+    ending: false
+    pagenum: 291
+    summary: Claudius takes Gertrude hostage
+  293:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 293
+    summary: You have a couple of kids, too
+  294:
+    canonical: true
+    character: Hamlet
+    choices:
+      42: {summary: Talk to ghost, target: 42}
+    ending: false
+    pagenum: 294
+    summary: Kill Polonius, and a ghost appears
+  295:
+    canonical: false
+    character: Hamlet
+    choices:
+      155: {summary: Talk about wine, target: 155}
+      542: {summary: Talk about Yorick, target: 542}
+    ending: false
+    pagenum: 295
+    summary: Introduce yourself to gravedigger
+  296:
+    canonical: false
+    character: Hamlet
+    choices:
+      7: {summary: Look Area!, target: 7}
+    ending: false
+    pagenum: 296
+    summary: More Interactive Fiction Fail
+  297:
+    canonical: false
+    character: Hamlet
+    choices:
+      697: {summary: Go to ending page, target: 697}
+    ending: false
+    pagenum: 297
+    summary: Kill Claudius together!
+  299:
+    canonical: true
+    character: Hamlet
+    choices:
+      276: {summary: Now talk about what just happened, target: 276}
+    ending: false
+    pagenum: 299
+    summary: Recap the story you told Horatio
+  300:
+    canonical: false
+    character: Hamlet
+    choices:
+      129: {summary: Go to ending page, target: 129}
+    ending: false
+    pagenum: 300
+    summary: Destroy the whole town
+  301:
+    canonical: false
+    character: Hamlet
+    choices:
+      695: {summary: Go see the ghost!, target: 695}
+    ending: false
+    pagenum: 301
+    summary: Ophelia agrees to see ghost with you
+  303:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 303
+    summary: (splat)
+  304:
+    canonical: true
+    character: Hamlet
+    choices:
+      195: {summary: Apologize and murder Claudius, target: 195}
+      301: {summary: Apologize and ask for help, target: 301}
+      308: {summary: Continue behaving badly, target: 308}
+    ending: false
+    pagenum: 304
+    summary: Foul your stockings
+  305:
+    canonical: false
+    character: Hamlet
+    choices:
+      26: {summary: Act casual, target: 26}
+      314: {summary: Jump out window, target: 314}
+    ending: false
+    pagenum: 305
+    summary: Someone notices you're stuck
+  306:
+    canonical: true
+    character: Hamlet
+    choices:
+      40: {summary: Try to remember something about sailing, target: 40}
+      141: {summary: Face the pirates head-on, target: 141}
+      182: {summary: Continue with the wind at our back, target: 182}
+    ending: false
+    pagenum: 306
+    summary: Still not moving fast enough
+  307:
+    canonical: false
+    character: Hamlet
+    choices:
+      296: {summary: Look chamber, target: 296}
+    ending: false
+    pagenum: 307
+    summary: Interactive Fiction Fail
+  308:
+    canonical: true
+    character: Hamlet
+    choices:
+      264: {summary: Go spy on Claudius, target: 264}
+    ending: false
+    pagenum: 308
+    summary: Continue behaving badly
+  309:
+    canonical: false
+    character: Ophelia
+    choices:
+      185: {summary: Go to ending page, target: 185}
+    ending: false
+    pagenum: 309
+    summary: Murder Claudius with hot-air balloon
+  310:
+    canonical: true
+    character: Hamlet
+    choices:
+      279: {summary: Talk about self-improvement instead, target: 279}
+      310: {summary: Repeat what you just said, target: 310}
+      438: {summary: Wait for something to happen, target: 438}
+    ending: false
+    pagenum: 310
+    summary: Talk about free will
+  311:
+    canonical: false
+    character: Hamlet
+    choices:
+      81: {summary: Use "rubbed shoulders" pun, target: 81}
+      210: {summary: Use "looking over your shoulder", target: 210}
+      315: {summary: Use "chip on your shoulder" pun, target: 315}
+    ending: false
+    pagenum: 311
+    summary: Injure the captain's shoulder
+  313:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 313
+    summary: Claudius does NOT become a ghost
+  314:
+    canonical: false
+    character: Hamlet
+    choices:
+      303: {summary: Turn to ending page, target: 303}
+    ending: false
+    pagenum: 314
+    summary: Jumping out a window was a bad idea
+  315:
+    canonical: false
+    character: Hamlet
+    choices:
+      65: {summary: Attack his arm, target: 65}
+      316: {summary: Attack his legs, target: 316}
+      631: {summary: Attack his eyes, target: 631}
+    ending: false
+    pagenum: 315
+    summary: Captain is stunned by lightning
+  316:
+    canonical: false
+    character: Hamlet
+    choices:
+      221: {summary: Use "sea legs" pun, target: 221}
+      340: {summary: Use "last legs" pun, target: 340}
+      506: {summary: Use "leg to stand on" pun, target: 506}
+    ending: false
+    pagenum: 316
+    summary: Cut off captain's legs
+  317:
+    canonical: true
+    character: Hamlet
+    choices:
+      181: {summary: Bah, target: 181}
+    ending: false
+    pagenum: 317
+    summary: Claudius ignores you
+  318:
+    canonical: true
+    character: Hamlet
+    choices:
+      247: {summary: Follow ghost, target: 247}
+      265: {summary: Run for it!, target: 265}
+    ending: false
+    pagenum: 318
+    summary: Ghost beckons you to follow
+  319:
+    canonical: true
+    character: Hamlet
+    choices:
+      326: {summary: Go for his upper body, target: 326}
+      352: {summary: Go for his lower body, target: 352}
+    ending: false
+    pagenum: 319
+    summary: The fencing match begins
+  320:
+    canonical: true
+    character: Hamlet
+    choices:
+      158: {summary: (Hidden timeline choice), target: 158}
+      338: {summary: Take the right sword, target: 338}
+      353: {summary: Take the left sword, target: 353}
+    ending: false
+    pagenum: 320
+    summary: Swords are sent flying
+  321:
+    canonical: true
+    character: Hamlet
+    choices:
+      113: {summary: Answer question, target: 113}
+    ending: false
+    pagenum: 321
+    summary: Polonius asks a third question
+  323:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 323
+    summary: Yep, quite dead.
+  324:
+    canonical: true
+    character: Hamlet
+    choices:
+      227: {summary: Sail back to Denmark, target: 227}
+      290: {summary: Become pirates, target: 290}
+      401: {summary: Sail to England, target: 401}
+    ending: false
+    pagenum: 324
+    summary: Victory speech!
+  326:
+    canonical: true
+    character: Hamlet
+    choices:
+      114: {summary: Go for the upper body again, target: 114}
+      347: {summary: Go for his lower body this time, target: 347}
+    ending: false
+    pagenum: 326
+    summary: Get a hit on Laertes
+  327:
+    canonical: false
+    character: Hamlet
+    choices:
+      314: {summary: Jump out the window, target: 314}
+      361: {summary: Throw Polonius' body out window, target: 361}
+      372: {summary: Use sword on Polonius, target: 372}
+    ending: false
+    pagenum: 327
+    summary: Get description of room
+  329:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 329
+    summary: 'Final score: 3 micropoints'
+  330:
+    canonical: true
+    character: Hamlet
+    choices:
+      170: {summary: 'Wait, was that poisoned?', target: 170}
+      320: {summary: Continue, target: 320}
+    ending: false
+    pagenum: 330
+    summary: Your mother takes a drink
+  331:
+    canonical: false
+    character: Hamlet
+    choices:
+      81: {summary: Use "big mouth" pun, target: 81}
+      210: {summary: Use "lose face" pun, target: 210}
+      315: {summary: Use "is your face red", target: 315}
+    ending: false
+    pagenum: 331
+    summary: Cut captain on the face
+  332:
+    canonical: false
+    character: Hamlet
+    choices:
+      61: {summary: Go to ending page, target: 61}
+    ending: false
+    pagenum: 332
+    summary: Horatio thinks up horrible last words for you
+  333:
+    canonical: true
+    character: Hamlet
+    choices:
+      206: {summary: Try to trap Claudius with book, target: 206}
+    ending: false
+    pagenum: 333
+    summary: Break up with Ophelia, basically
+  335:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 335
+    summary: Become a professional chess player
+  336:
+    canonical: false
+    character: Ryan North
+    choices:
+      4: {summary: Begin reading the book, target: 4}
+    ending: false
+    pagenum: 336
+    summary: You are Ryan North
+  337:
+    canonical: false
+    character: The Captain
+    choices:
+      360: {summary: Evasive manoeuvres!, target: 360}
+      362: {summary: Ramming speed!, target: 362}
+      368: {summary: Engage the Omega Protocol!, target: 368}
+    ending: false
+    pagenum: 337
+    summary: Ship is under fire!
+  338:
+    canonical: true
+    character: Hamlet
+    choices:
+      404: {summary: Don't kill Claudius, target: 404}
+      514: {summary: Kill Claudius, target: 514}
+    ending: false
+    pagenum: 338
+    summary: Basically everyone's poisoned now
+  340:
+    canonical: false
+    character: Hamlet
+    choices:
+      224: {summary: Deliver the killing blow, target: 224}
+    ending: false
+    pagenum: 340
+    summary: The captain is rather angry
+  341:
+    canonical: false
+    character: Hamlet
+    choices:
+      157: {summary: Go to ending page, target: 157}
+    ending: false
+    pagenum: 341
+    summary: Accidentally set self on fire
+  343:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 343
+    summary: In fact, you were strangled to death
+  344:
+    canonical: false
+    character: Hamlet
+    choices:
+      647: {summary: Go to the ending page, target: 647}
+    ending: false
+    pagenum: 344
+    summary: Destroy the whole castle, minus Gertrude
+  345:
+    canonical: false
+    character: Ophelia
+    choices:
+      713: {summary: Be the new queen of Denmark, target: 713}
+    ending: false
+    pagenum: 345
+    summary: You win!
+  346:
+    canonical: false
+    character: Hamlet
+    choices:
+      77: {summary: Go to ending page, target: 77}
+    ending: false
+    pagenum: 346
+    summary: The book is offended that you lied
+  347:
+    canonical: true
+    character: Hamlet
+    choices:
+      330: {summary: Nice!, target: 330}
+    ending: false
+    pagenum: 347
+    summary: You score another hit
+  348:
+    canonical: false
+    character: Hamlet
+    choices:
+      197: {summary: Go to ending page, target: 197}
+    ending: false
+    pagenum: 348
+    summary: Kill Claudius, somewhat improbably!
+  349:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      373: {summary: Wake up person and ask her about it, target: 373}
+      648: {summary: Wake up person and hold up a note, target: 648}
+    ending: false
+    pagenum: 349
+    summary: Find diary implying you might've been murdered
+  351:
+    canonical: false
+    character: Hamlet
+    choices:
+      473: {summary: Go to ending page, target: 473}
+    ending: false
+    pagenum: 351
+    summary: You emerge as a chunky red mist
+  352:
+    canonical: false
+    character: Hamlet
+    choices:
+      384: {summary: Attack his upper body, target: 384}
+      386: {summary: Attack his lower body again, target: 386}
+    ending: false
+    pagenum: 352
+    summary: Laertes lands a blow
+  353:
+    canonical: false
+    character: Hamlet
+    choices:
+      563: {summary: Go to ending page, target: 563}
+    ending: false
+    pagenum: 353
+    summary: You and Gertrude are killed by poison
+  355:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 355
+    summary: You COULD try again...
+  356:
+    canonical: false
+    character: Horatio
+    choices:
+      103: {summary: Go to the ending page, target: 103}
+    ending: false
+    pagenum: 356
+    summary: As Horatio, defeat Fortinbras and Norway!
+  357:
+    canonical: false
+    character: Other
+    choices:
+      4: {summary: Choose character, target: 4}
+      336: {summary: BECOME the author, target: 336}
+      376: {summary: Read about author, target: 376}
+      479: {summary: Read more acknowledgements, target: 479}
+    ending: false
+    pagenum: 357
+    summary: Acknowledgements!
+  359:
+    canonical: true
+    character: Hamlet
+    choices:
+      107: {summary: Look at ghost, target: 107}
+    ending: false
+    pagenum: 359
+    summary: A ghost appears!
+  360:
+    canonical: false
+    character: The Captain
+    choices: {}
+    ending: false
+    pagenum: 360
+    summary: Your ship is torn apart
+  361:
+    canonical: false
+    character: Hamlet
+    choices:
+      26: {summary: Act casual, target: 26}
+      377: {summary: Jump out window, target: 377}
+      396: {summary: Burn curtain, target: 396}
+    ending: false
+    pagenum: 361
+    summary: Throw Polonius out window
+  362:
+    canonical: false
+    character: The Captain
+    choices: {}
+    ending: false
+    pagenum: 362
+    summary: Ram the Deltron ship
+  363:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 363
+    summary: Lose terribly
+  364:
+    canonical: true
+    character: Hamlet
+    choices:
+      237: {summary: Talk to Horatio about the pirate trip again, target: 237}
+      276: {summary: Talk to Horatio about what just happened, target: 276}
+    ending: false
+    pagenum: 364
+    summary: Leave the graveyard
+  367:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 367
+    summary: You also prevent two world wars!
+  368:
+    canonical: false
+    character: The Captain
+    choices: {}
+    ending: false
+    pagenum: 368
+    summary: Engage the Omega Protocol!
+  370:
+    canonical: true
+    character: Hamlet
+    choices:
+      41: {summary: Figure out a plan, target: 41}
+    ending: false
+    pagenum: 370
+    summary: Discover Claudius wants you killed
+  371:
+    canonical: true
+    character: Hamlet
+    choices:
+      287: {summary: Go to the ending page, target: 287}
+    ending: false
+    pagenum: 371
+    summary: 'Final score: 675/1000'
+  372:
+    canonical: false
+    character: Hamlet
+    choices:
+      53: {summary: Dump body parts out window, target: 53}
+      390: {summary: Put body parts in bags, target: 390}
+      394: {summary: Put body parts in stew, target: 394}
+      397: {summary: Use twine on body parts, target: 397}
+    ending: false
+    pagenum: 372
+    summary: Polonius gets chopped up
+  373:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      403: {summary: Go to ending page, target: 403}
+    ending: false
+    pagenum: 373
+    summary: Live out afterlife in Ghost Norway
+  375:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 375
+    summary: 'Final score: 66 quadrapoints'
+  376:
+    canonical: false
+    character: Other
+    choices:
+      4: {summary: Choose your character, target: 4}
+    ending: false
+    pagenum: 376
+    summary: About Ryan North
+  377:
+    canonical: false
+    character: Hamlet
+    choices:
+      477: {summary: Go to ending page, target: 477}
+    ending: false
+    pagenum: 377
+    summary: Jump on body, die of infection
+  378:
+    canonical: false
+    character: Hamlet
+    choices:
+      40: {summary: Try to remember anything about sailing, target: 40}
+      141: {summary: Face the pirates head-on, target: 141}
+      182: {summary: Top speed!, target: 182}
+    ending: false
+    pagenum: 378
+    summary: The pirate ship gets closer
+  379:
+    canonical: false
+    character: Yourself
+    choices:
+      209: {summary: Go to the ending page, target: 209}
+    ending: false
+    pagenum: 379
+    summary: Secret Ending!
+  380:
+    canonical: false
+    character: Hamlet
+    choices:
+      206: {summary: Go for the Claudius-book plan, target: 206}
+    ending: false
+    pagenum: 380
+    summary: Ophelia dumps you
+  381:
+    canonical: false
+    character: Hamlet
+    choices:
+      25: {summary: Do it!, target: 25}
+      238: {summary: 'Nope, not interested', target: 238}
+    ending: false
+    pagenum: 381
+    summary: One more time travel chance
+  383:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 383
+    summary: Casual didn't cut it
+  384:
+    canonical: false
+    character: Hamlet
+    choices:
+      517: {summary: Go to ending page, target: 517}
+    ending: false
+    pagenum: 384
+    summary: Die, but become a ghost superhero
+  386:
+    canonical: false
+    character: Hamlet
+    choices:
+      381: {summary: 'No, sounds dangerous', target: 381}
+      398: {summary: Into the Quantum Leap Accelerator!, target: 398}
+    ending: false
+    pagenum: 386
+    summary: Die, become ghost, consider time travel
+  388:
+    canonical: false
+    character: Ophelia
+    choices:
+      93: {summary: Run down to the site of explosions, target: 93}
+    ending: false
+    pagenum: 388
+    summary: Terrorists attack!
+  389:
+    canonical: false
+    character: Hamlet
+    choices:
+      474: {summary: 'Go be Ophelia, in fact', target: 474}
+    ending: false
+    pagenum: 389
+    summary: Ophelia trusts you
+  390:
+    canonical: false
+    character: Hamlet
+    choices:
+      399: {summary: Dump body parts out window, target: 399}
+      410: {summary: Put bags in stew, target: 410}
+      419: {summary: Use twine on bags, target: 419}
+    ending: false
+    pagenum: 390
+    summary: Body parts are in bags
+  391:
+    canonical: false
+    character: Ophelia
+    choices:
+      131: {summary: Coastline of Denmark is 7314km, target: 131}
+      656: {summary: Coastline of Denmark is 8735km, target: 656}
+      679: {summary: Coastline of Denmark cannot be accurately measured, target: 679}
+    ending: false
+    pagenum: 391
+    summary: Answer incorrectly
+  393:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 393
+    summary: You also write some ghost books
+  394:
+    canonical: false
+    character: Hamlet
+    choices:
+      341: {summary: Light door on fire, target: 341}
+      407: {summary: Remove body parts from stew, target: 407}
+      558: {summary: Eat stew, target: 558}
+    ending: false
+    pagenum: 394
+    summary: Polonius's head and limbs stick out
+  395:
+    canonical: false
+    character: Ophelia
+    choices:
+      93: {summary: Run down to the site of the explosions, target: 93}
+    ending: false
+    pagenum: 395
+    summary: Terrorists attack!
+  396:
+    canonical: false
+    character: Hamlet
+    choices:
+      341: {summary: Light door on fire, target: 341}
+      423: {summary: Eat stew, target: 423}
+      427: {summary: Create tripwire, target: 427}
+    ending: false
+    pagenum: 396
+    summary: The curtain doesn't burn well
+  397:
+    canonical: false
+    character: Hamlet
+    choices:
+      422: {summary: Tie body parts together in grisly bolas, target: 422}
+      427: {summary: Create tripwire, target: 427}
+      727: {summary: Create hot air balloon, target: 727}
+    ending: false
+    pagenum: 397
+    summary: Body parts tied up with twine
+  398:
+    canonical: false
+    character: Hamlet
+    choices:
+      x596: {summary: 'Complete the jump (totally screws up Graphviz, not linking
+          for real)', target: x596}
+    ending: false
+    pagenum: 398
+    summary: Wait as quantum leap resolves itself
+  399:
+    canonical: false
+    character: Hamlet
+    choices:
+      26: {summary: Act casual, target: 26}
+      283: {summary: Jump out window to escape, target: 283}
+      452: {summary: Eat stew, target: 452}
+    ending: false
+    pagenum: 399
+    summary: Throw the meatbags out the window
+  400:
+    canonical: false
+    character: Ophelia
+    choices:
+      230: {summary: Kill Osric, target: 230}
+      725: {summary: Try to explain all the bodies, target: 725}
+    ending: false
+    pagenum: 400
+    summary: Kill Laertes, Osric enters!
+  401:
+    canonical: false
+    character: Hamlet
+    choices:
+      191: {summary: Go to the ending page, target: 191}
+    ending: false
+    pagenum: 401
+    summary: Party out in England
+  403:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 403
+    summary: You play charades!
+  404:
+    canonical: false
+    character: Hamlet
+    choices:
+      97: {summary: Go to the ending page, target: 97}
+    ending: false
+    pagenum: 404
+    summary: You die, Claudius lives
+  405:
+    canonical: false
+    character: Ophelia
+    choices:
+      428: {summary: Accuse him of lying, target: 428}
+      617: {summary: '... go back on vacation', target: 617}
+    ending: false
+    pagenum: 405
+    summary: Find Fortinbras among dead bodies
+  407:
+    canonical: false
+    character: Hamlet
+    choices:
+      314: {summary: Jump out the window, target: 314}
+      439: {summary: Put parts back in and consume, target: 439}
+      450: {summary: Eat the stew as-is, target: 450}
+    ending: false
+    pagenum: 407
+    summary: Take body parts back out
+  409:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 409
+    summary: Out-sail'd, really.
+  410:
+    canonical: false
+    character: Hamlet
+    choices:
+      434: {summary: Remove parts from stew, target: 434}
+      436: {summary: Eat stew, target: 436}
+      455: {summary: Act casual, target: 455}
+    ending: false
+    pagenum: 410
+    summary: Bags are in the stew
+  411:
+    canonical: false
+    character: Ophelia
+    choices:
+      593: {summary: Put sword back in sheath, target: 593}
+      624: {summary: Draw sword anyway, target: 624}
+    ending: false
+    pagenum: 411
+    summary: Gertrude attacks you
+  412:
+    canonical: false
+    character: Ophelia
+    choices:
+      106: {summary: Move OTHER knight to threaten bishop, target: 106}
+      137: {summary: Attack queen with knight, target: 137}
+      565: {summary: Protect pawn with queen, target: 565}
+    ending: false
+    pagenum: 412
+    summary: Gertrude threatens your pawns
+  413:
+    canonical: false
+    character: Claudius
+    choices:
+      414: {summary: Begin reading, target: 414}
+      421: {summary: Act a bit crazy and paranoid, target: 421}
+    ending: false
+    pagenum: 413
+    summary: Look at the front page
+  414:
+    canonical: true
+    character: Claudius
+    choices:
+      G001: {summary: Turn the page, target: G001}
+    ending: false
+    pagenum: 414
+    summary: Reading The Murder of Gonzago
+  415:
+    canonical: false
+    character: Claudius
+    choices:
+      22: {summary: Continue reading as Hamlet, target: 22}
+    ending: false
+    pagenum: 415
+    summary: Realize this is just like Hamlet
+  417:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      45: {summary: Turn to the ending page, target: 45}
+    ending: false
+    pagenum: 417
+    summary: Notice there's tons of things to do besides revenge
+  419:
+    canonical: false
+    character: Hamlet
+    choices:
+      75: {summary: Act casual, target: 75}
+      314: {summary: Jump out window, target: 314}
+      452: {summary: Eat stew, target: 452}
+    ending: false
+    pagenum: 419
+    summary: Bags are sealed with twine
+  420:
+    canonical: false
+    character: Hamlet
+    choices:
+      206: {summary: Proceed with murder book plan, target: 206}
+    ending: false
+    pagenum: 420
+    summary: Fix relationship up
+  421:
+    canonical: false
+    character: Claudius
+    choices:
+      474: {summary: Be Ophelia again, target: 474}
+    ending: false
+    pagenum: 421
+    summary: Make a scene and run out of the room
+  422:
+    canonical: false
+    character: Hamlet
+    choices:
+      314: {summary: Jump out the window, target: 314}
+      341: {summary: Light door on fire, target: 341}
+      564: {summary: Create tripwire, target: 564}
+    ending: false
+    pagenum: 422
+    summary: Giant Human Bolas
+  423:
+    canonical: false
+    character: Hamlet
+    choices:
+      26: {summary: Act casual, target: 26}
+      341: {summary: Light door on fire, target: 341}
+      452: {summary: Eat more stew, target: 452}
+    ending: false
+    pagenum: 423
+    summary: The stew is tasty
+  425:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 425
+    summary: And then you fade out forever
+  426:
+    canonical: false
+    character: Ophelia
+    choices:
+      489: {summary: Talk to Hamlet about the ghost, target: 489}
+    ending: false
+    pagenum: 426
+    summary: You were Ophelia, having a dream!
+  427:
+    canonical: false
+    character: Hamlet
+    choices:
+      314: {summary: Jump out the window, target: 314}
+      444: {summary: Act casual, target: 444}
+    ending: false
+    pagenum: 427
+    summary: Create a tripwire
+  428:
+    canonical: false
+    character: Ophelia
+    choices:
+      235: {summary: Go to ending page, target: 235}
+    ending: false
+    pagenum: 428
+    summary: Fortinbras orders Horatio to kill you
+  429:
+    canonical: true
+    character: Claudius
+    choices:
+      618: {summary: Go back to being Hamlet, target: 618}
+    ending: false
+    pagenum: 429
+    summary: Run out of the room and cry
+  430:
+    canonical: false
+    character: Ophelia
+    choices:
+      437: {summary: Hamlet is at the door, target: 437}
+      463: {summary: Polonius is at the door, target: 463}
+      724: {summary: Dromiceiomimus is at the door, target: 724}
+    ending: false
+    pagenum: 430
+    summary: Work on thermometer, hear knock on door
+  433:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 433
+    summary: Rosencrantz and Guildenstern are heroes though
+  434:
+    canonical: false
+    character: Hamlet
+    choices:
+      541: {summary: Go to ending page, target: 541}
+    ending: false
+    pagenum: 434
+    summary: Get caught, surprisingly!
+  435:
+    canonical: false
+    character: Ophelia
+    choices:
+      470: {summary: Go on vacation, target: 470}
+      489: {summary: Go talk to Hamlet, target: 489}
+    ending: false
+    pagenum: 435
+    summary: Discover your dad is crazy
+  436:
+    canonical: false
+    character: Hamlet
+    choices:
+      487: {summary: Go to ending page, target: 487}
+    ending: false
+    pagenum: 436
+    summary: Claudius kills you right there
+  437:
+    canonical: false
+    character: Ophelia
+    choices:
+      445: {summary: Wait for him to tell you, target: 445}
+      489: {summary: Ask what's troubling him, target: 489}
+    ending: false
+    pagenum: 437
+    summary: Hamlet comes in and you kiss
+  438:
+    canonical: true
+    character: Hamlet
+    choices:
+      319: {summary: 'Take a sword (three options, actually)', target: 319}
+    ending: false
+    pagenum: 438
+    summary: Prepare for fencing
+  439:
+    canonical: false
+    character: Hamlet
+    choices:
+      641: {summary: Go to ending page, target: 641}
+    ending: false
+    pagenum: 439
+    summary: Get caught being gross, and die
+  441:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 441
+    summary: The narrator is taken hostage, too
+  442:
+    canonical: false
+    character: Ophelia
+    choices:
+      502: {summary: Go kill Claudius, target: 502}
+    ending: false
+    pagenum: 442
+    summary: Spy on Horatio, it is boring
+  444:
+    canonical: false
+    character: Hamlet
+    choices:
+      629: {summary: Go to ending page, target: 629}
+    ending: false
+    pagenum: 444
+    summary: Kill Corambis but Claudius kills you
+  445:
+    canonical: false
+    character: Ophelia
+    choices:
+      435: {summary: Check with dad about Hamlet, target: 435}
+      489: {summary: Follow Hamlet, target: 489}
+    ending: false
+    pagenum: 445
+    summary: Hamlet acts super weird
+  446:
+    canonical: false
+    character: Ophelia
+    choices:
+      721: {summary: Go to ending page, target: 721}
+    ending: false
+    pagenum: 446
+    summary: Kill Claudius, Hamlet becomes an okay king
+  449:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 449
+    summary: You meet some sexy folks in England though
+  450:
+    canonical: false
+    character: Hamlet
+    choices:
+      635: {summary: Go to ending page, target: 635}
+    ending: false
+    pagenum: 450
+    summary: Eat more Polonius, get killed for murder
+  451:
+    canonical: false
+    character: Ophelia
+    choices:
+      273: {summary: Go to ending page, target: 273}
+    ending: false
+    pagenum: 451
+    summary: The royal court kills you instead
+  452:
+    canonical: false
+    character: Hamlet
+    choices:
+      461: {summary: Go to ending page, target: 461}
+    ending: false
+    pagenum: 452
+    summary: Beef Stew recipe!
+  454:
+    canonical: false
+    character: Ophelia
+    choices:
+      458: {summary: Ask her to dinner, target: 458}
+      464: {summary: Ask to be friends, target: 464}
+      718: {summary: Tell her you're bored, target: 718}
+    ending: false
+    pagenum: 454
+    summary: Meet Cleo in her room
+  455:
+    canonical: false
+    character: Hamlet
+    choices:
+      383: {summary: Go to ending page, target: 383}
+    ending: false
+    pagenum: 455
+    summary: Get caught and executed
+  457:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 457
+    summary: It's a bit awkward
+  458:
+    canonical: false
+    character: Ophelia
+    choices:
+      93: {summary: Run down to the site of the explosions, target: 93}
+    ending: false
+    pagenum: 458
+    summary: Terrorists attack the hotel!
+  459:
+    canonical: false
+    character: Ophelia
+    choices:
+      549: {summary: Go to ending page, target: 549}
+    ending: false
+    pagenum: 459
+    summary: Become a full-time terrorist hunter
+  461:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 461
+    summary: Put to death, though
+  462:
+    canonical: false
+    character: Ophelia
+    choices:
+      117: {summary: Go to ending page, target: 117}
+    ending: false
+    pagenum: 462
+    summary: Accidentally kill Hamlet, too!
+  463:
+    canonical: false
+    character: Ophelia
+    choices:
+      445: {summary: Wait for him to tell you, target: 445}
+      489: {summary: Ask what's troubling him, target: 489}
+    ending: false
+    pagenum: 463
+    summary: It's actually Hamlet
+  464:
+    canonical: false
+    character: Ophelia
+    choices:
+      93: {summary: Run down to the site of the explosions, target: 93}
+    ending: false
+    pagenum: 464
+    summary: Begin friendship, but terrorists attack!
+  465:
+    canonical: false
+    character: Hamlet
+    choices:
+      223: {summary: Go to ending page, target: 223}
+    ending: false
+    pagenum: 465
+    summary: Fall slowly, but not slowly enough
+  466:
+    canonical: false
+    character: Ophelia
+    choices:
+      32: {summary: Chat up Antonio Tony, target: 32}
+      454: {summary: Chat up Cleopatra Slim, target: 454}
+    ending: false
+    pagenum: 466
+    summary: Brother Pat is passed out
+  467:
+    canonical: false
+    character: Hamlet
+    choices:
+      139: {summary: Turn to ending page, target: 139}
+    ending: false
+    pagenum: 467
+    summary: Fall to your death
+  468:
+    canonical: false
+    character: Ophelia
+    choices:
+      497: {summary: Proceed with plan, target: 497}
+      507: {summary: Now kill Claudius, target: 507}
+    ending: false
+    pagenum: 468
+    summary: Spy on your mother
+  470:
+    canonical: false
+    character: Ophelia
+    choices:
+      32: {summary: Chat up Antonio Tony, target: 32}
+      454: {summary: Chat up Cleopatra Slim, target: 454}
+      466: {summary: Chat up Brother Pat, target: 466}
+    ending: false
+    pagenum: 470
+    summary: Arrive in England, meet three folks
+  473:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 473
+    summary: '"How realistic slash gross"'
+  474:
+    canonical: false
+    character: Ophelia
+    choices:
+      496: {summary: Convince Hamlet, target: 496}
+      505: {summary: Be Hamlet to become convinced, target: 505}
+    ending: false
+    pagenum: 474
+    summary: You're super psyched about doing a murder
+  477:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 477
+    summary: One of the grosser endings
+  478:
+    canonical: false
+    character: Ophelia
+    choices:
+      323: {summary: Turn to ending page, target: 323}
+    ending: false
+    pagenum: 478
+    summary: You are killed by the royal court
+  479:
+    canonical: false
+    character: Other
+    choices:
+      4: {summary: Start the story!, target: 4}
+      376: {summary: Read about the author, target: 376}
+    ending: false
+    pagenum: 479
+    summary: Very thorough acknowledgements
+  482:
+    canonical: false
+    character: Ophelia
+    choices:
+      430: {summary: Return to work, target: 430}
+    ending: false
+    pagenum: 482
+    summary: Laertes tells you he's off to France
+  483:
+    canonical: false
+    character: Ophelia
+    choices:
+      266: {summary: Act 3 Scene 3, target: 266}
+    ending: false
+    pagenum: 483
+    summary: Time to put the plan in action
+  484:
+    canonical: true
+    character: Ophelia
+    choices:
+      492: {summary: Slam door in his face, target: 492}
+      525: {summary: Invite him to enter, target: 525}
+    ending: false
+    pagenum: 484
+    summary: Laertes insults you
+  485:
+    canonical: false
+    character: Hamlet
+    choices:
+      169: {summary: Go to bed, target: 169}
+    ending: false
+    pagenum: 485
+    summary: Drink the potion anyway
+  487:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 487
+    summary: The End!
+  488:
+    canonical: false
+    character: Ophelia
+    choices:
+      483: {summary: Skip the montage, target: 483}
+      508: {summary: Training montage!!, target: 508}
+    ending: false
+    pagenum: 488
+    summary: Parcel out the murderin' books
+  489:
+    canonical: false
+    character: Ophelia
+    choices:
+      513: {summary: Go see the ghost, target: 513}
+    ending: false
+    pagenum: 489
+    summary: Hamlet tells you about ghost
+  490:
+    canonical: false
+    character: Ophelia
+    choices:
+      493: {summary: Look at another book, target: 493}
+    ending: false
+    pagenum: 490
+    summary: Hamlet's book is awful
+  491:
+    canonical: false
+    character: Hamlet
+    choices:
+      109: {summary: Go to ending page, target: 109}
+    ending: false
+    pagenum: 491
+    summary: Kill both Claudius and Gertrude
+  492:
+    canonical: false
+    character: Ophelia
+    choices:
+      430: {summary: Return to desk, target: 430}
+    ending: false
+    pagenum: 492
+    summary: Drive off Laertes
+  493:
+    canonical: false
+    character: Ophelia
+    choices:
+      526: {summary: Wait until tomorrow, target: 526}
+    ending: false
+    pagenum: 493
+    summary: Use The Murder of Gonzago instead
+  495:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 495
+    summary: You're dead!
+  496:
+    canonical: false
+    character: Ophelia
+    choices:
+      505: {summary: Try the silly option, target: 505}
+    ending: false
+    pagenum: 496
+    summary: Talking fails to convince Hamlet
+  497:
+    canonical: false
+    character: Ophelia
+    choices:
+      442: {summary: Do more reconnaissance, target: 442}
+      502: {summary: Go kill Claudius, target: 502}
+    ending: false
+    pagenum: 497
+    summary: Spy on Rosencrantz and Guildenstern
+  499:
+    canonical: false
+    character: Ophelia
+    choices:
+      243: {summary: Go to ending page, target: 243}
+    ending: false
+    pagenum: 499
+    summary: Kill Claudius and get away with it!
+  501:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 501
+    summary: 'Final score: 50 billion decapoints!'
+  502:
+    canonical: false
+    character: Ophelia
+    choices:
+      123: {summary: Go to ending page, target: 123}
+    ending: false
+    pagenum: 502
+    summary: Kill Claudius and Laertes
+  505:
+    canonical: false
+    character: Ophelia
+    choices:
+      488: {summary: Hit the books, target: 488}
+    ending: false
+    pagenum: 505
+    summary: Hamlet is convinced through finagling
+  506:
+    canonical: true
+    character: Hamlet
+    choices:
+      224: {summary: Kill him!, target: 224}
+    ending: false
+    pagenum: 506
+    summary: Captain is livid
+  507:
+    canonical: false
+    character: Ophelia
+    choices:
+      313: {summary: Go to ending page, target: 313}
+    ending: false
+    pagenum: 507
+    summary: You kill Claudius and have three kids
+  508:
+    canonical: false
+    character: Ophelia
+    choices:
+      483: {summary: Proceed with maxed-out skills, target: 483}
+    ending: false
+    pagenum: 508
+    summary: Training montage!
+  511:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 511
+    summary: Blood everywhere, really
+  512:
+    canonical: false
+    character: Ophelia
+    choices:
+      430: {summary: Return to desk, target: 430}
+    ending: false
+    pagenum: 512
+    summary: Kick Laertes and Polonius out
+  513:
+    canonical: false
+    character: Ophelia
+    choices:
+      527: {summary: Make out for awhile, target: 527}
+      534: {summary: Don't make out, target: 534}
+    ending: false
+    pagenum: 513
+    summary: Kissing while waiting for ghost
+  514:
+    canonical: true
+    character: Hamlet
+    choices:
+      332: {summary: Tell Horatio to make up some last words for you, target: 332}
+      356: {summary: Tell Horatio about your pirate ship, target: 356}
+      371: {summary: Fancy last words, target: 371}
+    ending: false
+    pagenum: 514
+    summary: You killed Claudius!
+  517:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 517
+    summary: Hamlet Sr takes up painting
+  518:
+    canonical: false
+    character: Ophelia
+    choices:
+      490: {summary: Answer "yes" to murder question, target: 490}
+      521: {summary: Answer "no" to murder question, target: 521}
+    ending: false
+    pagenum: 518
+    summary: Hamlet writes a Chooseable-Path book
+  520:
+    canonical: false
+    character: Hamlet
+    choices:
+      204: {summary: Run to royal court with book, target: 204}
+    ending: false
+    pagenum: 520
+    summary: Take a long nap
+  521:
+    canonical: false
+    character: Ophelia
+    choices:
+      490: {summary: Admit it, target: 490}
+      524: {summary: Do not admit it, target: 524}
+    ending: false
+    pagenum: 521
+    summary: Another page accuses reader of murder
+  523:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 523
+    summary: Lose your sense of self!
+  524:
+    canonical: false
+    character: Ophelia
+    choices:
+      220: {summary: Do not admit it, target: 220}
+      490: {summary: Admit it, target: 490}
+    ending: false
+    pagenum: 524
+    summary: More murder accusation pages
+  525:
+    canonical: true
+    character: Ophelia
+    choices:
+      492: {summary: Throw him out of the room, target: 492}
+      529: {summary: Tell him you'll do as he says, target: 529}
+    ending: false
+    pagenum: 525
+    summary: Laertes continues to be rude
+  526:
+    canonical: false
+    character: Ophelia
+    choices:
+      413: {summary: Be Claudius for a bit, target: 413}
+    ending: false
+    pagenum: 526
+    summary: Give Claudius the book
+  527:
+    canonical: false
+    character: Ophelia
+    choices:
+      215: {summary: Go to ending page, target: 215}
+    ending: false
+    pagenum: 527
+    summary: Invent central heating, get married
+  529:
+    canonical: true
+    character: Ophelia
+    choices:
+      512: {summary: Kick them both out, target: 512}
+      550: {summary: Invite Polonius to sit down, target: 550}
+    ending: false
+    pagenum: 529
+    summary: Polonius enters
+  530:
+    canonical: false
+    character: Ophelia
+    choices:
+      430: {summary: Get down to work, target: 430}
+    ending: false
+    pagenum: 530
+    summary: Slap Polonius and kick them both out
+  531:
+    canonical: false
+    character: Ophelia
+    choices:
+      580: {summary: Talk about the murder, target: 580}
+    ending: false
+    pagenum: 531
+    summary: Hamlet Sr's identity confirmed
+  533:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 533
+    summary: 'Final score: 3400 megapoints'
+  534:
+    canonical: false
+    character: Ophelia
+    choices:
+      531: {summary: Demand proof of identity, target: 531}
+      552: {summary: Ask why he doesn't murder Claudius himself, target: 552}
+    ending: false
+    pagenum: 534
+    summary: Hamlet Sr's Ghost shows up
+  535:
+    canonical: false
+    character: Ophelia
+    choices:
+      559: {summary: Disagree with plan, target: 559}
+      576: {summary: Agree with plan, target: 576}
+    ending: false
+    pagenum: 535
+    summary: Hamlet Sr. is set on murder
+  536:
+    canonical: false
+    character: Ophelia
+    choices:
+      668: {summary: Stalemate, target: 668}
+    ending: false
+    pagenum: 536
+    summary: Stalemate via repeated moves!
+  537:
+    canonical: false
+    character: Hamlet
+    choices:
+      232: {summary: Ask Gertrude to scoot over a bit, target: 232}
+      291: {summary: Ask Claudius why he murdered Hamlet Sr, target: 291}
+    ending: false
+    pagenum: 537
+    summary: Confront Claudius from your boat
+  538:
+    canonical: false
+    character: Ophelia
+    choices:
+      309: {summary: Choose Blast Him Into Space, target: 309}
+      518: {summary: Choose Book-Trickery, target: 518}
+      584: {summary: Choose Stabs, target: 584}
+      685: {summary: Choose Drowning, target: 685}
+    ending: false
+    pagenum: 538
+    summary: List of Ways To Murder A King
+  541:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 541
+    summary: The bags were a weird idea
+  542:
+    canonical: true
+    character: Hamlet
+    choices:
+      166: {summary: Investigate noises, target: 166}
+      426: {summary: Wake up from dream!, target: 426}
+    ending: false
+    pagenum: 542
+    summary: '"Alas, poor Yorick" speech'
+  544:
+    canonical: false
+    character: Ophelia
+    choices:
+      578: {summary: Back to the fight, target: 578}
+    ending: false
+    pagenum: 544
+    summary: Thank the narrator
+  545:
+    canonical: false
+    character: Ophelia
+    choices:
+      363: {summary: Play for a win, target: 363}
+      573: {summary: Go for the draw, target: 573}
+    ending: false
+    pagenum: 545
+    summary: Possibility of a draw
+  546:
+    canonical: false
+    character: Ophelia
+    choices:
+      589: {summary: Continue, target: 589}
+    ending: false
+    pagenum: 546
+    summary: Man, that took awhile
+  547:
+    canonical: true
+    character: Ophelia
+    choices:
+      99: {summary: Be Hamlet instead, target: 99}
+    ending: false
+    pagenum: 547
+    summary: Obey family
+  549:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 549
+    summary: You have a cool flying suit
+  550:
+    canonical: true
+    character: Ophelia
+    choices:
+      530: {summary: Slap him, target: 530}
+      547: {summary: Agree to Polonius and Laertes, target: 547}
+    ending: false
+    pagenum: 550
+    summary: Polonius tells you to stop seeing Hamlet
+  551:
+    canonical: false
+    character: Ophelia
+    choices:
+      545: {summary: Move king towards pawn, target: 545}
+      722: {summary: Move king away from pawn, target: 722}
+    ending: false
+    pagenum: 551
+    summary: In check
+  552:
+    canonical: false
+    character: Ophelia
+    choices:
+      580: {summary: Talk about murder, target: 580}
+    ending: false
+    pagenum: 552
+    summary: Hamlet Sr's identity dramatically confirmed
+  555:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 555
+    summary: Try and pretend the bodies are alive!
+  556:
+    canonical: false
+    character: Ophelia
+    choices:
+      62: {summary: Let Osric live, target: 62}
+      217: {summary: Kill Osric, target: 217}
+    ending: false
+    pagenum: 556
+    summary: Capture Osric, who's working for Claudius's ghost
+  558:
+    canonical: false
+    character: Hamlet
+    choices:
+      314: {summary: Jump out the window, target: 314}
+      341: {summary: Light door on fire, target: 341}
+      450: {summary: Continue eating, target: 450}
+    ending: false
+    pagenum: 558
+    summary: Eat some of Polonius
+  559:
+    canonical: false
+    character: Ophelia
+    choices:
+      249: {summary: Go to end page, target: 249}
+    ending: false
+    pagenum: 559
+    summary: Decide not to do any murdering
+  560:
+    canonical: false
+    character: Ophelia
+    choices:
+      39: {summary: Go to ending page, target: 39}
+    ending: false
+    pagenum: 560
+    summary: Get killed by royal court
+  561:
+    canonical: false
+    character: Ophelia
+    choices:
+      412: {summary: Protect pawn with knight, target: 412}
+      611: {summary: Threaten queen with pawn, target: 611}
+      681: {summary: Continue copying moves, target: 681}
+    ending: false
+    pagenum: 561
+    summary: Gertrude moves her queen
+  563:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 563
+    summary: Alas!
+  564:
+    canonical: false
+    character: Hamlet
+    choices:
+      89: {summary: Go to ending page, target: 89}
+    ending: false
+    pagenum: 564
+    summary: Gross out Corambis but get killed
+  565:
+    canonical: false
+    character: Ophelia
+    choices:
+      551: {summary: Move the pawn forward, target: 551}
+      722: {summary: Move the king away, target: 722}
+    ending: false
+    pagenum: 565
+    summary: Just a few pieces left
+  567:
+    canonical: false
+    character: Ophelia
+    choices:
+      683: {summary: Go to ending page, target: 683}
+    ending: false
+    pagenum: 567
+    summary: Keep family alive, terrified
+  568:
+    canonical: false
+    character: Ophelia
+    choices:
+      577: {summary: Win chess, target: 577}
+    ending: false
+    pagenum: 568
+    summary: You beat Gertrude!
+  569:
+    canonical: false
+    character: Hamlet
+    choices:
+      465: {summary: Let go of the smallest balloon, target: 465}
+      467: {summary: Hold on as long as possible, target: 467}
+    ending: false
+    pagenum: 569
+    summary: Floating around with balloons
+  571:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 571
+    summary: Read any pirate book, it's you.
+  572:
+    canonical: true
+    character: Hamlet
+    choices:
+      141: {summary: Face the pirates head-on, target: 141}
+      306: {summary: Catch wind directly at back, target: 306}
+      378: {summary: Continue at present speed, target: 378}
+    ending: false
+    pagenum: 572
+    summary: Take command of the Vesselmania
+  573:
+    canonical: false
+    character: Ophelia
+    choices:
+      668: {summary: Stalemate, target: 668}
+    ending: false
+    pagenum: 573
+    summary: Force a stalemate
+  574:
+    canonical: false
+    character: Ophelia
+    choices:
+      478: {summary: Kill courtiers, target: 478}
+      592: {summary: Kill Rozencrantz and Guildenstern, target: 592}
+      602: {summary: Kill sentries, target: 602}
+    ending: false
+    pagenum: 574
+    summary: Kill the gravediggers
+  576:
+    canonical: false
+    character: Ophelia
+    choices:
+      538: {summary: Look at the list, target: 538}
+    ending: false
+    pagenum: 576
+    summary: Make list of ways to kill people
+  577:
+    canonical: false
+    character: Ophelia
+    choices:
+      335: {summary: Go to ending page, target: 335}
+    ending: false
+    pagenum: 577
+    summary: Gertrude kills self
+  578:
+    canonical: false
+    character: Ophelia
+    choices:
+      478: {summary: Kill the courtiers, target: 478}
+      608: {summary: Kill Rosencrantz and Guildenstern, target: 608}
+    ending: false
+    pagenum: 578
+    summary: Kill Marcellus and Francisco
+  580:
+    canonical: false
+    character: Ophelia
+    choices:
+      160: {summary: Talk Hamlet Sr. out of murder, target: 160}
+      535: {summary: Argue for murder, target: 535}
+    ending: false
+    pagenum: 580
+    summary: Discover some flaws in the plan
+  583:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 583
+    summary: Also kickstart the Renaissance and eventually kill Fortinbras
+  584:
+    canonical: false
+    character: Ophelia
+    choices:
+      594: {summary: Arrive at drinking hall, target: 594}
+    ending: false
+    pagenum: 584
+    summary: Make plans to stab Claudius
+  586:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      393: {summary: Go to the ending page, target: 393}
+    ending: false
+    pagenum: 586
+    summary: Become a Ghost Marine Explorer!
+  587:
+    canonical: false
+    character: Hamlet
+    choices:
+      19: {summary: Ask them how they've been, target: 19}
+    ending: false
+    pagenum: 587
+    summary: 'More hugging: not so good'
+  588:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      667: {summary: Go to ending page, target: 667}
+    ending: false
+    pagenum: 588
+    summary: Wait for Gertrude to become a ghost
+  589:
+    canonical: false
+    character: Ophelia
+    choices:
+      597: {summary: Get away with murder, target: 597}
+    ending: false
+    pagenum: 589
+    summary: Kill Claudius, who is excited about afterlife
+  591:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 591
+    summary: Your future is determined by Mad Libs
+  592:
+    canonical: false
+    character: Ophelia
+    choices:
+      271: {summary: Kill sentries, target: 271}
+      478: {summary: Kill courtiers, target: 478}
+    ending: false
+    pagenum: 592
+    summary: Kill Rosencrantz and Guildentstern
+  593:
+    canonical: false
+    character: Ophelia
+    choices:
+      375: {summary: Turn to ending page, target: 375}
+    ending: false
+    pagenum: 593
+    summary: Eventually get killed by Gertrude's traps
+  594:
+    canonical: false
+    character: Ophelia
+    choices:
+      446: {summary: Try for 1000 nights more, target: 446}
+      546: {summary: Try for 100 nights more, target: 546}
+      589: {summary: Try for 10 nights more, target: 589}
+    ending: false
+    pagenum: 594
+    summary: Missed him this time
+  596:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      203: {summary: You're now dead., target: 203}
+    ending: false
+    pagenum: 596
+    summary: You are Hamlet, Sr, and you died
+  597:
+    canonical: false
+    character: Ophelia
+    choices:
+      556: {summary: Save Hamlet!, target: 556}
+    ending: false
+    pagenum: 597
+    summary: Get away with murder, but Hamlet is murdered
+  599:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 599
+    summary: Eventually the sun swallows you up
+  600:
+    canonical: false
+    character: Ophelia
+    choices:
+      83: {summary: Go to the ending page, target: 83}
+    ending: false
+    pagenum: 600
+    summary: Get killed by Polonius and Laertes
+  601:
+    canonical: false
+    character: Hamlet
+    choices:
+      213: {summary: Help them pick up lanterns, target: 213}
+      216: {summary: Convince them to abandon ship, target: 216}
+    ending: false
+    pagenum: 601
+    summary: Rosencrantz and Guildenstern tryin go avert explosions
+  602:
+    canonical: false
+    character: Ophelia
+    choices:
+      544: {summary: Thank the narrator!, target: 544}
+    ending: false
+    pagenum: 602
+    summary: Kill Bernardo
+  603:
+    canonical: false
+    character: Ophelia
+    choices:
+      616: {summary: Kill Gertrude, target: 616}
+      625: {summary: Kill Polonius and Laertes, target: 625}
+    ending: false
+    pagenum: 603
+    summary: Kill basically everyone but family
+  605:
+    canonical: false
+    character: Ophelia
+    choices:
+      673: {summary: Let's be Hamlet for a bit, target: 673}
+      677: {summary: Fake own drowning, target: 677}
+    ending: false
+    pagenum: 605
+    summary: Hamlet goes off to England for a bit
+  607:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 607
+    summary: If only you'd gotten away with it
+  608:
+    canonical: false
+    character: Ophelia
+    choices:
+      603: {summary: Kill courtiers, target: 603}
+    ending: false
+    pagenum: 608
+    summary: Kill Rosencrantz and Guildenstern
+  610:
+    canonical: false
+    character: Ophelia
+    choices:
+      627: {summary: Everyone is dead, target: 627}
+    ending: false
+    pagenum: 610
+    summary: Kill Polonius and Laertes
+  611:
+    canonical: false
+    character: Ophelia
+    choices:
+      49: {summary: Block with anything (three options), target: 49}
+    ending: false
+    pagenum: 611
+    summary: Gertrude has you in check
+  612:
+    canonical: true
+    character: Hamlet
+    choices:
+      8: {summary: Throw in some sexism too, target: 8}
+      111: {summary: Go back to Horatio, target: 111}
+    ending: false
+    pagenum: 612
+    summary: Shakespearean Revenge Promise
+  613:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 613
+    summary: Gertrude takes your pawn
+  615:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 615
+    summary: You have one very muscley arm
+  616:
+    canonical: false
+    character: Ophelia
+    choices:
+      567: {summary: Let Polonius and Laertes live, target: 567}
+      610: {summary: Kill Polonius and Laertes, target: 610}
+    ending: false
+    pagenum: 616
+    summary: Kill Gertrude!
+  617:
+    canonical: false
+    character: Ophelia
+    choices:
+      661: {summary: Go to ending page, target: 661}
+    ending: false
+    pagenum: 617
+    summary: Move to England
+  618:
+    canonical: true
+    character: Hamlet
+    choices:
+      56: {summary: I WAS Ophelia!, target: 56}
+      73: {summary: We broke up, target: 73}
+      346: {summary: She thinks I'm super sexy, target: 346}
+      389: {summary: We're definitely cool, target: 389}
+    ending: false
+    pagenum: 618
+    summary: How were things going with Ophelia again?
+  620:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      586: {summary: Explore the ocean some more, target: 586}
+      638: {summary: Arrive in Denmark, target: 638}
+    ending: false
+    pagenum: 620
+    summary: Explore pirate ship, it was cool
+  621:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      104: {summary: Forgive Gertrude, target: 104}
+      588: {summary: Get upset about Gertrude's marriage, target: 588}
+    ending: false
+    pagenum: 621
+    summary: Explode Claudius from within
+  623:
+    canonical: false
+    character: Ophelia
+    choices:
+      668: {summary: Stalemate, target: 668}
+    ending: false
+    pagenum: 623
+    summary: Stalemate!
+  624:
+    canonical: false
+    character: Ophelia
+    choices:
+      615: {summary: Go to ending page, target: 615}
+    ending: false
+    pagenum: 624
+    summary: Constant swordfight stalemate
+  625:
+    canonical: false
+    character: Ophelia
+    choices:
+      639: {summary: Kill Gertrude, target: 639}
+    ending: false
+    pagenum: 625
+    summary: Kill Polonius and Laertes
+  627:
+    canonical: false
+    character: Ophelia
+    choices:
+      281: {summary: Go to ending page, target: 281}
+    ending: false
+    pagenum: 627
+    summary: Literally everyone else is dead
+  629:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 629
+    summary: Defenestrated!
+  630:
+    canonical: false
+    character: Ophelia
+    choices:
+      627: {summary: Look around, target: 627}
+    ending: false
+    pagenum: 630
+    summary: Kill Gertrude with sword
+  631:
+    canonical: false
+    character: Hamlet
+    choices:
+      221: {summary: Use "eyes peeled" pun, target: 221}
+      340: {summary: Use "an eyeful" pun, target: 340}
+      506: {summary: Use "keep an eye out", target: 506}
+    ending: false
+    pagenum: 631
+    summary: Blind the captain
+  632:
+    canonical: true
+    character: Hamlet
+    choices:
+      121: {summary: Follow Rosencrantz and Guildenstern belowdecks, target: 121}
+      572: {summary: Take command, target: 572}
+    ending: false
+    pagenum: 632
+    summary: The captain is killed
+  633:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      173: {summary: Turn to ending page, target: 173}
+    ending: false
+    pagenum: 633
+    summary: Yep, still just dead.
+  635:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 635
+    summary: Just, so gross.
+  636:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      349: {summary: Listen to people's conversations, target: 349}
+      651: {summary: Accept that you died of a heart attack, target: 651}
+    ending: false
+    pagenum: 636
+    summary: You are now a ghost!
+  637:
+    canonical: false
+    character: Ophelia
+    choices:
+      689: {summary: Meet up with Hamlet, target: 689}
+    ending: false
+    pagenum: 637
+    summary: Claudius ignores your shenanigans
+  638:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      642: {summary: Ignore what they're saying, target: 642}
+      664: {summary: Listen in on them, target: 664}
+    ending: false
+    pagenum: 638
+    summary: Discover Claudius with Gertrude
+  639:
+    canonical: false
+    character: Ophelia
+    choices:
+      630: {summary: Just kill Gertrude, target: 630}
+      698: {summary: Accept challenge, target: 698}
+    ending: false
+    pagenum: 639
+    summary: Gertrude challenges you to chess
+  641:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 641
+    summary: Also what you did was gross
+  642:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      621: {summary: Kill Claudius yourself, target: 621}
+      663: {summary: Get Hamlet to kill Claudius, target: 663}
+    ending: false
+    pagenum: 642
+    summary: Spooking doesn't go well
+  643:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      612: {summary: Force you to be Hamlet instead, target: 612}
+      665: {summary: Resist!, target: 665}
+    ending: false
+    pagenum: 643
+    summary: This plan of yours is awful
+  644:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 644
+    summary: Lose in multiple timelines
+  645:
+    canonical: false
+    character: Hamlet
+    choices:
+      441: {summary: Go to ending page, target: 441}
+    ending: false
+    pagenum: 645
+    summary: Get killed by rival pirates
+  647:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 647
+    summary: 'Final score: 1 measly point'
+  648:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      658: {summary: Wait for the next boat, target: 658}
+      686: {summary: Swim to Denmark, target: 686}
+    ending: false
+    pagenum: 648
+    summary: Discover you were murdered!
+  649:
+    canonical: false
+    character: Ophelia
+    choices:
+      124: {summary: Coastline of Denmark is 7314km, target: 124}
+      345: {summary: Coastline of Denmark can't be accurately measured, target: 345}
+      709: {summary: Coastline of Denmark is 8735km, target: 709}
+    ending: false
+    pagenum: 649
+    summary: Answer correctly!
+  650:
+    canonical: false
+    character: Ophelia
+    choices:
+      652: {summary: Confront him!, target: 652}
+      657: {summary: Let him pass, target: 657}
+    ending: false
+    pagenum: 650
+    summary: Go for drowning, set a trap
+  651:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      55: {summary: Go to the ending page, target: 55}
+    ending: false
+    pagenum: 651
+    summary: Spend eternity raising ghost puppies
+  652:
+    canonical: false
+    character: Ophelia
+    choices:
+      556: {summary: Save Hamlet!, target: 556}
+    ending: false
+    pagenum: 652
+    summary: You drown Claudius, but later Hamlet is murdered!
+  655:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 655
+    summary: Fish are eating your body, too
+  656:
+    canonical: false
+    character: Ophelia
+    choices:
+      187: {summary: Gracefully accept loss, target: 187}
+      246: {summary: Challenge Fortinbras to race around the world, target: 246}
+    ending: false
+    pagenum: 656
+    summary: You answer incorrectly, Fortinbras wins
+  657:
+    canonical: false
+    character: Ophelia
+    choices:
+      538: {summary: Look at list again, target: 538}
+      650: {summary: Try again tomorrow, target: 650}
+    ending: false
+    pagenum: 657
+    summary: Lose your nerve
+  658:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      638: {summary: Arrive in Denmark, target: 638}
+    ending: false
+    pagenum: 658
+    summary: Take a boat to Denmark
+  659:
+    canonical: false
+    character: Ophelia
+    choices:
+      662: {summary: 'The end?', target: 662}
+      676: {summary: Screw this, target: 676}
+    ending: false
+    pagenum: 659
+    summary: Time passes, tragedy unfolds
+  661:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 661
+    summary: Hanging out with hunks and babes!
+  662:
+    canonical: false
+    character: Ophelia
+    choices:
+      449: {summary: Go to the ending page, target: 449}
+    ending: false
+    pagenum: 662
+    summary: Fortinbras takes over Denmark
+  663:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      198: {summary: 'For... reasons?', target: 198}
+      621: {summary: 'Okay, fine, do it yourself', target: 621}
+    ending: false
+    pagenum: 663
+    summary: Why should Hamlet kill Claudius?
+  664:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      28: {summary: Kill Claudius!, target: 28}
+      669: {summary: Get Hamlet to kill Claudius instead, target: 669}
+    ending: false
+    pagenum: 664
+    summary: Discover Gertrude married Claudius
+  665:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      591: {summary: Go to the ending page, target: 591}
+    ending: false
+    pagenum: 665
+    summary: The narrator is very disappointed in you
+  667:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 667
+    summary: Also build a tunnel between Denmark and England
+  668:
+    canonical: false
+    character: Ophelia
+    choices:
+      457: {summary: Go to ending page, target: 457}
+    ending: false
+    pagenum: 668
+    summary: Cut off one of Gertrude's arms
+  669:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      28: {summary: 'Okay, yeah, that''s a stupid idea', target: 28}
+      198: {summary: 'For... reasons?', target: 198}
+    ending: false
+    pagenum: 669
+    summary: Why have Hamlet kill Claudius?
+  670:
+    canonical: false
+    character: Ophelia
+    choices:
+      605: {summary: Go home, target: 605}
+    ending: false
+    pagenum: 670
+    summary: Hand out a bunch of flowers
+  671:
+    canonical: false
+    character: Hamlet
+    choices:
+      19: {summary: Ask how they've been, target: 19}
+    ending: false
+    pagenum: 671
+    summary: Slapping on backs doesn't work out
+  672:
+    canonical: false
+    character: Ophelia
+    choices:
+      605: {summary: Go home, target: 605}
+      670: {summary: Act even crazier, target: 670}
+    ending: false
+    pagenum: 672
+    summary: Sing songs about sex
+  673:
+    canonical: false
+    character: Ophelia
+    choices:
+      700: {summary: Promise it!, target: 700}
+    ending: false
+    pagenum: 673
+    summary: Promise to make better choices
+  675:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 675
+    summary: Also a clam chowder rhyme
+  676:
+    canonical: false
+    character: Ophelia
+    choices:
+      240: {summary: Denmark was inhabited at least 30 years ago, target: 240}
+      391: {summary: Denmark was inhabited 2.5 million years ago, target: 391}
+      649: {summary: Denmark was inhabited between 130k-110k BC, target: 649}
+    ending: false
+    pagenum: 676
+    summary: Quiz to determine kingship
+  677:
+    canonical: false
+    character: Ophelia
+    choices:
+      659: {summary: Go back home, target: 659}
+    ending: false
+    pagenum: 677
+    summary: Fake your own drowning
+  679:
+    canonical: false
+    character: Ophelia
+    choices:
+      680: {summary: Similarly-sized state is Alaska, target: 680}
+      694: {summary: Similarly-sized state is Massachusetts, target: 694}
+      712: {summary: Similarly-sized state is Texas, target: 712}
+    ending: false
+    pagenum: 679
+    summary: You are now tied
+  680:
+    canonical: false
+    character: Ophelia
+    choices:
+      187: {summary: Gracefully accept defeat, target: 187}
+      246: {summary: Challenge Fortinbras to race around world instead, target: 246}
+    ending: false
+    pagenum: 680
+    summary: Fortinbras wins!
+  681:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 681
+    summary: Copying her moves doesn't go so well
+  683:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 683
+    summary: You went a bit off the rails
+  684:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 684
+    summary: Gertrude wins?
+  685:
+    canonical: false
+    character: Ophelia
+    choices:
+      650: {summary: Go with my plan instead, target: 650}
+      687: {summary: Do the fake-drowning thing anyway, target: 687}
+    ending: false
+    pagenum: 685
+    summary: Not too sure about drowning plans
+  686:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      620: {summary: Examine ship, target: 620}
+      638: {summary: Ignore ship, target: 638}
+    ending: false
+    pagenum: 686
+    summary: Discover sunken pirate ship enroute
+  687:
+    canonical: false
+    character: Ophelia
+    choices:
+      637: {summary: Do a fancy speech for Claudius, target: 637}
+      702: {summary: Just cover the basics, target: 702}
+    ending: false
+    pagenum: 687
+    summary: You and Hamlet act crazy
+  689:
+    canonical: false
+    character: Ophelia
+    choices:
+      692: {summary: Forgive Hamlet, target: 692}
+      703: {summary: Kill Hamlet, target: 703}
+    ending: false
+    pagenum: 689
+    summary: Hamlet killed Polonius!
+  691:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 691
+    summary: 'Final score: 100/100 Legal Justice Points'
+  692:
+    canonical: false
+    character: Ophelia
+    choices:
+      672: {summary: Sing some more, target: 672}
+      706: {summary: Kill Claudius now, target: 706}
+    ending: false
+    pagenum: 692
+    summary: Act crazy some more in front of everyone
+  694:
+    canonical: false
+    character: Ophelia
+    choices:
+      713: {summary: Be the new queen of Denmark, target: 713}
+    ending: false
+    pagenum: 694
+    summary: You win!
+  695:
+    canonical: false
+    character: Hamlet
+    choices:
+      527: {summary: Continue making out, target: 527}
+    ending: false
+    pagenum: 695
+    summary: Make out for a bit
+  697:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 697
+    summary: Hamlet and Hamlet 2 rule very well
+  698:
+    canonical: false
+    character: Ophelia
+    choices:
+      112: {summary: Move a pawn, target: 112}
+      561: {summary: Copy her move, target: 561}
+    ending: false
+    pagenum: 698
+    summary: The chess game starts
+  699:
+    canonical: false
+    character: Ophelia
+    choices:
+      701: {summary: Surprise her with a diagonal line, target: 701}
+      715: {summary: Continue with straight lines of your own, target: 715}
+    ending: false
+    pagenum: 699
+    summary: More straight pawns from Gertrude
+  700:
+    canonical: false
+    character: Hamlet
+    choices:
+      146: {summary: Smash into porthole!, target: 146}
+    ending: false
+    pagenum: 700
+    summary: Hamlet is boarding a pirate ship!
+  701:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 701
+    summary: You lose, alas!
+  702:
+    canonical: false
+    character: Ophelia
+    choices:
+      689: {summary: Meet up with Hamlet, target: 689}
+    ending: false
+    pagenum: 702
+    summary: Claudius ignores your dope rhymes
+  703:
+    canonical: false
+    character: Ophelia
+    choices:
+      257: {summary: Go to ending page, target: 257}
+    ending: false
+    pagenum: 703
+    summary: Kill Hamlet, and live an okay life!
+  705:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: true
+    pagenum: 705
+    summary: Exploding bad guys is fun!
+  706:
+    canonical: false
+    character: Ophelia
+    choices:
+      708: {summary: Kill the witnesses, target: 708}
+      725: {summary: Try to explain, target: 725}
+    ending: false
+    pagenum: 706
+    summary: Murder Claudius in front of Gertrude and Horatio
+  707:
+    canonical: false
+    character: Ophelia
+    choices:
+      462: {summary: Pretend nothing's wrong, target: 462}
+      723: {summary: Try to explain, target: 723}
+    ending: false
+    pagenum: 707
+    summary: Kill basically everyone, Hamlet walks in
+  708:
+    canonical: false
+    character: Ophelia
+    choices:
+      400: {summary: Kill Laertes, target: 400}
+      725: {summary: Try to reason with him, target: 725}
+    ending: false
+    pagenum: 708
+    summary: Kill Horatio and Gertrude, Laertes enters
+  709:
+    canonical: false
+    character: Ophelia
+    choices:
+      680: {summary: Similarly-sized state is Texas, target: 680}
+      694: {summary: Similarly-sized state is Massachusetts, target: 694}
+      712: {summary: Similarly-sized state is Alaska, target: 712}
+    ending: false
+    pagenum: 709
+    summary: You are wrong, and now tied
+  711:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 711
+    summary: 'Final score: 996/1000'
+  712:
+    canonical: false
+    character: Ophelia
+    choices:
+      187: {summary: Accept defeat, target: 187}
+      246: {summary: Challenge Fortinbras to race around the world, target: 246}
+    ending: false
+    pagenum: 712
+    summary: Fortinbras wins!
+  713:
+    canonical: false
+    character: Ophelia
+    choices:
+      711: {summary: Go to ending page, target: 711}
+    ending: false
+    pagenum: 713
+    summary: You become queen of Denmark
+  715:
+    canonical: false
+    character: Ophelia
+    choices:
+      411: {summary: Checkmate, target: 411}
+    ending: false
+    pagenum: 715
+    summary: Gertrude wins.
+  717:
+    canonical: false
+    character: Hamlet
+    choices: {}
+    ending: true
+    pagenum: 717
+    summary: Last word is "obviously"
+  718:
+    canonical: false
+    character: Ophelia
+    choices:
+      93: {summary: Run down to the site of the explosions, target: 93}
+    ending: false
+    pagenum: 718
+    summary: Terrorists attack!
+  719:
+    canonical: false
+    character: Hamlet Sr.
+    choices:
+      501: {summary: Go to ending page, target: 501}
+    ending: false
+    pagenum: 719
+    summary: Pick a vocation and go for it!
+  721:
+    canonical: false
+    character: Ophelia
+    choices: {}
+    ending: true
+    pagenum: 721
+    summary: A reasonably satisfying ending
+  722:
+    canonical: false
+    character: Ophelia
+    choices:
+      536: {summary: Reverse course, target: 536}
+      568: {summary: Cut to the left, target: 568}
+    ending: false
+    pagenum: 722
+    summary: King-and-rook dance
+  723:
+    canonical: false
+    character: Ophelia
+    choices:
+      555: {summary: Go to the ending page, target: 555}
+    ending: false
+    pagenum: 723
+    summary: Accidentally kill Hamlet, some diplomats arrive
+  724:
+    canonical: false
+    character: Ophelia
+    choices:
+      445: {summary: Wait for Hamlet to tell you, target: 445}
+      489: {summary: Ask what's troubling him, target: 489}
+    ending: false
+    pagenum: 724
+    summary: It's actually Hamlet
+  725:
+    canonical: false
+    character: Ophelia
+    choices:
+      151: {summary: Go to ending page, target: 151}
+    ending: false
+    pagenum: 725
+    summary: Sentenced to death and executed
+  726:
+    canonical: false
+    character: Hamlet
+    choices:
+      51: {summary: Sit on the throne, target: 51}
+      98: {summary: Leave the room, target: 98}
+      177: {summary: Talk to yourself about how much life sucks, target: 177}
+    ending: false
+    pagenum: 726
+    summary: Stand around in empty room
+  727:
+    canonical: false
+    character: Hamlet
+    choices:
+      57: {summary: Tie body parts to hot-air balloons, target: 57}
+      452: {summary: Eat the stew, target: 452}
+      569: {summary: 'Jump out window, using hot air balloons', target: 569}
+    ending: false
+    pagenum: 727
+    summary: Make a bunch of hot-air balloons
+  740:
+    canonical: false
+    character: Other
+    choices: {}
+    ending: true
+    pagenum: 740
+    summary: Reprimand for skipping to the end
+  G001:
+    canonical: true
+    character: Claudius
+    choices:
+      G003: {summary: Kill skeletons, target: G003}
+      G004: {summary: Kill brother, target: G004}
+    ending: false
+    pagenum: G001
+    summary: You are Battlelord Pete
+  G003:
+    canonical: false
+    character: Claudius
+    choices:
+      G007: {summary: Use axe-related pun, target: G007}
+      G009: {summary: Cut him up with axe, target: G009}
+    ending: false
+    pagenum: G003
+    summary: Encounter Skellington
+  G004:
+    canonical: true
+    character: Claudius
+    choices:
+      G003: {summary: Kill skeletons instead, target: G003}
+      G018: {summary: Still choose to kill brother, target: G018}
+    ending: false
+    pagenum: G004
+    summary: Choose to kill brother, Hamlet is interested
+  G005:
+    canonical: false
+    character: Claudius
+    choices: {}
+    ending: true
+    pagenum: G005
+    summary: Family is upset, you die
+  G007:
+    canonical: false
+    character: Claudius
+    choices:
+      G005: {summary: Go home to family, target: G005}
+      G010: {summary: Continue to Skeleton Homeland, target: G010}
+    ending: false
+    pagenum: G007
+    summary: Kill Skellington
+  G009:
+    canonical: false
+    character: Claudius
+    choices:
+      G010: {summary: Stop invasion of homeland, target: G010}
+      G020: {summary: Now go poison brother, target: G020}
+    ending: false
+    pagenum: G009
+    summary: Kill Skellington!
+  G010:
+    canonical: false
+    character: Claudius
+    choices: {}
+    ending: true
+    pagenum: G010
+    summary: Get killed by skeletons, and die for real
+  G012:
+    canonical: false
+    character: Claudius
+    choices:
+      415: {summary: Investigate father's murder, target: 415}
+      G022: {summary: Kill skeletons, target: G022}
+    ending: false
+    pagenum: G012
+    summary: You are now Gonzago II
+  G014:
+    canonical: false
+    character: Claudius
+    choices:
+      429: {summary: 'Run out of the room (TYPO IN BOOK, SAYS 431)', target: 429}
+      G012: {summary: Continue playing, target: G012}
+    ending: false
+    pagenum: G014
+    summary: Hamlet has his suspicions confirmed
+  G016:
+    canonical: false
+    character: Claudius
+    choices:
+      G005: {summary: Go back home, target: G005}
+      G010: {summary: Continue to Skeleton Homeland, target: G010}
+    ending: false
+    pagenum: G016
+    summary: Kill Skellington II
+  G018:
+    canonical: true
+    character: Claudius
+    choices:
+      G003: {summary: Go kill skeletons instead, target: G003}
+      G014: {summary: Poison Gonzago in mouth, target: G014}
+      G020: {summary: Poison Gonzago in ear, target: G020}
+    ending: false
+    pagenum: G018
+    summary: Find Gonzago sleeping in garden
+  G020:
+    canonical: true
+    character: Claudius
+    choices:
+      429: {summary: Run out of the room, target: 429}
+      G012: {summary: Play it cool, target: G012}
+    ending: false
+    pagenum: G020
+    summary: Hamlet has his suspicions confirmed
+  G022:
+    canonical: false
+    character: Claudius
+    choices:
+      G007: {summary: Make axe pun, target: G007}
+      G016: {summary: Cut him up with axe, target: G016}
+    ending: false
+    pagenum: G022
+    summary: Encounter Skellington II
+  x596:
+    canonical: false
+    character: Hamlet Sr.
+    choices: {}
+    ending: false
+    pagenum: x596
+    summary: Page 596 is Hamlet Sr's first page, after character selection
