@@ -1360,32 +1360,55 @@ class App(object):
 
         # Actually do the export, and try running graphviz to boot.
         if self.export_dot(filename):
+            # Check for existence of 'dot' binary
+            try:
+                with open(os.devnull, 'w') as df:
+                    retval = subprocess.call(['dot', '-V'], stdout=df, stderr=df)
+                self.print_result('Graphviz "dot" binary found')
+            except (OSError, subprocess.CalledProcessError):
+                print('')
+                self.print_error('Graphviz "dot" executable not found, you will have to generate the PNG yourself')
+                print('')
+                return
+
+            # Now ask if the user wants to output to PNG or SVG
+            self.export_dot_result(filename, 'png')
+            self.export_dot_result(filename, 'svg')
+
+    def export_dot_result(self, filename, export_type):
+        """
+        Prompts the user to export the specified export type given the specified dotfile.
+        Types that Graphviz itself supports are: ps, svg, svgz, fig, png, gif, impa, cmapx
+        """
+        uppercase = export_type.upper()
+        extension = export_type.lower()
+        if self.prompt_yn('Generate %s' % (uppercase)):
             filename_parts = filename.split('.')
-            png_file_default = '%s.png' % (filename_parts[0])
-            png_file = self.prompt('Filename for Graphviz PNG output [%s]' % (png_file_default))
-            if png_file == '':
-                png_file = png_file_default
-            if png_file == self.filename:
+            file_default = '%s.%s' % (filename_parts[0], extension)
+            out_file = self.prompt('Filename for Graphviz %s output [%s]' % (uppercase, file_default))
+            if out_file == '':
+                out_file = file_default
+            if out_file == self.filename:
                 print('')
-                self.print_error('ERROR: Refusing to write PNG on top of book data YAML file.')
+                self.print_error('ERROR: Refusing to write %s on top of book data YAML file.' % (uppercase))
                 return 1
-            if os.path.exists(png_file):
+            if os.path.exists(out_file):
                 print('')
-                response = self.prompt_yn('File "%s" already exists.  Overwrite' % (png_file))
+                response = self.prompt_yn('File "%s" already exists.  Overwrite' % (out_file))
                 if not response:
                     return 1
             print('')
-            self.print_result('Attempting to generate %s' % (png_file))
+            self.print_result('Attempting to generate %s' % (out_file))
             try:
-                retval = subprocess.call(['dot', '-Tpng', filename, '-o', png_file])
+                retval = subprocess.call(['dot', '-T%s' % (extension), filename, '-o', out_file])
                 print('')
                 if retval == 0:
-                    self.print_result('PNG Graph generated to %s' % (png_file))
+                    self.print_result('%s generated to %s' % (uppercase, out_file))
                 else:
-                    self.print_error('Error generating PNG, you will have to generate that yourself')
+                    self.print_error('Error generating %s, you will have to generate that yourself')
             except OSError:
                 print('')
-                self.print_error('Graphviz "dot" executable not found, you will have to generate the PNG yourself')
+                self.print_error('Graphviz "dot" executable not found, you will have to generate the %s yourself' % (uppercase))
 
     def export_dot(self, dot_filename):
         """
