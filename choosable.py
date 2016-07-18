@@ -38,6 +38,19 @@ try:
 except ImportError:
     pass
 
+def sortkey_pages(item):
+    """
+    Used by sorted() calls against page numbers, which can technically
+    be either ints or strs (though this is only really likely in
+    To Be Or Not To Be).  This is required in Python3, which would
+    otherwise throw a TypeError (python2 was unaffected, though this
+    code works fine on 2)
+    """
+    if isinstance(item, int):
+        return '%09d' % (item)
+    else:
+        return item
+
 class Character(object):
     """
     Class to hold information about a character.  Note that
@@ -195,7 +208,7 @@ class Page(object):
         """
         Returns a list of choices sorted by page number
         """
-        return [self.choices[idx] for idx in sorted(self.choices.keys())]
+        return [self.choices[idx] for idx in sorted(self.choices.keys(), key=sortkey_pages)]
 
     def delete_choice(self, target):
         """
@@ -448,7 +461,7 @@ class Book(object):
         """
         Returns a list of pages sorted by page number
         """
-        return [self.pages[idx] for idx in sorted(self.pages.keys())]
+        return [self.pages[idx] for idx in sorted(self.pages.keys(), key=sortkey_pages)]
 
     def intermediates_sorted(self):
         """
@@ -1408,7 +1421,7 @@ class App(object):
             # Now aggregate all our pages together
             df.write("\n");
             df.write("\t// Pages\n");
-            for pagenum in sorted(all_pages.keys()):
+            for pagenum in sorted(all_pages.keys(), key=sortkey_pages):
                 df.write("\t%s [%s];\n" % (pagenum, all_pages[pagenum]))
 
             # Choices!
