@@ -1273,7 +1273,6 @@ class App(object):
             else:
                 plural = 's'
             self.print_result('  %s: %d page%s' % (char, count, plural))
-        print('')
 
         # Also, what the heck.  Let's go ahead and make a list of all pages
         # that we've MISSED in here.  Mostly useful for doublechecking things
@@ -1287,10 +1286,13 @@ class App(object):
         total_pages = range(1,last_page+1)
         for page in reversed(pages):
             del total_pages[page-1]
-        if len(total_pages) < 20:
-            print('Missing pages (%d total):' % (len(total_pages)))
-            print(total_pages)
+        if len(total_pages) < 100:
+            self.print_result('Missing pages: %d' % (len(total_pages)))
+        if len(total_pages) != 0 and len(total_pages) < 30:
             print('')
+            print('Missing page list:')
+            print(total_pages)
+        print('')
 
     def save(self):
         """

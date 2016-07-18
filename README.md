@@ -250,7 +250,7 @@ contain multiple numbers.
 This makes it pretty easy for the app to discover if there are any "holes"
 in the list of discovered pages.  In fact, the `l` option to list pages
 will include a list of missing "pages" so long as there are fewer than
-20 (otherwise the list could be super long).  For instance, on my
+30 (otherwise the list could be super long).  For instance, on my
 `romeo_full.yaml` file, you'd see the following:
 
     Missing pages (13 total):
