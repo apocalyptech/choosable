@@ -1,5 +1,41 @@
 digraph hamlet {
 
+	labelloc="t";
+	fontsize=100;
+	label="To Be or Not To Be";
+
+	// Character key
+	char_0 [label="Claudius" fontsize=20 fontcolor=black fillcolor=brown2 style="filled"];
+	char_1 [label="Hamlet" fontsize=20 fontcolor=black fillcolor=chartreuse1 style="filled"];
+	char_2 [label="Hamlet Sr." fontsize=20 fontcolor=black fillcolor=gray80 style="filled"];
+	char_3 [label="Horatio" fontsize=20 fontcolor=black fillcolor=yellow1 style="filled"];
+	char_4 [label="Ophelia" fontsize=20 fontcolor=black fillcolor=deepskyblue style="filled"];
+	char_5 [label="Other" fontsize=20 fontcolor=black fillcolor=white style="filled"];
+	char_6 [label="Ryan North" fontsize=20 fontcolor=white fillcolor=navyblue style="filled"];
+	char_7 [label="The Captain" fontsize=20 fontcolor=white fillcolor=darkorchid4 style="filled"];
+	char_8 [label="Yourself" fontsize=20 fontcolor=white fillcolor=navyblue style="filled"];
+	ending [label="Ending Page" fontsize=20 fontcolor=white fillcolor=azure4 style="filled"];
+	subgraph cluster_charkey {
+		edge[style=invis];
+		fontsize = 40;
+		label = "Character Key";
+		style = "filled";
+		color = "gray90";
+		char_0 -> char_1 -> char_2 -> char_3 -> char_4 -> char_5 -> char_6 -> char_7 -> char_8 -> ending;
+	}
+
+	// Shape key
+	shape_canon [label="Square = Canonical Choice" shape=box fontsize=20 fontcolor=black fillcolor=white style="bold,filled"];
+	shape_regular [label="Oval = Noncanonical Choice" fontcolor=black fontsize=20 fillcolor=white style="filled"];
+	subgraph cluster_shapekey {
+		edge[style=invis];
+		fontsize = 40;
+		label = "Shape Key";
+		style = "filled";
+		color = "gray90";
+		shape_canon -> shape_regular;
+	}
+
 	// Pages
 	1 [label="Page 1 - Book Introduction" shape=box fontcolor=black fillcolor=white style="filled,bold"];
 	3 [label="Page 3 - Reprimand for trying to read the book in order" fontcolor=white fillcolor=azure4 style="filled"];

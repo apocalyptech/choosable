@@ -1,6 +1,41 @@
 digraph romeo {
 
-	// Visited Pages
+	labelloc="t";
+	fontsize=100;
+	label="Romeo and/or Juliet";
+
+	// Character key
+	char_0 [label="Angelica" fontsize=20 fontcolor=black fillcolor=darkgoldenrod1 style="filled"];
+	char_1 [label="Basement" fontsize=20 fontcolor=white fillcolor=black style="filled"];
+	char_2 [label="EVERYONE" fontsize=20 fontcolor=black fillcolor=white style="filled"];
+	char_3 [label="Juliet" fontsize=20 fontcolor=black fillcolor=brown1 style="filled"];
+	char_4 [label="Macbeth" fontsize=20 fontcolor=black fillcolor=burlywood3 style="filled"];
+	char_5 [label="Other" fontsize=20 fontcolor=black fillcolor=white style="filled"];
+	char_6 [label="Puck" fontsize=20 fontcolor=black fillcolor=hotpink2 style="filled"];
+	char_7 [label="Romeo" fontsize=20 fontcolor=black fillcolor=cadetblue1 style="filled"];
+	char_8 [label="Romeo and Juliet" fontsize=20 fontcolor=black fillcolor=green1 style="filled"];
+	char_9 [label="Rosaline" fontsize=20 fontcolor=black fillcolor=aquamarine style="filled"];
+	ending [label="Ending Page" fontsize=20 fontcolor=white fillcolor=azure4 style="filled"];
+	subgraph cluster_charkey {
+		edge[style=invis];
+		fontsize = 40;
+		label = "Character Key";
+		style = "filled";
+		color = "gray90";
+		char_0 -> char_1 -> char_2 -> char_3 -> char_4 -> char_5 -> char_6 -> char_7 -> char_8 -> char_9 -> ending;
+	}
+
+	// Shape key
+	shape_canon [label="Square = Canonical Choice" shape=box fontsize=20 fontcolor=black fillcolor=white style="bold,filled"];
+	shape_regular [label="Oval = Noncanonical Choice" fontcolor=black fontsize=20 fillcolor=white style="filled"];
+	subgraph cluster_shapekey {
+		edge[style=invis];
+		fontsize = 40;
+		label = "Shape Key";
+		style = "filled";
+		color = "gray90";
+		shape_canon -> shape_regular;
+	}
 
 	// Pages
 	1 [label="Page 1 - Book Introduction" shape=box fontcolor=black fillcolor=white style="filled,bold"];

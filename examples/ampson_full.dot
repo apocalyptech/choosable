@@ -1,5 +1,23 @@
 digraph ampson {
 
+	labelloc="t";
+	fontsize=100;
+	label="That Time Samuel Ampson Got His Thumb Bit";
+
+	// Character key
+	char_0 [label="Ophelia" fontsize=20 fontcolor=black fillcolor=deepskyblue style="filled"];
+	char_1 [label="Other" fontsize=20 fontcolor=black fillcolor=white style="filled"];
+	char_2 [label="Samuel Ampson" fontsize=20 fontcolor=black fillcolor=darkorange style="filled"];
+	ending [label="Ending Page" fontsize=20 fontcolor=white fillcolor=azure4 style="filled"];
+	subgraph cluster_charkey {
+		edge[style=invis];
+		fontsize = 40;
+		label = "Character Key";
+		style = "filled";
+		color = "gray90";
+		char_0 -> char_1 -> char_2 -> ending;
+	}
+
 	// Pages
 	1 [label="Page 1 - Book Introduction" fontcolor=black fillcolor=white style="filled"];
 	2 [label="Page 2 - Go on vacation" fontcolor=black fillcolor=darkorange style="filled"];

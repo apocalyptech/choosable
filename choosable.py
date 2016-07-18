@@ -1122,9 +1122,31 @@ class App(object):
             try:
                 pagenum = int(response)
             except ValueError:
+                # Since we support non-numeric page numbers, we should make sure
+                # to catch any values we might consider as reserved.  This is
+                # basically only important for graphviz graph generation, since
+                # we're using text-based labels for everything in there, and we
+                # don't want to introduce syntax errors or double-define any
+                # nodes.
                 if ' ' in response:
                     print('')
                     self.print_error('Page numbers cannot contain spaces')
+                    return None
+                elif response[:5] == 'char_':
+                    print('')
+                    self.print_error('Page numbers cannot start with "char_"')
+                    return None
+                elif response[:7] == 'cluster':
+                    print('')
+                    self.print_error('Page numbers cannot start with "cluster"')
+                    return None
+                elif response[:5] == 'shape':
+                    print('')
+                    self.print_error('Page numbers cannot start with "shape"')
+                    return None
+                elif response == 'ending':
+                    print('')
+                    self.print_error('Page numbers cannot be "ending"')
                     return None
                 pagenum = response
 
@@ -1381,6 +1403,51 @@ class App(object):
         fileparts = dot_filename.split('.')
         with open(dot_filename, 'w') as df:
             df.write("digraph %s {\n" % (fileparts[0]))
+
+            # Put a big ol' label on the top
+            df.write("\n");
+            df.write("\tlabelloc=\"t\";\n");
+            df.write("\tfontsize=100;\n");
+            df.write("\tlabel=\"%s\";\n" % (book.title.replace('"', '\\"')))
+
+            # Set up a character key
+            df.write("\n")
+            df.write("\t// Character key\n")
+            charlist = book.characters_sorted()
+            for (idx, char) in enumerate(charlist):
+                df.write("\tchar_%d [label=\"%s\" fontsize=20 fontcolor=%s fillcolor=%s style=\"filled\"];\n" % (
+                        idx, char.name.replace('"', '\\"'), char.fontcolor, char.fillcolor,
+                    ))
+            df.write("\tending [label=\"Ending Page\" fontsize=20 fontcolor=white fillcolor=azure4 style=\"filled\"];\n");
+            df.write("\tsubgraph cluster_charkey {\n");
+            df.write("\t\tedge[style=invis];\n");
+            df.write("\t\tfontsize = 40;\n");
+            df.write("\t\tlabel = \"Character Key\";\n");
+            df.write("\t\tstyle = \"filled\";\n");
+            df.write("\t\tcolor = \"gray90\";\n");
+            df.write("\t\t%s -> ending;\n" % (' -> '.join(['char_%d' % (i) for i in range(len(charlist))])))
+            df.write("\t}\n");
+
+            # Aand a shape key
+            has_canon = False
+            for page in book.pages_sorted():
+                if page.canonical:
+                    has_canon = True
+                    break
+            if has_canon:
+                # No need to have a shape key if there's no canon pages
+                df.write("\n")
+                df.write("\t// Shape key\n");
+                df.write("\tshape_canon [label=\"Square = Canonical Choice\" shape=box fontsize=20 fontcolor=black fillcolor=white style=\"bold,filled\"];\n");
+                df.write("\tshape_regular [label=\"Oval = Noncanonical Choice\" fontcolor=black fontsize=20 fillcolor=white style=\"filled\"];\n");
+                df.write("\tsubgraph cluster_shapekey {\n");
+                df.write("\t\tedge[style=invis];\n");
+                df.write("\t\tfontsize = 40;\n");
+                df.write("\t\tlabel = \"Shape Key\";\n");
+                df.write("\t\tstyle = \"filled\";\n");
+                df.write("\t\tcolor = \"gray90\";\n");
+                df.write("\t\tshape_canon -> shape_regular;\n");
+                df.write("\t}\n");
 
             # Set up a structure to hold page definitions simultaneously
             # for pages we've visited, and pages we haven't.  That way

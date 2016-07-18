@@ -1,5 +1,21 @@
 digraph yorick {
 
+	labelloc="t";
+	fontsize=100;
+	label="Poor Yorick";
+
+	// Character key
+	char_0 [label="Yorick" fontsize=20 fontcolor=black fillcolor=cornflowerblue style="filled"];
+	ending [label="Ending Page" fontsize=20 fontcolor=white fillcolor=azure4 style="filled"];
+	subgraph cluster_charkey {
+		edge[style=invis];
+		fontsize = 40;
+		label = "Character Key";
+		style = "filled";
+		color = "gray90";
+		char_0 -> ending;
+	}
+
 	// Pages
 	1 [label="Page 1 - Book Introduction" fontcolor=black fillcolor=cornflowerblue style="filled"];
 	2 [label="Page 2 - Get killed by another jester" fontcolor=white fillcolor=azure4 style="filled"];

@@ -353,8 +353,6 @@ TODO
   a choice, you've got to delete it and then re-add.
 * There's also no way to modify the book title itself, though that
   could be easily edited by hand in the YAML file directly.
-* It'd be nice if the Graphviz dotfile included a little subgraph which
-  serves as a key of colors and shapes!
 * Strictly speaking, ending pages should really be using a different
   node shape, rather than a unique color (when generating Graphviz
   graphs).  I like that the ending color is very noticeable, though.
