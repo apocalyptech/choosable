@@ -47,6 +47,14 @@ at the moment.  (Similar tweaks could probably be done to Romeo,
 as well, though I think that one looks good enough that I haven't
 bothered.)
 
+This file is the only one which uses the "intermediate" page
+capability of the app, since the other books don't need it.  Note
+that the artist biographies near the end of the book aren't actually
+linked-to from anywhere in the chooseable paths, so those will show
+up as "missing pages" until they're marked, if that's the kind of
+thing that bothers you.  (They're all correctly classified in this
+provided file, though.)
+
 ampson_full.yaml
 ----------------
 
