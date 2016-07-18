@@ -1336,6 +1336,18 @@ class App(object):
         """
         self.cur_page.toggle_ending()
 
+    def change_book_title(self):
+        """
+        Prompts the user to set a new book title
+        """
+
+        response = self.prompt('Book Title [%s]' % (self.book.title))
+        if response == '':
+            return
+        self.book.title = response
+        print('')
+        self.print_result('Book title changed to: %s' % (self.book.title))
+
     def generate_graphviz(self):
         """
         User-requested generation of Graphviz DOT file.
@@ -1591,6 +1603,7 @@ class App(object):
         OPT_INTERMEDIATE = 'i'
         OPT_INTER_DEL = 'o'
         OPT_COLOR = 'r'
+        OPT_BOOKTITLE = '!'
         
         while True:
             
@@ -1627,8 +1640,8 @@ class App(object):
                     OPT_CHOICE, OPT_DEL, OPT_CHAR))
             self.print_commands('[%s/##] Page [%s] Delete Page [%s] List Pages [%s] Update Summary' % (
                     OPT_PAGE, OPT_DELPAGE, OPT_LISTPAGE, OPT_SUMMARY))
-            self.print_commands('[%s] Toggle Canonical [%s] Toggle Ending' % (
-                    OPT_CANON, OPT_ENDING))
+            self.print_commands('[%s] Toggle Canonical [%s] Toggle Ending [%s] Change Book Title' % (
+                    OPT_CANON, OPT_ENDING, OPT_BOOKTITLE))
             self.print_commands('[%s] Add Intermediate [%s] Delete Intermediate' % (
                     OPT_INTERMEDIATE, OPT_INTER_DEL))
             if self.has_colorama:
@@ -1673,6 +1686,8 @@ class App(object):
                     self.add_intermediate()
                 elif option == OPT_INTER_DEL:
                     self.delete_intermediate()
+                elif option == OPT_BOOKTITLE:
+                    self.change_book_title()
                 elif option == OPT_COLOR and self.has_colorama:
                     self.set_color()
                 elif option == OPT_QUIT:

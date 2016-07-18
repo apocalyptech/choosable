@@ -109,7 +109,7 @@ to the following:
     --------------------------------------------------------------------------------
     [a] Add Choice [d] Delete Choice [c] Character
     [p/##] Page [x] Delete Page [l] List Pages [u] Update Summary
-    [t] Toggle Canonical [e] Toggle Ending
+    [t] Toggle Canonical [e] Toggle Ending [!] Change Book Title
     [i] Add Intermediate [o] Delete Intermediate
     [s] Save [g] Graphviz [q] Quit [r] Swap Color Style
     Action: 
@@ -171,6 +171,9 @@ switches: one for canon, and the other for "ending," intended to be used on
 all the ending pages.  (Mostly that's just useful for colorization on the
 graphs - more on that later.)  You can toggle either of those with `t` and
 `e` respectively.
+
+To change the title of the book, use `!` (I was running out of keys by the
+time I implemented that one).
 
 To add or edit "intermediate" pages, use `i` and `o`, though this is a
 feature you probably don't care about.  See the section about Pages and
@@ -349,8 +352,6 @@ TODO
   in sorrow after looking at this code.  I apologize.
 * There's no way to *modify* existing choices.  To make a change to
   a choice, you've got to delete it and then re-add.
-* There's also no way to modify the book title itself, though that
-  could be easily edited by hand in the YAML file directly.
 * Strictly speaking, ending pages should really be using a different
   node shape, rather than a unique color (when generating Graphviz
   graphs).  I like that the ending color is very noticeable, though.
