@@ -1596,7 +1596,7 @@ class App(object):
             
             # Status display
             print('')
-            self.print_heading('='*80)
+            self.print_heading((' %s ' % self.book.title).center(80, '='))
             if self.cur_page.canonical:
                 self.print_flags('**** CANON ****')
             if self.cur_page.ending:
