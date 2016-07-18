@@ -21,6 +21,27 @@ becomes ludicrously unwieldy with the whole puzzle in, so I decided
 to trim it down to just a single victory path.  Otherwise, everything
 is in there, including a hidden page and the "unlockable" character.
 
+Some stats!
+
+    Total pages known: 463
+    Canon Pages: 86
+    Ending Pages: 99
+    Character Counts:
+      Angelica: 37 pages
+      Basement: 1 page
+      EVERYONE: 1 page
+      Juliet: 154 pages
+      Macbeth: 11 pages
+      Other: 12 pages
+      Puck: 14 pages
+      Romeo: 196 pages
+      Romeo and Juliet: 19 pages
+      Rosaline: 18 pages
+    Missing pages: 13
+    
+    Missing page list:
+    [243, 253, 261, 269, 276, 285, 295, 305, 317, 321, 331, 340, 342]
+
 hamlet_full.yaml
 ----------------
 
@@ -55,6 +76,24 @@ up as "missing pages" until they're marked, if that's the kind of
 thing that bothers you.  (They're all correctly classified in this
 provided file, though.)
 
+Some stats!
+
+    Total pages known: 565
+    Canon Pages: 114
+    Ending Pages: 99
+    Intermediate Pages: 198
+    Character Counts:
+      Claudius: 19 pages
+      Hamlet: 297 pages
+      Hamlet Sr.: 40 pages
+      Horatio: 2 pages
+      Ophelia: 193 pages
+      Other: 7 pages
+      Ryan North: 1 page
+      The Captain: 4 pages
+      Yourself: 2 pages
+    Missing pages: 0
+
 ampson_full.yaml
 ----------------
 
@@ -71,3 +110,15 @@ to follow.  I may end up trying to tweak it a bit with some
 manual rules (as I'd done in `hamlet_full.dot`), though I suspect
 that the inherent interconnectedness of all those paths will make
 it resist clear graphing.
+
+Some stats!
+
+    Total pages known: 88
+    Canon Pages: 0
+    Ending Pages: 12
+    Character Counts:
+      Ophelia: 54 pages
+      Other: 2 pages
+      Samuel Ampson: 32 pages
+    Missing pages: 0
+
