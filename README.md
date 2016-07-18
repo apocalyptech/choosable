@@ -59,13 +59,11 @@ a commandline (`cmd.exe` or Powershell on Windows, or Terminal on OSX).
 Users on other Python-capable platforms are hopefully already aware
 of what would need to happen there.
 
-Included in the `examples` directory is a very-incomplete start to
-*Romeo and/or Juliet*, with the filename `romeo.yaml`, so you can take a
-look at that if you want.  Given that the intent here is sort of as a
-personal "bookmarking" system, it doesn't make much sense to start
-with an already-filled-out tree, but you can also check out a 
-complete version of the book at `romeo_full.yaml` if you'd like to
-mega-cheat.
+There are various examples in the `examples` directory, including
+fully-populated examples of both Ryan North books, as well as the
+two mini-books also written by him.  There's also a very incomplete
+version of *Romeo and/or Juliet* if you'd like to see how it looks
+as you're still populating the book.
 
 USAGE
 -----
