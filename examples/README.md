@@ -130,3 +130,13 @@ This is a short little prequel to *To Be or Not To Be* called
 I assume it's probably available somewhere still, though I'm not
 sure.  Anyway, it's quite straightforward but figured I'd include
 it here for completion's sake!
+
+Some stats!
+
+    Total pages known: 23
+    Canon Pages: 0
+    Ending Pages: 16
+    Character Counts:
+      Yorick: 23 pages
+    Missing pages: 0
+
