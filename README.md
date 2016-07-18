@@ -353,6 +353,8 @@ TODO
   a choice, you've got to delete it and then re-add.
 * There's also no way to modify the book title itself, though that
   could be easily edited by hand in the YAML file directly.
+* It'd be nice if the Graphviz dotfile included a little subgraph which
+  serves as a key of colors and shapes!
 * I seem to be inconsistent with "choosable" versus "chooseable."  The
   printed book uses the E, though it seems that the more-canonical
   spelling is without?  Given that the books themselves do not especially
