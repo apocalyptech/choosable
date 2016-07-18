@@ -355,6 +355,10 @@ TODO
   could be easily edited by hand in the YAML file directly.
 * It'd be nice if the Graphviz dotfile included a little subgraph which
   serves as a key of colors and shapes!
+* Strictly speaking, ending pages should really be using a different
+  node shape, rather than a unique color (when generating Graphviz
+  graphs).  I like that the ending color is very noticeable, though.
+  Perhaps we should do BOTH?
 * I seem to be inconsistent with "choosable" versus "chooseable."  The
   printed book uses the E, though it seems that the more-canonical
   spelling is without?  Given that the books themselves do not especially
