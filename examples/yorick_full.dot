@@ -1,0 +1,52 @@
+digraph yorick {
+
+	// Pages
+	1 [label="Page 1 - Book Introduction" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	2 [label="Page 2 - Get killed by another jester" fontcolor=white fillcolor=azure4 style="filled"];
+	3 [label="Page 3 - Get killed by tree trunk on ropes" fontcolor=white fillcolor=azure4 style="filled"];
+	4 [label="Page 4 - Die of starvation" fontcolor=white fillcolor=azure4 style="filled"];
+	5 [label="Page 5 - You are hired for a day!" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	6 [label="Page 6 - Get killed by other jester, accidentally" fontcolor=white fillcolor=azure4 style="filled"];
+	7 [label="Page 7 - Arrive at castle for audition" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	8 [label="Page 8 - Spend the rest of your life making fart noises" fontcolor=white fillcolor=azure4 style="filled"];
+	9 [label="Page 9 - Kid Hamlet throws a fit, you are killed" fontcolor=white fillcolor=azure4 style="filled"];
+	10 [label="Page 10 - Begin the audition!" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	11 [label="Page 11 - Perhaps a sequel is in order" fontcolor=white fillcolor=azure4 style="filled"];
+	12 [label="Page 12 - Li'l Hamster effectively has you killed" fontcolor=white fillcolor=azure4 style="filled"];
+	13 [label="Page 13 - Kid Hamlet asks for horsey rides" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	14 [label="Page 14 - Get killed by king's guards" fontcolor=white fillcolor=azure4 style="filled"];
+	15 [label="Page 15 - Live a fulfilling life with your new job!" fontcolor=white fillcolor=azure4 style="filled"];
+	16 [label="Page 16 - The other jesters kill you" fontcolor=white fillcolor=azure4 style="filled"];
+	17 [label="Page 17 - Die, through force of will alone!" fontcolor=white fillcolor=azure4 style="filled"];
+	18 [label="Page 18 - Get fired, die of starvation" fontcolor=white fillcolor=azure4 style="filled"];
+	19 [label="Page 19 - Talk with the other jesters" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	20 [label="Page 20 - King Carl puts you to death" fontcolor=white fillcolor=azure4 style="filled"];
+	21 [label="Page 21 - Get your head cut off" fontcolor=white fillcolor=azure4 style="filled"];
+	22 [label="Page 22 - Kid Hamlet wants a nickname" fontcolor=black fillcolor=cornflowerblue style="filled"];
+	23 [label="Page 23 - Tear a hole in reality and destroy a big chunk of the universe" fontcolor=white fillcolor=azure4 style="filled"];
+
+	// Choices
+	1 -> 4;
+	1 -> 7;
+	1 -> 17;
+	5 -> 8;
+	5 -> 13;
+	5 -> 21;
+	7 -> 2;
+	7 -> 16;
+	7 -> 19;
+	10 -> 3;
+	10 -> 5;
+	10 -> 20;
+	13 -> 18;
+	13 -> 22;
+	15 -> 11;
+	15 -> 23;
+	19 -> 6;
+	19 -> 10;
+	19 -> 14;
+	22 -> 9;
+	22 -> 12;
+	22 -> 15;
+
+}

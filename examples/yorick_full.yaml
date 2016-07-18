@@ -1,0 +1,188 @@
+book: {title: Poor Yorick}
+characters:
+  Yorick: {graphviz_fillcolor: cornflowerblue, graphviz_fontcolor: black, name: Yorick}
+intermediates: []
+pages:
+  1:
+    canonical: false
+    character: Yorick
+    choices:
+      4: {summary: Stay in bed, target: 4}
+      7: {summary: Go for a walk, target: 7}
+      17: {summary: Die instantly, target: 17}
+    ending: false
+    pagenum: 1
+    summary: Book Introduction
+  2:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 2
+    summary: Get killed by another jester
+  3:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 3
+    summary: Get killed by tree trunk on ropes
+  4:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 4
+    summary: Die of starvation
+  5:
+    canonical: false
+    character: Yorick
+    choices:
+      8: {summary: Make more fart noises, target: 8}
+      13: {summary: Talk to Kid Hamlet, target: 13}
+      21: {summary: Beg to not be left alone with Kid Hamlet, target: 21}
+    ending: false
+    pagenum: 5
+    summary: You are hired for a day!
+  6:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 6
+    summary: Get killed by other jester, accidentally
+  7:
+    canonical: false
+    character: Yorick
+    choices:
+      2: {summary: Sabotage the other jesters, target: 2}
+      16: {summary: Push to the front of the line, target: 16}
+      19: {summary: Await your turn, target: 19}
+    ending: false
+    pagenum: 7
+    summary: Arrive at castle for audition
+  8:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 8
+    summary: Spend the rest of your life making fart noises
+  9:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 9
+    summary: Kid Hamlet throws a fit, you are killed
+  10:
+    canonical: false
+    character: Yorick
+    choices:
+      3: {summary: Recount a charming jape, target: 3}
+      5: {summary: Make a fart noise, target: 5}
+      20: {summary: Make a pass at the queen, target: 20}
+    ending: false
+    pagenum: 10
+    summary: Begin the audition!
+  11:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 11
+    summary: Perhaps a sequel is in order
+  12:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 12
+    summary: Li'l Hamster effectively has you killed
+  13:
+    canonical: false
+    character: Yorick
+    choices:
+      18: {summary: Leave the room, target: 18}
+      22: {summary: Agree, target: 22}
+    ending: false
+    pagenum: 13
+    summary: Kid Hamlet asks for horsey rides
+  14:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 14
+    summary: Get killed by king's guards
+  15:
+    canonical: false
+    character: Yorick
+    choices:
+      11: {summary: Accept that this is the end, target: 11}
+      23: {summary: Refuse to accept that this is the end!, target: 23}
+    ending: true
+    pagenum: 15
+    summary: Live a fulfilling life with your new job!
+  16:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 16
+    summary: The other jesters kill you
+  17:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 17
+    summary: Die, through force of will alone!
+  18:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 18
+    summary: Get fired, die of starvation
+  19:
+    canonical: false
+    character: Yorick
+    choices:
+      6: {summary: Push new friend forward instead, target: 6}
+      10: {summary: Enter the Royal Court, target: 10}
+      14: {summary: Attack the king, target: 14}
+    ending: false
+    pagenum: 19
+    summary: Talk with the other jesters
+  20:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 20
+    summary: King Carl puts you to death
+  21:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 21
+    summary: Get your head cut off
+  22:
+    canonical: false
+    character: Yorick
+    choices:
+      9: {summary: Porkchop Weebottoms, target: 9}
+      12: {summary: Li'l Hamster, target: 12}
+      15: {summary: The Hammer, target: 15}
+    ending: false
+    pagenum: 22
+    summary: Kid Hamlet wants a nickname
+  23:
+    canonical: false
+    character: Yorick
+    choices: {}
+    ending: true
+    pagenum: 23
+    summary: Tear a hole in reality and destroy a big chunk of the universe

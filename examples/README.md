@@ -122,3 +122,11 @@ Some stats!
       Samuel Ampson: 32 pages
     Missing pages: 0
 
+yorick.yaml
+-----------
+
+This is a short little prequel to *To Be or Not To Be* called
+*Poor Yorick*, which was given to Kickstarter backers of that book.
+I assume it's probably available somewhere still, though I'm not
+sure.  Anyway, it's quite straightforward but figured I'd include
+it here for completion's sake!
