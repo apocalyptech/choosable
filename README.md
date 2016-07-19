@@ -86,10 +86,10 @@ the correct path like the one above)*
 For output colorization, the Colorama library should be used, but
 that doesn't appear to have a native Windows install.  It's still
 quite easy to install, though.  Once you have Python installed,
-download the zipfile from the Colorama website (the filename should
-be something like `colorama-0.3.7.zip`) and uncompress it 
-somewhere.  Then in a `cmd.exe` or Powershell session, go into
-the directory and type:
+download the zipfile from the Colorama website <sup>[8](#fn8)</sup>
+(the filename should be something like `colorama-0.3.7.zip`) and
+uncompress it somewhere.  Then in a `cmd.exe` or Powershell
+session, go into the directory and type:
 
     python setup.py install
 
@@ -399,15 +399,15 @@ TODO
 FOOTNOTES!
 ----------
 
-<a name="fn1">1</a>: http://www.qwantz.com/
-<a name="fn2">2</a>: http://qwantz.com/tobeornottobe.php
-<a name="fn3">3</a>: http://www.romeoandorjuliet.com/
-<a name="fn4">4</a>: http://www.graphviz.org/
-<a name="fn5">5</a>: https://www.python.org/
-<a name="fn6">6</a>: http://pyyaml.org/wiki/PyYAML
-<a name="fn7">7</a>: http://yaml.org/
-<a name="fn8">8</a>: https://pypi.python.org/pypi/colorama
-<a name="fn8">9</a>: https://en.wikipedia.org/wiki/Shell_script
-<a name="fn9">10</a>: https://www.gnu.org/software/bash/
-<a name="fn10">11</a>: https://www.python.org/dev/peps/pep-0008/
+<a name="fn1">1</a>: Ryan North's homepage: http://www.qwantz.com/  
+<a name="fn2">2</a>: *To Be or Not To Be*: http://qwantz.com/tobeornottobe.php  
+<a name="fn3">3</a>: *Romeo and/or Juliet*: http://www.romeoandorjuliet.com/  
+<a name="fn4">4</a>: Graphviz homepage: http://www.graphviz.org/  
+<a name="fn5">5</a>: Python homepage: https://www.python.org/  
+<a name="fn6">6</a>: PyYAML homepage: http://pyyaml.org/wiki/PyYAML  
+<a name="fn7">7</a>: YAML specification: http://yaml.org/  
+<a name="fn8">8</a>: Colorama homepage: https://pypi.python.org/pypi/colorama  
+<a name="fn8">9</a>: Shell script info: https://en.wikipedia.org/wiki/Shell_script  
+<a name="fn9">10</a>: Bash homepage: https://www.gnu.org/software/bash/  
+<a name="fn10">11</a>: PEP 8 style guide: https://www.python.org/dev/peps/pep-0008/  
 
