@@ -386,6 +386,10 @@ TODO
   node shape, rather than a unique color (when generating Graphviz
   graphs).  I like that the ending color is very noticeable, though.
   Perhaps we should do BOTH?
+* None of the color presets look good in the default Powershell colors
+  on Windows.  Maybe add in a "ps" color scheme?  Though I suspect
+  we couldn't use color_dim() so naively, since some colors seem to
+  benefit from DIM while others benefit from BRIGHT.
 * I seem to be inconsistent with "choosable" versus "chooseable."  The
   printed book uses the E, though it seems that the more-canonical
   spelling is without?  Given that the books themselves do not especially
