@@ -1537,6 +1537,7 @@ class App(object):
             df.write("\n");
             df.write("}\n")
 
+        self.print_result('Graphviz dot file saved as "%s"' % (dot_filename))
         return True
 
     def run(self):
