@@ -59,11 +59,41 @@ a commandline (`cmd.exe` or Powershell on Windows, or Terminal on OSX).
 Users on other Python-capable platforms are hopefully already aware
 of what would need to happen there.
 
-There are various examples in the `examples` directory, including
-fully-populated examples of both Ryan North books, as well as the
-two mini-books also written by him.  There's also a very incomplete
-version of *Romeo and/or Juliet* if you'd like to see how it looks
-as you're still populating the book.
+WINDOWS-SPECIFIC NOTES
+----------------------
+
+The Graphviz installation on Windows does **not** add itself to your
+system's PATH variable, which means that this app won't be able to
+automatically generate PNG or SVG graphs (though you can always do
+it by hand - see below in the "Graphviz" section).  If you'd like
+to have that happen automatically, either add Graphviz's `bin`
+directory to your system PATH, or probably just copy the `dot.exe`
+file into the directory containing `choosable.py`.  The path that
+you'd have to add should be something like:
+
+    C:\Program Files\Graphviz2.38\bin
+
+or
+    
+    C:\Program Files (x86)\Graphviz2.38\bin
+
+The `dot.exe` file should be contained inside that directory.  For
+instructions on adding a directory to your PATH, this looks like
+a reasonable link: http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
+*(though when they mention `C:\Android\platform-tools`, substitute
+the correct path like the one above)*
+
+For output colorization, the Colorama library should be used, but
+that doesn't appear to have a native Windows install.  It's still
+quite easy to install, though.  Once you have Python installed,
+download the zipfile from the Colorama website (the filename should
+be something like `colorama-0.3.7.zip`) and uncompress it 
+somewhere.  Then in a `cmd.exe` or Powershell session, go into
+the directory and type:
+
+    python setup.py install
+
+That should do the trick!
 
 USAGE
 -----
