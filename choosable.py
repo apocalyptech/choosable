@@ -1303,9 +1303,9 @@ class App(object):
         # This is ridiculous, but: unique real+intermediate pages, filtered
         # to ensure that there's ony numeric entries, since we have non-
         # numeric pages now.
-        pages = sorted([x for x in set(self.book.pages.keys() + self.book.intermediates.keys()) if isinstance(x, int)])
+        pages = sorted([x for x in set(list(self.book.pages.keys()) + list(self.book.intermediates.keys())) if isinstance(x, int)])
         last_page = pages[-1]
-        total_pages = range(1,last_page+1)
+        total_pages = list(range(1,last_page+1))
         for page in reversed(pages):
             del total_pages[page-1]
         if len(total_pages) < 100:
